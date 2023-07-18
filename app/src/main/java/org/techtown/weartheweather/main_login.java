@@ -31,7 +31,5 @@ public class main_login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
 }
