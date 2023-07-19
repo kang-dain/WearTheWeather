@@ -82,16 +82,18 @@
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="86dp"
-        android:layout_height="51dp"
-        android:background="@null"
+        android:id="@+id/input_temperature"
+        android:layout_width="63dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="457dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberSigned"
+        android:textColor="#75A3E9"
         android:textSize="35sp"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="461dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/common_clear_rectangle" />
 
     <ImageView
         android:id="@+id/common_clear_rectangle"
@@ -101,7 +103,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_clear_rectangle"
-        tools:visibility="visible" />
+        tools:visibility="invisible"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/search_tip"
@@ -114,7 +117,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_tip"
-        tools:visibility="visible" />
+        tools:visibility="invisible"
+        tools:ignore="ContentDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
