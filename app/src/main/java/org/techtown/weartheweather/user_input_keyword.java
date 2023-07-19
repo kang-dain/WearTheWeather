@@ -14,6 +14,7 @@ public class user_input_keyword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input_keyword);
 
+        getWindow().setWindowAnimations(0);
 
         ImageButton keyword_right = (ImageButton) findViewById(R.id.user_input_keyword_common_big_arrow_left);
         keyword_right.setOnClickListener(new View.OnClickListener() {

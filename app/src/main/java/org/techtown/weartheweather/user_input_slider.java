@@ -14,6 +14,9 @@ public class user_input_slider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input_slider);
 
+        getWindow().setWindowAnimations(0);
+
+
         ImageButton slider_left = (ImageButton) findViewById(R.id.user_input_slider_common_big_arrow_left);
         slider_left.setOnClickListener(new View.OnClickListener() {
             @Override

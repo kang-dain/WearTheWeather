@@ -7,23 +7,25 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class user_input_fashion extends AppCompatActivity {
+public class search_result extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_input_fashion);
+        setContentView(R.layout.activity_search_result);
 
         getWindow().setWindowAnimations(0);
 
-        ImageButton fashion_left = (ImageButton) findViewById(R.id.user_input_fashion_common_big_arrow_left);
-        fashion_left.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
+        search_result_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), user_input_keyword.class);
+                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
                 startActivity(intent);
             }
         });
+
 
     }
 }
