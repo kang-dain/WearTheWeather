@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,10 +40,27 @@ public class search_month extends AppCompatActivity {
         tipbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_tip_2.class);
-                startActivity(intent);
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
+                search_tip.setVisibility(View.VISIBLE);
+
+                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle2);
+                clear_rectangle.setVisibility(View.VISIBLE);
             }
         });
+
+        ImageView closetipbutton2 = (ImageView) findViewById(R.id.common_clear_rectangle2);
+        closetipbutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
+                search_tip.setVisibility(View.INVISIBLE);
+
+                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle2);
+                clear_rectangle.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
 
     }
 }

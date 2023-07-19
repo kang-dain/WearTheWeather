@@ -13,12 +13,6 @@
         android:theme="@style/Theme.WearTheWeather"
         tools:targetApi="31">
         <activity
-            android:name=".search_tip_2"
-            android:exported="true" />
-        <activity
-            android:name=".search_tip"
-            android:exported="true" />
-        <activity
             android:name=".search_result"
             android:exported="true" />
         <activity

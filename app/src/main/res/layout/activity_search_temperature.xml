@@ -93,5 +93,28 @@
         tools:layout_editor_absoluteX="118dp"
         tools:layout_editor_absoluteY="461dp" />
 
+    <ImageView
+        android:id="@+id/common_clear_rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_clear_rectangle"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/search_tip"
+        android:layout_width="351dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="251dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_tip"
+        tools:visibility="visible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

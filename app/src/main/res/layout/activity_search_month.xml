@@ -92,15 +92,16 @@
         android:id="@+id/button1"
         android:layout_width="80dp"
         android:layout_height="69dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="314dp"
         android:background="@android:color/transparent"
         android:text="1"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="60dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button2"
@@ -122,28 +123,30 @@
         android:layout_width="80dp"
         android:layout_height="69dp"
         android:layout_marginTop="314dp"
+        android:layout_marginEnd="60dp"
         android:background="@android:color/transparent"
         android:text="3"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="220dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="80dp"
         android:layout_height="69dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="384dp"
         android:background="@android:color/transparent"
         android:text="4"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="60dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button5"
@@ -165,28 +168,30 @@
         android:layout_width="80dp"
         android:layout_height="69dp"
         android:layout_marginTop="384dp"
+        android:layout_marginEnd="60dp"
         android:background="@android:color/transparent"
         android:text="6"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="220dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="80dp"
         android:layout_height="69dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="454dp"
         android:background="@android:color/transparent"
         android:text="7"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="60dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button8"
@@ -208,28 +213,30 @@
         android:layout_width="80dp"
         android:layout_height="69dp"
         android:layout_marginTop="454dp"
+        android:layout_marginEnd="60dp"
         android:background="@android:color/transparent"
         android:text="9"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="220dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="80dp"
         android:layout_height="69dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="525dp"
         android:background="@android:color/transparent"
         android:text="10"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="60dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <Button
         android:id="@+id/button11"
@@ -251,14 +258,17 @@
         android:layout_width="80dp"
         android:layout_height="69dp"
         android:layout_marginTop="525dp"
+        android:layout_marginEnd="60dp"
         android:background="@android:color/transparent"
         android:text="12"
         android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/search_month_2"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="220dp" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/common_big_arrow_left"
@@ -271,5 +281,30 @@
         app:srcCompat="@drawable/common_big_arrow_left"
         tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck"
         android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/common_clear_rectangle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_clear_rectangle"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/search_tip2"
+        android:layout_width="351dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="251dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_tip"
+        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

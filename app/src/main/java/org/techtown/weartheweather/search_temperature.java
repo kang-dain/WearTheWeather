@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,15 +27,31 @@ public class search_temperature extends AppCompatActivity {
             }
         });
 
+
+
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.search_temperature_button);
         tipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_tip.class);
-                startActivity(intent);
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
+                search_tip.setVisibility(View.VISIBLE);
+
+                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle);
+                clear_rectangle.setVisibility(View.VISIBLE);
             }
         });
 
+        ImageView closetipbutton1 = (ImageView) findViewById(R.id.common_clear_rectangle);
+        closetipbutton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
+                search_tip.setVisibility(View.INVISIBLE);
+
+                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle);
+                clear_rectangle.setVisibility(View.INVISIBLE);
+            }
+        });
 
 
     }
