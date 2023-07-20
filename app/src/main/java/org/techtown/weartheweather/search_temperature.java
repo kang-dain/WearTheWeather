@@ -35,21 +35,16 @@ public class search_temperature extends AppCompatActivity {
             public void onClick(View view) {
                 ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
                 search_tip.setVisibility(View.VISIBLE);
-
-                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle);
-                clear_rectangle.setVisibility(View.VISIBLE);
             }
         });
 
-        ImageView closetipbutton1 = (ImageView) findViewById(R.id.common_clear_rectangle);
+        ImageView closetipbutton1 = (ImageView) findViewById(R.id.search_tip);
         closetipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
                 search_tip.setVisibility(View.INVISIBLE);
 
-                ImageView clear_rectangle = (ImageView)findViewById(R.id.common_clear_rectangle);
-                clear_rectangle.setVisibility(View.INVISIBLE);
             }
         });
 

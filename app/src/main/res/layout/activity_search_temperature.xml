@@ -82,43 +82,28 @@
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/input_temperature"
-        android:layout_width="63dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="457dp"
+        android:id="@+id/editTextText"
+        android:layout_width="86dp"
+        android:layout_height="51dp"
+        android:background="@null"
         android:ems="10"
-        android:inputType="numberSigned"
-        android:textColor="#75A3E9"
+        android:inputType="text"
         android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/common_clear_rectangle" />
-
-    <ImageView
-        android:id="@+id/common_clear_rectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_clear_rectangle"
-        tools:visibility="invisible"
-        tools:ignore="ContentDescription" />
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="461dp" />
 
     <ImageView
         android:id="@+id/search_tip"
-        android:layout_width="351dp"
-        android:layout_height="397dp"
-        android:layout_marginTop="251dp"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_tip"
-        tools:visibility="invisible"
-        tools:ignore="ContentDescription" />
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
