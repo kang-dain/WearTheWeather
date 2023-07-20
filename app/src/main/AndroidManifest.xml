@@ -13,6 +13,9 @@
         android:theme="@style/Theme.WearTheWeather"
         tools:targetApi="31">
         <activity
+            android:name=".terms_of_use"
+            android:exported="false" />
+        <activity
             android:name=".setting_password"
             android:exported="true" />
         <activity
@@ -49,9 +52,6 @@
             android:name=".user_input_temperature"
             android:exported="true" />
         <activity
-            android:name=".terms_of_use"
-            android:exported="true" />
-        <activity
             android:name=".find_password"
             android:exported="true" />
         <activity
@@ -63,7 +63,6 @@
         <activity
             android:name=".enter_password"
             android:exported="true" />
-
         <activity
             android:name=".main"
             android:exported="true">
