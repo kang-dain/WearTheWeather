@@ -28,5 +28,14 @@ public class menu extends AppCompatActivity {
 
 
 
+        ImageButton menu_common_closebutton = (ImageButton) findViewById(R.id.menu_common_closebutton);
+        menu_common_closebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

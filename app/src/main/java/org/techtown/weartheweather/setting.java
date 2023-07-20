@@ -63,6 +63,13 @@ public class setting extends AppCompatActivity {
             }
         });
 
-
+        ImageButton setting_common_backbutton = (ImageButton) findViewById(R.id.setting_common_backbutton);
+        setting_common_backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
     }
 }
