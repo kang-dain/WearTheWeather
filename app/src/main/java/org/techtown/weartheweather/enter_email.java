@@ -42,4 +42,15 @@ public class enter_email extends AppCompatActivity {
         });
 
     }
+
+    // 버튼 원래대로 되돌리기
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Button enter_email_button2 = findViewById(R.id.enter_email_button2);
+        enter_email_button2.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
+        enter_email_button2.setText("다음");
+        enter_email_button2.setTextColor(Color.parseColor("#FFFFFF"));
+    }
 }
