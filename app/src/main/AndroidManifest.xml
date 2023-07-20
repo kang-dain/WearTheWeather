@@ -13,6 +13,15 @@
         android:theme="@style/Theme.WearTheWeather"
         tools:targetApi="31">
         <activity
+            android:name=".setting_alarm"
+            android:exported="false" />
+        <activity
+            android:name=".setting_color"
+            android:exported="false" />
+        <activity
+            android:name=".setting_email"
+            android:exported="false" />
+        <activity
             android:name=".setting_password"
             android:exported="true" />
         <activity

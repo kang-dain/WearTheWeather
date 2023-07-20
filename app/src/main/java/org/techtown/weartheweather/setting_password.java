@@ -16,11 +16,11 @@ public class setting_password extends AppCompatActivity {
 
 
 
-        ImageButton setting_common_backbutton2 = (ImageButton) findViewById(R.id.setting_common_backbutton2);
-        setting_common_backbutton2.setOnClickListener(new View.OnClickListener() {
+        ImageButton setting_common_backbutton3 = (ImageButton) findViewById(R.id.setting_common_backbutton3);
+        setting_common_backbutton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), setting.class);
                 startActivity(intent);
             }
         });
