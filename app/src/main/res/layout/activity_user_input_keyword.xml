@@ -140,6 +140,7 @@
         android:id="@+id/user_input_keyword_input1"
         android:layout_width="280dp"
         android:layout_height="40dp"
+        android:layout_marginTop="345dp"
         android:background="@null"
         android:ems="10"
         android:hint="키워드 입력"
@@ -149,13 +150,14 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/user_input_keyword_input2"
         android:layout_width="280dp"
         android:layout_height="40dp"
+        android:layout_marginTop="21dp"
         android:background="@null"
         android:ems="10"
         android:hint="키워드 입력"
@@ -164,13 +166,14 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintTop_toBottomOf="@+id/user_input_keyword_input1"
+        tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/user_input_keyword_input3"
         android:layout_width="280dp"
         android:layout_height="40dp"
+        android:layout_marginTop="19dp"
         android:background="@null"
         android:ems="10"
         android:hint="키워드 입력"
@@ -179,8 +182,8 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck"
-        tools:layout_editor_absoluteY="467dp" />
+        app:layout_constraintTop_toBottomOf="@+id/user_input_keyword_input1_bg"
+        tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <ImageView
         android:id="@+id/user_input_suggestionkey"
@@ -191,5 +194,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_suggestionkey" />
+        app:srcCompat="@drawable/user_input_suggestionkey"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

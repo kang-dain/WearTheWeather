@@ -58,6 +58,13 @@ public class user_input_keyword extends AppCompatActivity {
             }
         });
 
-
+        ImageButton user_input_temperature_backbutton3 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton3);
+        user_input_temperature_backbutton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
     }
 }

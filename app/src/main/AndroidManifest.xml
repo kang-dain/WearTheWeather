@@ -13,14 +13,23 @@
         android:theme="@style/Theme.WearTheWeather"
         tools:targetApi="31">
         <activity
-            android:name=".setting_alarm"
+            android:name=".calender_month"
             android:exported="false" />
+        <activity
+            android:name=".recommended_music"
+            android:exported="false" />
+        <activity
+            android:name=".main_weather"
+            android:exported="true" />
+        <activity
+            android:name=".setting_alarm"
+            android:exported="true" />
         <activity
             android:name=".setting_color"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".setting_email"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".setting_password"
             android:exported="true" />
@@ -72,7 +81,6 @@
         <activity
             android:name=".enter_password"
             android:exported="true" />
-
         <activity
             android:name=".main"
             android:exported="true">
