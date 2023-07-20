@@ -43,6 +43,9 @@
             android:name=".find_password"
             android:exported="true" />
         <activity
+            android:name=".enter_nickname"
+            android:exported="true" />
+        <activity
             android:name=".main_login"
             android:exported="true" />
         <activity
