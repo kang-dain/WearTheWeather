@@ -36,5 +36,14 @@ public class user_input_slider extends AppCompatActivity {
         });
 
 
+        ImageButton user_input_temperature_backbutton2 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton2);
+        user_input_temperature_backbutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

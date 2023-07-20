@@ -57,6 +57,13 @@ public class search_month extends AppCompatActivity {
         });
 
 
-
+        ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
+        search_month_button13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
     }
 }

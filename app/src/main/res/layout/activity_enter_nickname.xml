@@ -80,7 +80,7 @@
         tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TextContrastCheck" />
 
     <android.widget.Button
-        android:id="@+id/button8"
+        android:id="@+id/nickname_button"
         android:layout_width="300dp"
         android:layout_height="65dp"
         android:layout_marginTop="500dp"
@@ -89,7 +89,6 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck"
-        />
+        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

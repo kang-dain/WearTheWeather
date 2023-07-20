@@ -25,5 +25,13 @@ public class user_input_fashion extends AppCompatActivity {
             }
         });
 
+        ImageButton user_input_temperature_backbutton4 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton4);
+        user_input_temperature_backbutton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
     }
 }

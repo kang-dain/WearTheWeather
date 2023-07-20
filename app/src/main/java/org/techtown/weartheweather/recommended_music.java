@@ -7,25 +7,20 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class setting_nickname extends AppCompatActivity {
+public class recommended_music extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting_nickname);
+        setContentView(R.layout.activity_recommended_music);
 
-
-        ImageButton setting_common_backbutton2 = (ImageButton) findViewById(R.id.setting_common_backbutton2);
-        setting_common_backbutton2.setOnClickListener(new View.OnClickListener() {
+        ImageButton common_menu9 = (ImageButton) findViewById(R.id.common_menu9);
+        common_menu9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), setting.class);
+                Intent intent = new Intent(getApplicationContext(), menu.class);
                 startActivity(intent);
             }
         });
-
-
-
-
     }
 }
