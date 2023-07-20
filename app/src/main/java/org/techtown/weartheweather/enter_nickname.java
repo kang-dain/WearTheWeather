@@ -17,6 +17,8 @@ public class enter_nickname extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_nickname);
 
+
+
         nickname_button = findViewById(R.id.nickname_button);
         nickname_button.setOnTouchListener((view, motionEvent) -> {
 

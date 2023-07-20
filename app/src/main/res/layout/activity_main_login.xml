@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="400dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/main_login_button1"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
