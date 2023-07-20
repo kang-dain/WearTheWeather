@@ -30,6 +30,11 @@ public class main_login extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageButton join_button = (ImageButton) findViewById(R.id.main_login_button3);
+        join_button.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), terms_of_use.class);
+            startActivity(intent);
+        });
 
         Button main_login_button1;
         main_login_button1 = findViewById(R.id.main_login_button1);
