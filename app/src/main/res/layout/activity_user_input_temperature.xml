@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user_input_temperature"
-    android:background="@drawable/background_light">
+    android:background="@drawable/background_light"
+    tools:context=".user_input_temperature">
 
     <ImageButton
         android:id="@+id/user_input_temperature_backbutton"

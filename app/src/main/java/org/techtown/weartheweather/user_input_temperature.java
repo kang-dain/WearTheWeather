@@ -14,6 +14,8 @@ public class user_input_temperature extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input_temperature);
 
+        getWindow().setWindowAnimations(0);
+
 
         ImageButton temp_right = (ImageButton) findViewById(R.id.user_input_temperature_common_big_arrow__right);
         temp_right.setOnClickListener(new View.OnClickListener() {
@@ -24,5 +26,8 @@ public class user_input_temperature extends AppCompatActivity {
             }
         });
 
+
+
     }
+
 }

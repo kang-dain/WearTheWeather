@@ -7,20 +7,19 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class user_input_fashion extends AppCompatActivity {
+public class setting_nickname extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_input_fashion);
+        setContentView(R.layout.activity_setting_nickname);
 
-        getWindow().setWindowAnimations(0);
 
-        ImageButton fashion_left = (ImageButton) findViewById(R.id.user_input_fashion_common_big_arrow_left);
-        fashion_left.setOnClickListener(new View.OnClickListener() {
+        ImageButton setting_common_backbutton3 = (ImageButton) findViewById(R.id.setting_common_backbutton3);
+        setting_common_backbutton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), user_input_keyword.class);
+                Intent intent = new Intent(getApplicationContext(), menu.class);
                 startActivity(intent);
             }
         });
