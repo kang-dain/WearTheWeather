@@ -49,6 +49,10 @@
             android:name=".main_login"
             android:exported="true" />
         <activity
+            android:name=".enter_password"
+            android:exported="true" />
+
+        <activity
             android:name=".main"
             android:exported="true">
             <intent-filter>
