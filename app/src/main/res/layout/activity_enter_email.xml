@@ -67,8 +67,8 @@
         android:id="@+id/enter_email_input1"
         android:layout_width="280dp"
         android:layout_height="30dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="201dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="195dp"
         android:background="@null"
         android:ems="10"
         android:hint="이메일을 입력해주세요"
@@ -79,5 +79,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill,HardcodedText,SpUsage,SpeakableTextPresentCheck,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
+
+    <android.widget.Button
+        android:id="@+id/enter_email_button2"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="273dp"
+        android:background="@drawable/enter_email_button1"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/enter_email_button1"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
