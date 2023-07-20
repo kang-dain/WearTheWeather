@@ -1,14 +1,18 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class setting_nickname extends AppCompatActivity {
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,14 @@ public class setting_nickname extends AppCompatActivity {
 
 
 
+        Button setting_nickname_button1 = findViewById(R.id.setting_nickname_button1);
+        setting_nickname_button1.setOnTouchListener((view, motionEvent) -> {
 
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                setting_nickname_button1.setBackgroundResource(R.drawable.setting_nickname_button1);
+            }
+
+            return false;
+        });
     }
 }

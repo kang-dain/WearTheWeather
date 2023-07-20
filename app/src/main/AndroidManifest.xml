@@ -46,8 +46,8 @@
             android:name=".user_input_slider"
             android:exported="true" />
         <activity
-            android:name=".enter_email"
-            android:exported="true" />
+           android:name=".enter_email"
+           android:exported="true" />
         <activity
             android:name=".user_input_temperature"
             android:exported="true" />
