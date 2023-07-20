@@ -8,7 +8,7 @@
     android:background="@drawable/background_light">
 
     <ImageButton
-        android:id="@+id/find_password_common_backbutton2"
+        android:id="@+id/enter_nickname_backbutton1"
         android:layout_width="33dp"
         android:layout_height="41dp"
         android:layout_marginStart="15dp"
