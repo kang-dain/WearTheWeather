@@ -13,7 +13,31 @@
         android:theme="@style/Theme.WearTheWeather"
         tools:targetApi="31">
         <activity
+            android:name=".setting_alarm"
+            android:exported="true" />
+        <activity
+            android:name=".setting_alarm_time"
+            android:exported="true" />
+        <activity
+            android:name=".setting_color"
+            android:exported="true" />
+        <activity
+            android:name=".setting_email"
+            android:exported="true" />
+        <activity
+            android:name=".calender_daily"
+            android:exported="true" />
+        <activity
+            android:name=".calender_month"
+            android:exported="true" />
+        <activity
             android:name=".complete"
+            android:exported="true" />
+        <activity
+            android:name=".main_weather"
+            android:exported="true" />
+        <activity
+            android:name=".recommended_music"
             android:exported="true" />
         <activity
             android:name=".terms_of_use"
