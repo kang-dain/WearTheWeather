@@ -36,7 +36,14 @@ public class user_input_temperature extends AppCompatActivity {
             }
         });
 
-
+        ImageButton common_menu = (ImageButton) findViewById(R.id.common_menu);
+        common_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

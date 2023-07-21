@@ -73,8 +73,8 @@
 
     <android.widget.Button
         android:id="@+id/nickname_button"
-        android:layout_width="300dp"
-        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:background="@drawable/enternickname_button"
         app:layout_constraintEnd_toEndOf="parent"

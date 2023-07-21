@@ -2,7 +2,6 @@ package org.techtown.weartheweather;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Button;
@@ -36,6 +35,7 @@ public class main_login extends AppCompatActivity {
             startActivity(intent);
         });
 
+        /**
         Button main_login_button1;
         main_login_button1 = findViewById(R.id.main_login_button1);
         main_login_button1.setOnTouchListener((view, motionEvent) -> {
@@ -49,6 +49,16 @@ public class main_login extends AppCompatActivity {
 
             return false;
         });
+*/
+        Button main_login_button1 = findViewById(R.id.main_login_button1);
+        main_login_button1.setOnTouchListener((view, motionEvent) -> {
 
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                main_login_button1.setBackgroundResource(R.drawable.add_icon1_button1);
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+            return false;
+        });
     }
 }

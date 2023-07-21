@@ -75,4 +75,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_big_arrow_left"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="275dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="454dp"
+        android:background="@drawable/user_input_slider_3"
+        android:progressDrawable="@null"
+        android:thumb="@drawable/user_input_slider_4"
+        android:thumbTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

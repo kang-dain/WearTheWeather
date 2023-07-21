@@ -1,7 +1,6 @@
 package org.techtown.weartheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class terms_of_use extends AppCompatActivity {
 
     //체크박스
@@ -20,6 +21,7 @@ public class terms_of_use extends AppCompatActivity {
     private CheckBox secondCheckBtn;
     private CheckBox thirdCheckBtn;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class terms_of_use extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+/**
         Button terms_of_use_button5 = findViewById(R.id.terms_of_use_button5);
         terms_of_use_button5.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -41,6 +43,17 @@ public class terms_of_use extends AppCompatActivity {
             } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 terms_of_use_button5.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
                 // 버튼을 클릭했을 때 다음 화면으로 이동하는 코드
+                Intent intent = new Intent(getApplicationContext(), enter_email.class);
+                startActivity(intent);
+            }
+            return false;
+        });
+*/
+        Button terms_of_use_button5 = findViewById(R.id.terms_of_use_button5);
+        terms_of_use_button5.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                terms_of_use_button5.setBackgroundResource(R.drawable.add_icon2_button3);
                 Intent intent = new Intent(getApplicationContext(), enter_email.class);
                 startActivity(intent);
             }

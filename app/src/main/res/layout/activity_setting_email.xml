@@ -23,10 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="442dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/setting_email_2" />
+        app:srcCompat="@drawable/setting_email_2"
+        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/setting_common_backbutton4"
@@ -72,9 +74,11 @@
         android:textColor="#C1C1C1"
         android:textColorHint="#C1C1C1"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,TouchTargetSizeCheck"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -106,30 +110,34 @@
         android:textColor="#C1C1C1"
         android:textColorHint="#C1C1C1"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck" />
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck"
+        tools:visibility="visible" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="329dp"
-        android:background="@drawable/setting_password_button1"
+        android:background="@drawable/setting__button_blue2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="711dp"
-        android:background="@drawable/setting_password_button2"
+        android:background="@drawable/setting__button_blue"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

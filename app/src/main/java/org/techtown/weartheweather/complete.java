@@ -1,17 +1,18 @@
 package org.techtown.weartheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class complete extends AppCompatActivity {
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class complete extends AppCompatActivity {
             }
         });
 
-
+/**
         Button complete_nextbutton = findViewById(R.id.complete_nextbutton);
         complete_nextbutton.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -50,5 +51,18 @@ public class complete extends AppCompatActivity {
         complete_nextbutton.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
         complete_nextbutton.setText("시작하기");
         complete_nextbutton.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+    */
+
+        Button complete_nextbutton = findViewById(R.id.complete_nextbutton);
+        complete_nextbutton.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                complete_nextbutton.setBackgroundResource(R.drawable.add_icon2_button6);
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+            return false;
+        });
     }
 }

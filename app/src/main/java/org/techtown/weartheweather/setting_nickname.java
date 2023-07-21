@@ -36,7 +36,6 @@ public class setting_nickname extends AppCompatActivity {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 setting_nickname_button1.setBackgroundResource(R.drawable.setting_nickname_button1);
             }
-
             return false;
         });
     }

@@ -77,74 +77,72 @@
         app:srcCompat="@drawable/user_input_fashion_3"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/user_input_fashion_button_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_width="71dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="38dp"
         android:layout_marginTop="608dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/user_input_fashion_button_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_fashion_button_1"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/user_input_fashion_button_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_width="71dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="109dp"
         android:layout_marginTop="608dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/user_input_fashion_button_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_fashion_button_2"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/user_input_fashion_button_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="25dp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="608dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/user_input_fashion_button_3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_fashion_button_3"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/user_input_fashion_button_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="252dp"
+        android:layout_width="71dp"
+        android:layout_height="25dp"
         android:layout_marginTop="608dp"
-        android:background="@android:color/transparent"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/user_input_fashion_button_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_fashion_button_4"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/user_input_fashion_button_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="721dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/user_input_fashion_button_5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_fashion_button_5"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/user_input_fashion_4"
-        android:layout_width="287dp"
+        android:layout_width="284dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="633dp"
+        android:layout_marginTop="632dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user_input_fashion_4"

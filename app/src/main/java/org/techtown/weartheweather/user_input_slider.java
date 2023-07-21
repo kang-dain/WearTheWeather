@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,5 +46,17 @@ public class user_input_slider extends AppCompatActivity {
             }
         });
 
+        ImageButton common_menu2 = (ImageButton) findViewById(R.id.common_menu2);
+        common_menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
+
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar2);
+        seekBar.setMax(100); // 시크바 최대값 설정
+        seekBar.setProgress(50); // 초기 시크바 값 설정
     }
 }

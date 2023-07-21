@@ -1,9 +1,8 @@
 package org.techtown.weartheweather;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,6 +28,7 @@ public class enter_nickname extends Activity {
             }
         });
 
+        /**
         Button nickname_button = findViewById(R.id.nickname_button);
         nickname_button.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -51,5 +51,18 @@ public class enter_nickname extends Activity {
         nickname_button.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
         nickname_button.setText("다음");
         nickname_button.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+    */
+        Button nickname_button = findViewById(R.id.nickname_button);
+        nickname_button.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                nickname_button.setBackgroundResource(R.drawable.add_icon2_button5);
+                Intent intent = new Intent(getApplicationContext(), complete.class);
+                startActivity(intent);
+            }
+
+            return false;
+        });
     }
 }

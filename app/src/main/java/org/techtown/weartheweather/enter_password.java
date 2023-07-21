@@ -1,8 +1,8 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 
 
 public class enter_password extends Activity {
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class enter_password extends Activity {
             }
         });
 
-        Button enter_password_button2 = findViewById(R.id.enter_password_button2);
+        /**Button enter_password_button2 = findViewById(R.id.enter_password_button2);
         enter_password_button2.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                 enter_password_button2.setBackgroundColor(Color.parseColor("#FF75A3E9"));
@@ -37,7 +38,7 @@ public class enter_password extends Activity {
             }
             return false;
         });
-    }
+
     // 버튼 원래대로 되돌리기
     @Override
     protected void onResume() {
@@ -48,5 +49,17 @@ public class enter_password extends Activity {
         enter_password_button2.setText("다음");
         enter_password_button2.setTextColor(Color.parseColor("#FFFFFF"));
     }
+    */
 
+        Button enter_password_button2 = findViewById(R.id.enter_password_button2);
+        enter_password_button2.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                enter_password_button2.setBackgroundResource(R.drawable.add_icon2_button4);
+                Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
+                startActivity(intent);
+            }
+            return false;
+        });
+    }
 }

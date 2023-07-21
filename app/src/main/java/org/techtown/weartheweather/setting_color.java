@@ -25,7 +25,5 @@ public class setting_color extends AppCompatActivity {
             }
         });
 
-
-
     }
 }

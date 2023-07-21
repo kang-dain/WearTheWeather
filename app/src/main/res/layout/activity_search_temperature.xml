@@ -81,18 +81,6 @@
         app:srcCompat="@drawable/common_big_arrow__right"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="86dp"
-        android:layout_height="51dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="35sp"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="461dp" />
-
     <ImageView
         android:id="@+id/search_tip"
         android:layout_width="360dp"
@@ -103,7 +91,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_tip"
-        tools:visibility="visible" />
+        tools:visibility="invisible"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="464dp"
+        android:background="@null"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,14 @@ public class user_input_keyword extends AppCompatActivity {
             }
         });
 
-
+        ImageButton common_menu3 = (ImageButton) findViewById(R.id.common_menu3);
+        common_menu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
 
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.user_input_keyword_button_1);
         tipbutton1.setOnClickListener(new View.OnClickListener() {

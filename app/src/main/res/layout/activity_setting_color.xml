@@ -35,24 +35,26 @@
         app:srcCompat="@drawable/setting_color_1"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="61dp"
-        android:buttonTint="#C1C1C1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="272dp"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="191dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="369dp"
-        android:layout_marginEnd="60dp"
-        android:buttonTint="#C1C1C1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
