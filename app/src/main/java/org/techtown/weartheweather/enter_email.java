@@ -42,7 +42,6 @@ public class enter_email extends AppCompatActivity {
         });
 
     }
-
     // 버튼 원래대로 되돌리기
     @Override
     protected void onResume() {

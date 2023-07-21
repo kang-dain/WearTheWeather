@@ -30,4 +30,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/complete_text2"
+        android:layout_width="320dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/complete_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/complete_nextbutton"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="595dp"
+        android:background="@drawable/complete_button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
