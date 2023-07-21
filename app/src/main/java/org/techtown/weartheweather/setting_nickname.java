@@ -29,7 +29,7 @@ public class setting_nickname extends AppCompatActivity {
         });
 
 
-
+    // 버튼 클릭 애니메이션
         Button setting_nickname_button1 = findViewById(R.id.setting_nickname_button1);
         setting_nickname_button1.setOnTouchListener((view, motionEvent) -> {
 
