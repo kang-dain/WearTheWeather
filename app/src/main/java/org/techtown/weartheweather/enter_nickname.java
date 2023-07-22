@@ -28,31 +28,7 @@ public class enter_nickname extends Activity {
             }
         });
 
-        /**
-        Button nickname_button = findViewById(R.id.nickname_button);
-        nickname_button.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                nickname_button.setBackgroundColor(Color.parseColor("#FF75A3E9"));
-            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                nickname_button.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
 
-                Intent intent = new Intent(getApplicationContext(), complete.class);
-                startActivity(intent);
-            }
-            return false;
-        });
-    }
-    // 버튼 원래대로 되돌리기
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Button nickname_button = findViewById(R.id.nickname_button);
-        nickname_button.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-        nickname_button.setText("다음");
-        nickname_button.setTextColor(Color.parseColor("#FFFFFF"));
-    }
-    */
         Button nickname_button = findViewById(R.id.nickname_button);
         nickname_button.setOnTouchListener((view, motionEvent) -> {
 

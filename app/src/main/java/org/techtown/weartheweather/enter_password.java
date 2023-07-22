@@ -26,30 +26,6 @@ public class enter_password extends Activity {
             }
         });
 
-        /**Button enter_password_button2 = findViewById(R.id.enter_password_button2);
-        enter_password_button2.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                enter_password_button2.setBackgroundColor(Color.parseColor("#FF75A3E9"));
-            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                enter_password_button2.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-
-                Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
-                startActivity(intent);
-            }
-            return false;
-        });
-
-    // 버튼 원래대로 되돌리기
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Button enter_password_button2 = findViewById(R.id.enter_password_button2);
-        enter_password_button2.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-        enter_password_button2.setText("다음");
-        enter_password_button2.setTextColor(Color.parseColor("#FFFFFF"));
-    }
-    */
 
         Button enter_password_button2 = findViewById(R.id.enter_password_button2);
         enter_password_button2.setOnTouchListener((view, motionEvent) -> {

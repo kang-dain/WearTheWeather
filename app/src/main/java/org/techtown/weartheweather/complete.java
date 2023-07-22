@@ -27,32 +27,6 @@ public class complete extends AppCompatActivity {
             }
         });
 
-/**
-        Button complete_nextbutton = findViewById(R.id.complete_nextbutton);
-        complete_nextbutton.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                complete_nextbutton.setBackgroundColor(Color.parseColor("#FF75A3E9"));
-            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                complete_nextbutton.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-
-                Intent intent = new Intent(getApplicationContext(), main_weather.class);
-                startActivity(intent);
-            }
-            return false;
-        });
-
-    }
-    // 버튼 원래대로 되돌리기
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Button complete_nextbutton = findViewById(R.id.complete_nextbutton);
-        complete_nextbutton.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-        complete_nextbutton.setText("시작하기");
-        complete_nextbutton.setTextColor(Color.parseColor("#FFFFFF"));
-    }
-    */
 
         Button complete_nextbutton = findViewById(R.id.complete_nextbutton);
         complete_nextbutton.setOnTouchListener((view, motionEvent) -> {

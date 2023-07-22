@@ -35,20 +35,7 @@ public class terms_of_use extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/**
-        Button terms_of_use_button5 = findViewById(R.id.terms_of_use_button5);
-        terms_of_use_button5.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                terms_of_use_button5.setBackgroundColor(Color.parseColor("#FF75A3E9"));
-            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                terms_of_use_button5.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-                // 버튼을 클릭했을 때 다음 화면으로 이동하는 코드
-                Intent intent = new Intent(getApplicationContext(), enter_email.class);
-                startActivity(intent);
-            }
-            return false;
-        });
-*/
+
         Button terms_of_use_button5 = findViewById(R.id.terms_of_use_button5);
         terms_of_use_button5.setOnTouchListener((view, motionEvent) -> {
 

@@ -63,11 +63,6 @@ public class find_password extends AppCompatActivity {
 
 
 
-
-
-
-
-
         find_password_button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
