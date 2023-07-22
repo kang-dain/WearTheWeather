@@ -35,21 +35,7 @@ public class main_login extends AppCompatActivity {
             startActivity(intent);
         });
 
-        /**
-        Button main_login_button1;
-        main_login_button1 = findViewById(R.id.main_login_button1);
-        main_login_button1.setOnTouchListener((view, motionEvent) -> {
 
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                main_login_button1.setBackgroundColor(Color.parseColor("#FF75A3E9"));
-            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                main_login_button1.setBackgroundColor(Color.parseColor("#FFD9D9D9"));
-            }
-
-
-            return false;
-        });
-*/
         Button main_login_button1 = findViewById(R.id.main_login_button1);
         main_login_button1.setOnTouchListener((view, motionEvent) -> {
 
