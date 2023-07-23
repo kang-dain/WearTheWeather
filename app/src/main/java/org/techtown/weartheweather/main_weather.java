@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class main_weather extends AppCompatActivity {
 
     @Override
