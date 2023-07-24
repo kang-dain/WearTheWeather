@@ -58,8 +58,8 @@
         android:id="@+id/user_input_slider2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="186dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user_input_slider2"
@@ -78,8 +78,8 @@
 
     <SeekBar
         android:id="@+id/seekBar2"
-        android:layout_width="275dp"
-        android:layout_height="25dp"
+        android:layout_width="276dp"
+        android:layout_height="27dp"
         android:layout_marginTop="454dp"
         android:background="@drawable/user_input_slider_3"
         android:progressDrawable="@null"
