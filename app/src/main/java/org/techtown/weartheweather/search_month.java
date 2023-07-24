@@ -71,6 +71,14 @@ public class search_month extends AppCompatActivity {
             }
         });
 
+        ImageButton common_menu6 = (ImageButton) findViewById(R.id.common_menu6);
+        common_menu6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
 
         Button button1 = findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener(){

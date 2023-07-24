@@ -14,9 +14,6 @@ public class search_result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
-        getWindow().setWindowAnimations(0);
-
-
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +23,13 @@ public class search_result extends AppCompatActivity {
             }
         });
 
-
+        ImageButton common_menu7 = (ImageButton) findViewById(R.id.common_menu7);
+        common_menu7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
     }
 }

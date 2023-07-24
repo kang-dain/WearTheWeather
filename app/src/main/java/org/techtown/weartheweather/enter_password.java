@@ -17,6 +17,8 @@ public class enter_password extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_password);
 
+        getWindow().setWindowAnimations(0);
+
         ImageButton enter_password_back_button = findViewById(R.id.find_password_common_backbutton4);
         enter_password_back_button.setOnClickListener(new View.OnClickListener() {
             @Override

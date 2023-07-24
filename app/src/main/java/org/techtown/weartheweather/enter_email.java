@@ -18,6 +18,7 @@ public class enter_email extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_email);
 
+        getWindow().setWindowAnimations(0);
 
         ImageButton enter_email_back_button = findViewById(R.id.enter_email_button1);
         enter_email_back_button.setOnClickListener(new View.OnClickListener() {

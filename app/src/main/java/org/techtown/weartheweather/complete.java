@@ -18,6 +18,8 @@ public class complete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete);
 
+        getWindow().setWindowAnimations(0);
+
         ImageButton complete_back_button = findViewById(R.id.complete_button1);
         complete_back_button.setOnClickListener(new View.OnClickListener() {
             @Override

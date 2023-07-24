@@ -19,6 +19,8 @@ public class enter_nickname extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_nickname);
 
+        getWindow().setWindowAnimations(0);
+
         ImageButton enter_nickname_back_button = findViewById(R.id.enter_nickname_backbutton1);
         enter_nickname_back_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -27,6 +27,14 @@ public class search_temperature extends AppCompatActivity {
             }
         });
 
+        ImageButton common_menu5 = (ImageButton) findViewById(R.id.common_menu5);
+        common_menu5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
+            }
+        });
 
 
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.search_temperature_button);
