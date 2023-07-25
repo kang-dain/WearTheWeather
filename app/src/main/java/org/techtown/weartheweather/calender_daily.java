@@ -22,8 +22,6 @@ public class calender_daily extends AppCompatActivity {
             public void onClick(View view) {
                 ImageView calender_daily_button3 = (ImageView)findViewById(R.id.calender_daily_button3);
                 calender_daily_button3.setVisibility(View.VISIBLE);
-                ImageView calender_daily_button4 = (ImageView)findViewById(R.id.calender_daily_button4);
-                calender_daily_button4.setVisibility(View.VISIBLE);
             }
         });
 
@@ -33,8 +31,6 @@ public class calender_daily extends AppCompatActivity {
             public void onClick(View view) {
                 ImageView calender_daily_button3 = (ImageView)findViewById(R.id.calender_daily_button3);
                 calender_daily_button3.setVisibility(View.INVISIBLE);
-                ImageButton calender_daily_button4 = (ImageButton)findViewById(R.id.calender_daily_button4);
-                calender_daily_button4.setVisibility(View.INVISIBLE);
             }
         });
 

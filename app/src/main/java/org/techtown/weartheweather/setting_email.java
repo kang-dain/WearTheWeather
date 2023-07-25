@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,6 +43,8 @@ public class setting_email extends AppCompatActivity {
 
         Button imageButton3 = findViewById(R.id.imageButton3);
         imageButton3.setOnTouchListener((view, motionEvent) -> {
+
+            Toast.makeText(getApplicationContext(), "변경되었습니다.", Toast.LENGTH_SHORT).show();
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 imageButton3.setBackgroundResource(R.drawable.setting_password_button2);
