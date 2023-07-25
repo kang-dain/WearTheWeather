@@ -45,12 +45,14 @@ public class search_month extends AppCompatActivity {
         tipbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
+                /**ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
                 search_tip.setVisibility(View.VISIBLE);
-
+*/
+                Intent intent = new Intent(getApplicationContext(), search_tip.class);
+                startActivity(intent);
             }
         });
-
+/**
         ImageView closetipbutton2 = (ImageView) findViewById(R.id.search_tip2);
         closetipbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +62,7 @@ public class search_month extends AppCompatActivity {
 
             }
         });
-
+*/
 
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button13.setOnClickListener(new View.OnClickListener() {
