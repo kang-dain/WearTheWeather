@@ -36,6 +36,7 @@
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="272dp"
         android:layout_marginStart="309dp"
@@ -47,12 +48,14 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="      라이트 모드"
             android:layout_weight="50" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="      다크 모드"
             android:layout_weight="50" />
 
     </RadioGroup>
