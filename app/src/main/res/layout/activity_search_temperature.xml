@@ -82,12 +82,13 @@
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
-        android:layout_width="70dp"
+        android:id="@+id/editTextNumberSigned"
+        android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_marginStart="144dp"
         android:layout_marginTop="464dp"
         android:background="@null"
+        android:digits="0123456789-"
         android:ems="10"
         android:inputType="numberDecimal"
         android:textSize="30sp"
