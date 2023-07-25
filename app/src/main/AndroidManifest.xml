@@ -109,6 +109,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 알람 설정 -->
+        <receiver android:name=".setting_alarm_time" />
+
     </application>
 
 </manifest>
