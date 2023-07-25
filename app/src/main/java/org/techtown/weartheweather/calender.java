@@ -34,8 +34,6 @@ public class calender extends AppCompatActivity {
             }
         });
 
-
-
         ImageButton calender_month_button2 = (ImageButton) findViewById(R.id.calender_month_button2);
         calender_month_button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,13 +42,7 @@ public class calender extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
-                startActivity(intent);
-            }
-        });
+
+
     }
 }

@@ -73,15 +73,6 @@ public class search_month extends AppCompatActivity {
             }
         });
 
-        ImageButton common_menu6 = (ImageButton) findViewById(R.id.common_menu6);
-        common_menu6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
-                startActivity(intent);
-            }
-        });
-
         Button button1 = findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -247,6 +238,47 @@ public class search_month extends AppCompatActivity {
                 if (System.currentTimeMillis() <= delay){
                     button12.setTextColor(Color.parseColor("#ffffff"));
                 }
+            }
+        });
+
+        ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
+        imageButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton6 = (ImageButton) findViewById(R.id.imageButton6);
+        imageButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
+        imageButton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), calender.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton8 = (ImageButton) findViewById(R.id.imageButton8);
+        imageButton8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+        imageButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
+                startActivity(intent);
             }
         });
     }

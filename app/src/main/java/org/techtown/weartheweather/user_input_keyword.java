@@ -36,15 +36,6 @@ public class user_input_keyword extends AppCompatActivity {
             }
         });
 
-        ImageButton common_menu3 = (ImageButton) findViewById(R.id.common_menu3);
-        common_menu3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
-                startActivity(intent);
-            }
-        });
-
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.user_input_keyword_button_1);
         tipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +61,47 @@ public class user_input_keyword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
+        imageButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton6 = (ImageButton) findViewById(R.id.imageButton6);
+        imageButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
+        imageButton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), calender.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton8 = (ImageButton) findViewById(R.id.imageButton8);
+        imageButton8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+        imageButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), menu.class);
                 startActivity(intent);
             }
         });
