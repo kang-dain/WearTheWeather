@@ -282,16 +282,4 @@
         tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck"
         android:importantForAccessibility="no" />
 
-    <ImageView
-        android:id="@+id/search_tip2"
-        android:layout_width="360dp"
-        android:layout_height="800dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_tip"
-        tools:visibility="visible" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

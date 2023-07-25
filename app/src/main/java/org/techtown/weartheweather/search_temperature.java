@@ -40,22 +40,24 @@ public class search_temperature extends AppCompatActivity {
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.search_temperature_button);
         tipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
-                search_tip.setVisibility(View.VISIBLE);
+            public void onClick(View view) {/**
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip4);
+                search_tip.setVisibility(View.VISIBLE);*/
+                Intent intent = new Intent(getApplicationContext(), search_tip_temperature.class);
+                startActivity(intent);
             }
         });
-
-        ImageView closetipbutton1 = (ImageView) findViewById(R.id.search_tip);
+/**
+        ImageView closetipbutton1 = (ImageView) findViewById(R.id.search_tip4);
         closetipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageView search_tip = (ImageView)findViewById(R.id.search_tip);
+                ImageView search_tip = (ImageView)findViewById(R.id.search_tip4);
                 search_tip.setVisibility(View.INVISIBLE);
 
             }
         });
-
+*/
 
 
         ImageButton user_input_temperature_backbutton5 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton5);
