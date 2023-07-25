@@ -45,17 +45,6 @@
         app:srcCompat="@drawable/search_temperature_1"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/search_temperature_2"
-        android:layout_width="240dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="314dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_temperature_2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
-
     <ImageButton
         android:id="@+id/search_temperature_button"
         android:layout_width="wrap_content"
@@ -81,19 +70,18 @@
         app:srcCompat="@drawable/common_big_arrow__right"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/editTextNumberDecimal"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="464dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="30sp"
+    <ImageView
+        android:id="@+id/search_tip4"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:srcCompat="@drawable/search_tip"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
