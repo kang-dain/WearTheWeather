@@ -38,7 +38,7 @@ public class calender_daily extends AppCompatActivity {
         calender_daily_common_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), calender_month.class);
+                Intent intent = new Intent(getApplicationContext(), calender.class);
                 startActivity(intent);
             }
         });

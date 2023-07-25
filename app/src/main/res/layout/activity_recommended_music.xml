@@ -41,6 +41,7 @@ tools:context=".recommended_music">
     app:layout_constraintTop_toTopOf="parent"
     app:srcCompat="@drawable/recommended_music_2"
     tools:ignore="ContentDescription,ImageContrastCheck,VisualLintBounds" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
