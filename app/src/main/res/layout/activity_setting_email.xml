@@ -22,7 +22,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="412dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="492dp"
         android:background="@null"
         android:ems="10"
         android:hint="이메일 입력"
@@ -97,12 +97,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck,TouchTargetSizeCheck" />
 
+
     <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="614dp"
+        android:layout_marginTop="560dp"
         android:background="@null"
         android:ems="10"
         android:hint="비밀번호 입력"
@@ -120,7 +121,7 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="329dp"
+        android:layout_marginTop="324dp"
         android:background="@drawable/setting__button_blue2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +132,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="676dp"
+        android:layout_marginTop="608dp"
         android:background="@drawable/setting__button_blue"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +140,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck"
         tools:visibility="visible" />
-
 
     <ImageView
         android:id="@+id/imageView8"

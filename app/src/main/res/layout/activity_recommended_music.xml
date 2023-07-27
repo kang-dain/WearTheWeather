@@ -8,27 +8,29 @@ android:background="@drawable/background_light"
 tools:context=".recommended_music">
 
     <ImageView
-    android:id="@+id/recommended_music_1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="90dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/recommended_music_1"
-    tools:ignore="ContentDescription,ImageContrastCheck" />
+        android:id="@+id/recommended_music_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/recommended_music_1"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
-<ImageView
-    android:id="@+id/recommended_music_2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="773dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/recommended_music_2"
-    tools:ignore="ContentDescription,ImageContrastCheck,VisualLintBounds" />
+    <ImageView
+        android:id="@+id/recommended_music_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommended_music_1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/recommended_music_2"
+        tools:ignore="ContentDescription,ImageContrastCheck,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -94,6 +96,7 @@ tools:context=".recommended_music">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
