@@ -1,5 +1,8 @@
+
+//오류때문에 일단 주석 처리! -다인
+
+
 /**
- *오류때문에 일단 주석 처리! -다인
 
 
 package org.techtown.weartheweather;
@@ -19,6 +22,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import static android.content.Context.MODE_PRIVATE;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 
 public class AlarmReceiver extends BroadcastReceiver {
 
@@ -37,8 +43,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "default");
 
 
-            //OREO API 26 이상에서는 채널 필요
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES .0){
+        //OREO API 26 이상에서는 채널 필요
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+        {
 
             builder.setSmallIcon(R.drawable.ic_launcher_foreground);
 
@@ -47,7 +54,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             int importance = NotificationManager.IMPORTANCE_HIGH;
 
             NotificationChannel channel = new NotificationChannel("default", channelName, importance);
-            channel.setDescription(String description);
+            channel.setDescription(description);
 
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
@@ -65,6 +72,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentText("상태바 드래그시 보이는 서브타이틀")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingI);
+
 
         if (notificationManager != null)
         {
@@ -87,4 +95,5 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 }
-*/
+
+ */
