@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class search_month extends AppCompatActivity {
     long delay = 0;
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public class search_month extends AppCompatActivity {
         setContentView(R.layout.activity_search_month);
 
         getWindow().setWindowAnimations(0);
-
         ImageButton search_month_left = (ImageButton) findViewById(R.id.common_big_arrow_left);
         search_month_left.setOnClickListener(new View.OnClickListener() {
             @Override

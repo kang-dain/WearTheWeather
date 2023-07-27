@@ -21,7 +21,6 @@ public class calender extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
-
         // xml 연결
         calendar = findViewById(R.id.calendar);
         tv_date = findViewById(R.id.tv_date);
@@ -34,7 +33,7 @@ public class calender extends AppCompatActivity {
             }
         });
 
-        ImageButton calender_month_button2 = (ImageButton) findViewById(R.id.calender_month_button2);
+        ImageButton calender_month_button2 = (ImageButton) findViewById(R.id.calender_month_button);
         calender_month_button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
