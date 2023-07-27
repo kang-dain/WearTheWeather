@@ -7,19 +7,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_light">
 
-    <ImageButton
-        android:id="@+id/enter_nickname_backbutton1"
-        android:layout_width="33dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_backbutton"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
@@ -80,5 +67,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/enter_nickname_backbutton1"
+        android:layout_width="33dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_backbutton"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
