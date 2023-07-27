@@ -2,44 +2,41 @@ package org.techtown.weartheweather;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import android.widget.ImageButton;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class recommended_music extends YouTubeBaseActivity {
 
-    //객체 선언
-    YouTubePlayerView playerView;
-    YouTubePlayer player;
+public class recommended_music extends AppCompatActivity {
 
-    //유튜브 API KEY와 동영상 ID 변수 설정
-    private static final String API_KEY = "본인 API를 입력하세요";
-    //https://www.youtube.com/watch?v=w9TON4IwR2w ▶ 유튜브 동영상 v= 다음 부분이 videoId
-    private static final String videoId = "w9TON4IwR2w";
-
-    //logcat 사용 설정
-    private static final String TAG = "activity_recommended_music";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommended_music);
 
-        initPlayer();
+        WebView webView = findViewById(R.id.webview_1);
+        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/w9TON4IwR2w\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        webView.loadData(video, "text/html", "utf-8");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
 
-        Button btnPlay = findViewById(R.id.youtubeBtn);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                playVideo();
-            }
-        });
+        WebView webView_2 = findViewById(R.id.webview_2);
+        String video_2 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/mUBK3pVsXLo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        webView.loadData(video, "text/html", "utf-8");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+
+        WebView webView_3 = findViewById(R.id.webview_3);
+        String video_3 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Y-qkVrKVU-4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        webView.loadData(video, "text/html", "utf-8");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+
+
 
 
         ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
@@ -80,63 +77,6 @@ public class recommended_music extends YouTubeBaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), menu.class);
                 startActivity(intent);
-            }
-        });
-    }
-
-    private void playVideo() {
-        if(player != null) {
-            if(player.isPlaying()) {
-                player.pause();
-            }
-            player.cueVideo(videoId);
-        }
-    }
-
-    private void initPlayer() {
-        playerView = findViewById(R.id.youTubePlayerView);
-        playerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                player = youTubePlayer;
-
-                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
-                    @Override
-                    public void onLoading() {
-
-                    }
-
-                    @Override
-                    public void onLoaded(String id) {
-                        Log.d(TAG, "onLoaded: " + id);
-                        player.play();
-                    }
-
-                    @Override
-                    public void onAdStarted() {
-
-                    }
-
-                    @Override
-                    public void onVideoStarted() {
-
-                    }
-
-                    @Override
-                    public void onVideoEnded() {
-
-                    }
-
-                    @Override
-                    public void onError(YouTubePlayer.ErrorReason errorReason) {
-                        Log.d(TAG, "onError: " + errorReason);
-                    }
-                });
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
             }
         });
     }
