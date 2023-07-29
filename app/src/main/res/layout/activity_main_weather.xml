@@ -52,7 +52,6 @@
                 android:id="@+id/weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/main_weather_button1"
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1"

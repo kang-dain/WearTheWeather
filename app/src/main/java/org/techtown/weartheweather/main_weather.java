@@ -16,7 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class main_weather extends AppCompatActivity {
 
     private TextView weather;
-
+    private TransLocalPoint transLocalPoint;
+    private GpsTracker gpsTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,26 +30,30 @@ public class main_weather extends AppCompatActivity {
         //URL 설정
         //String url = "http://kostat.go.kr/";
 
-        String service_key = "인증키";
-        String num_of_rows = "10";
+        String service_key = "%2Bsux%2FaGSa489c6iXbwfDMDDGKf8zxQQvkIcDIn6USryYU8cVVOHjlcXDeMIXWM1xMqX%2Bs9L7zGPRBhoPmI9TKg%3D%3D";
+        String num_of_rows = "1";
         String page_no = "1";
-        String data_type = "JSON";
-        String base_date = "20230729";
-        String base_time = "0600";
-        String nx = "55";
-        String ny = "127";
+        String date_type = "JSON"; //API로부터 받을 타입
+        String base_date = "20230729"; //조회할 날짜
+        String base_time = "0600"; //조회할 시간
+        String nx = "55"; //조회 지역 좌표
+        String ny = "127"; //조회 지역 좌표
 
-        String url = "%2Bsux%2FaGSa489c6iXbwfDMDDGKf8zxQQvkIcDIn6USryYU8cVVOHjlcXDeMIXWM1xMqX%2Bs9L7zGPRBhoPmI9TKg%3D%3D" +
-                "serviceKey=" + service_key +
-                "&numOfRows=" + num_of_rows +
-                "&PageNo=" + page_no +
-                "&dataType=" + data_type +
-                "&base_date=" + base_date +
-                "&base_time=" + base_time +
-                "&nx=" + nx +
-                "&ny=" + ny;
+
+        String url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst" +
+                "serviceKey="+service_key+
+                "&numOfRows="+num_of_rows+
+                "&pageNo="+page_no+
+                "&dataType="+date_type+
+                "&base_date="+base_date+
+                "&base_time="+base_time+
+                "&nx="+nx+
+                "&ny="+ny;
 
         //AsyncTask를 통해 HTTpURLConnection 수행
+        NetworkTask networkTask = new NetworkTask(url, null);
+        networkTask.execute();
+
 
         ImageView main_weather_button1 = findViewById(R.id.main_weather_button1);
         main_weather_button1.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +107,23 @@ public class main_weather extends AppCompatActivity {
 
     }
 
-    public abstract class NetworkTask extends AsyncTask<Void, Void, String> {
+    public void setGpsTracker(GpsTracker gpsTracker) {
+        this.gpsTracker = gpsTracker;
+    }
+
+    public TransLocalPoint getTransLocalPoint() {
+        return transLocalPoint;
+    }
+
+    public void setTransLocalPoint(TransLocalPoint transLocalPoint) {
+        this.transLocalPoint = transLocalPoint;
+    }
+
+    public GpsTracker getGpsTracker() {
+        return gpsTracker;
+    }
+
+    public class NetworkTask extends AsyncTask<Void, Void, String> {
 
         private final String url;
         private final ContentValues values;
@@ -134,3 +155,4 @@ public class main_weather extends AppCompatActivity {
     }
 
 }
+
