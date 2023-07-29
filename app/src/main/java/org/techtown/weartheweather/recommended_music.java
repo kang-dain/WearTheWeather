@@ -24,21 +24,6 @@ public class recommended_music extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
 
-        WebView webView_2 = findViewById(R.id.webview_2);
-        String video_2 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/mUBK3pVsXLo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
-        webView.loadData(video, "text/html", "utf-8");
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebChromeClient(new WebChromeClient());
-
-        WebView webView_3 = findViewById(R.id.webview_3);
-        String video_3 = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Y-qkVrKVU-4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
-        webView.loadData(video, "text/html", "utf-8");
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebChromeClient(new WebChromeClient());
-
-
-
-
         ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
         imageButton5.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,14 +45,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="      라이트 모드"
             android:layout_weight="50" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="      다크 모드"
