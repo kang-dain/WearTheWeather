@@ -2,7 +2,7 @@
 //오류때문에 일단 주석 처리! -다인
 
 
-/**
+
 
 
 package org.techtown.weartheweather;
@@ -96,4 +96,3 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 }
 
- */
