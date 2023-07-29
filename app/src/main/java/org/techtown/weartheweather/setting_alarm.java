@@ -10,26 +10,44 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class setting_alarm extends AppCompatActivity {
+
+    //스위치버튼 상태 유지
+    //private SettingAlarmPlus settingAlarmPlus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_alarm);
 
+        //settingAlarmPlus = new SettingAlarmPlus(this);
 
         Switch switch1 = findViewById(R.id.switch1);
+        //switch1.setChecked(settingAlarmPlus.loadSwitchState()); //스위치 상태 복원
+
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+
+                    //스위치가 ON인 상태
+                    //settingAlarmPlus.saveSwitchState(true);
+
                     ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
                     setting_alarm_2.setVisibility(View.VISIBLE);
+
                     ImageView setting_alarm_common_big_arrow__right = (ImageView)findViewById(R.id.setting_alarm_common_big_arrow__right);
                     setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
-                }else{
+                }
+                else{
+
+                    //스위치가 OFF인 상태
+                    //settingAlarmPlus.saveSwitchState(false);
+
                     ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
                     setting_alarm_2.setVisibility(View.INVISIBLE);
+
                     ImageView setting_alarm_common_big_arrow__right = (ImageView)findViewById(R.id.setting_alarm_common_big_arrow__right);
                     setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
                 }
