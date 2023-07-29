@@ -11,10 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class main_weather extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_weather);
+
+
 
 
         ImageView main_weather_button1 = (ImageView) findViewById(R.id.main_weather_button1);
