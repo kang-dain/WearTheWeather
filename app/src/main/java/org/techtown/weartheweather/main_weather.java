@@ -5,17 +5,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class main_weather extends AppCompatActivity {
 
+    private TextView weather;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_weather);
+
+        //위젯에 대한 참조.
+        weather = (TextView) findViewById(R.id.weather);
+
+        //URL 설정
+        //String url = "http://kostat.go.kr
 
 
 
