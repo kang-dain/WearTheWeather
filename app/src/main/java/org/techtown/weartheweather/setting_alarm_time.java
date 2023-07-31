@@ -90,57 +90,51 @@ public class setting_alarm_time extends AppCompatActivity {
 
 
 
+/**
 
         //------------알람설정
-             final TimePicker picker = (TimePicker)findViewById(R.id.timePicker);
-            picker.setIs24HourView(true);
+        final TimePicker picker = (TimePicker) findViewById(R.id.timePicker);
+        picker.setIs24HourView(true);
 
-            //이전 알람 설정한 값을 기억해서 보여주고, 없을 시 현재시간이 보여짐.
-            SharedPreferences sharedPreferences = getSharedPreferences("daily alarm", MODE_PRIVATE);
-            long millis = sharedPreferences.getLong("nextNotifyTime", Calendar.getInstance().getTimeInMillis());
+        //이전 알람 설정한 값을 기억해서 보여주고, 없을 시 현재시간이 보여짐.
+        SharedPreferences sharedPreferences = getSharedPreferences("daily alarm", MODE_PRIVATE);
+        long millis = sharedPreferences.getLong("nextNotifyTime", Calendar.getInstance().getTimeInMillis());
 
-            //calendet에 윤년 개념이 추가된 gregoriancalendar을 사용
-            Calendar nextNotifyTime = new GregorianCalendar();
-            nextNotifyTime.setTimeInMillis(millis);
+        //calendet에 윤년 개념이 추가된 gregoriancalendar을 사용
+        Calendar nextNotifyTime = new GregorianCalendar();
+        nextNotifyTime.setTimeInMillis(millis);
 
-            Date nextDate = nextNotifyTime.getTime();
+        Date nextDate = nextNotifyTime.getTime();
 
-            //토스트 메세지로 설정된 시간 알려주기
-            String date_text = new SimpleDateFormat("a hh시 mm분 ", Locale.getDefault()).format(nextDate);
-            Toast.makeText(getApplicationContext(), "다음 알람은 " + date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
+        //토스트 메세지로 설정된 시간 알려주기
+        String date_text = new SimpleDateFormat("a hh시 mm분 ", Locale.getDefault()).format(nextDate);
+        Toast.makeText(getApplicationContext(), "다음 알람은 " + date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
 
-            //이전 설정값으로 TimePicker 초기화
-            Date currentTime = nextNotifyTime.getTime(); //현재시각 받기
-            SimpleDateFormat HourFormat = new SimpleDateFormat("kk", Locale.getDefault());
-            SimpleDateFormat MinuteFormat = new SimpleDateFormat("mm", Locale.getDefault());
+        //이전 설정값으로 TimePicker 초기화
+        Date currentTime = nextNotifyTime.getTime(); //현재시각 받기
+        SimpleDateFormat HourFormat = new SimpleDateFormat("kk", Locale.getDefault());
+        SimpleDateFormat MinuteFormat = new SimpleDateFormat("mm", Locale.getDefault());
 
-            int pre_hour = Integer.parseInt(HourFormat.format(currentTime));
-            int pre_minute = Integer.parseInt(MinuteFormat.format(currentTime));
+        int pre_hour = Integer.parseInt(HourFormat.format(currentTime));
+        int pre_minute = Integer.parseInt(MinuteFormat.format(currentTime));
 
-            //sdk버전에 따라 다르게 해주기
-            //타임 피커에 시간 적용 시켜주기
-            if (Build.VERSION.SDK_INT >= 23) {
-                picker.setHour(pre_hour);
-                picker.setMinute(pre_minute);
-            }
-            else {
-                picker.setCurrentHour(pre_hour);
-                picker.setCurrentMinute(pre_minute);
-            }
-
-
-         }
+        //sdk버전에 따라 다르게 해주기
+        //타임 피커에 시간 적용 시켜주기
+        if (Build.VERSION.SDK_INT >= 23) {
+            picker.setHour(pre_hour);
+            picker.setMinute(pre_minute);
+        } else {
+            picker.setCurrentHour(pre_hour);
+            picker.setCurrentMinute(pre_minute);
+        }
+*/
 
 
 
-
-    /**
-
-    Button setting_alarm_button1 = findViewById(R.id.setting_alarm_button1);
+        Button setting_alarm_button1 = findViewById(R.id.setting_alarm_button1);
         setting_alarm_button1.setOnTouchListener((view, motionEvent) -> {
 
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP)
-            {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 setting_alarm_button1.setBackgroundResource(R.drawable.setting_alarm_button2);
                 Intent intent = new Intent(getApplicationContext(), setting_alarm.class);
                 startActivity(intent);
@@ -149,23 +143,21 @@ public class setting_alarm_time extends AppCompatActivity {
                 int hour, hour_24, minute;
                 String am_pm;
 
-                final TimePicker picker = (TimePicker)findViewById(R.id.timePicker);
+                final TimePicker picker = (TimePicker) findViewById(R.id.timePicker);
                 picker.setIs24HourView(true);
 
                 //버튼 클릭시 데이터 피커의 시간을 받아온다
                 if (Build.VERSION.SDK_INT >= 23) {
                     hour_24 = picker.getHour();
                     minute = picker.getMinute();
-                }
-                else {
+                } else {
                     hour_24 = picker.getCurrentHour();
                     minute = picker.getCurrentMinute();
                 }
                 if (hour_24 > 12) {
                     am_pm = "오후";
                     hour = hour_24 - 12;
-                }
-                else {
+                } else {
                     am_pm = "오전";
                     hour = hour_24;
                 }
@@ -188,7 +180,7 @@ public class setting_alarm_time extends AppCompatActivity {
 
                 //Preference에 설정한 값 저장
                 SharedPreferences.Editor editor = getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
-                editor.putLong("nextNotifyTime", (long)calendar.getTimeInMillis());
+                editor.putLong("nextNotifyTime", (long) calendar.getTimeInMillis());
                 editor.apply();
 
 
@@ -199,9 +191,8 @@ public class setting_alarm_time extends AppCompatActivity {
 
         });
 
-    }
-     */
 
+    }
 
 
     //알람설정
@@ -217,20 +208,15 @@ public class setting_alarm_time extends AppCompatActivity {
         //매일 울리기 위한 부분
         if (dailyNotify)
         {
-            if (alarmManager != null)
-            {
+            if (alarmManager != null) {
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-
-                }
+                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);}
             }
         }
 
     }
-
-
 
 
 }
