@@ -1,4 +1,4 @@
-/** 오류나서 주석처리 -다인
+//오류나서 주석처리 -다인
 
 package org.techtown.weartheweather;
 
@@ -26,4 +26,3 @@ public class SettingAlarmPlus {
     }
 }
 
-*/

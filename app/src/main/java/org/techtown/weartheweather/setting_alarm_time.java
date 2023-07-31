@@ -20,14 +20,12 @@ import android.widget.Toast;
 import android.view.MotionEvent;
 import android.widget.TimePicker;
 
-
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+
 
 public class setting_alarm_time extends AppCompatActivity {
 
@@ -91,7 +89,6 @@ public class setting_alarm_time extends AppCompatActivity {
 
 
 /**
-
         //------------알람설정
         final TimePicker picker = (TimePicker) findViewById(R.id.timePicker);
         picker.setIs24HourView(true);
