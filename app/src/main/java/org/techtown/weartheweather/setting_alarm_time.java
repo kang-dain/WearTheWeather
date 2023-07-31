@@ -12,12 +12,15 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.view.MotionEvent;
 import android.widget.TimePicker;
+
+
 
 
 import java.text.SimpleDateFormat;
@@ -30,6 +33,7 @@ public class setting_alarm_time extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_alarm_time);
 
@@ -84,15 +88,10 @@ public class setting_alarm_time extends AppCompatActivity {
             }
         });
 
-        /**
+
+
+
         //------------알람설정
-         Button setting_alarm_button1 = findViewById(R.id.setting_alarm_button1);
-         setting_alarm_button1.setOnTouchListener((view, motionEvent) -> {
-
-         if (motionEvent.getAction() == MotionEvent.ACTION_UP)
-         {
-             setting_alarm_button1.setBackgroundResource(R.drawable.setting_alarm_button2);
-
              final TimePicker picker = (TimePicker)findViewById(R.id.timePicker);
             picker.setIs24HourView(true);
 
@@ -107,8 +106,8 @@ public class setting_alarm_time extends AppCompatActivity {
             Date nextDate = nextNotifyTime.getTime();
 
             //토스트 메세지로 설정된 시간 알려주기
-            String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분 ", Locale.getDefault()).format(nextDate);
-            Toast.makeText(getApplicationContext(), "(첫 실행 때) 다음 알람은 " + date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
+            String date_text = new SimpleDateFormat("a hh시 mm분 ", Locale.getDefault()).format(nextDate);
+            Toast.makeText(getApplicationContext(), "다음 알람은 " + date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
 
             //이전 설정값으로 TimePicker 초기화
             Date currentTime = nextNotifyTime.getTime(); //현재시각 받기
@@ -129,23 +128,22 @@ public class setting_alarm_time extends AppCompatActivity {
                 picker.setCurrentMinute(pre_minute);
             }
 
-         }
-
-         return false;
-
-         });
 
          }
 
-         */
 
 
-        Button setting_alarm_button1 = findViewById(R.id.setting_alarm_button1);
+
+    /**
+
+    Button setting_alarm_button1 = findViewById(R.id.setting_alarm_button1);
         setting_alarm_button1.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP)
             {
                 setting_alarm_button1.setBackgroundResource(R.drawable.setting_alarm_button2);
+                Intent intent = new Intent(getApplicationContext(), setting_alarm.class);
+                startActivity(intent);
 
                 //-----------버튼 클릭 이벤트
                 int hour, hour_24, minute;
@@ -186,7 +184,7 @@ public class setting_alarm_time extends AppCompatActivity {
 
                 Date currentDateTime = calendar.getTime();
                 String date_text = new SimpleDateFormat("a hh시 mm분", Locale.getDefault()).format(currentDateTime);
-                Toast.makeText(getApplicationContext(), date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "다음 알람은 " + date_text + "으로 알람이 설정되었습니다.", Toast.LENGTH_SHORT).show();
 
                 //Preference에 설정한 값 저장
                 SharedPreferences.Editor editor = getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
@@ -202,6 +200,7 @@ public class setting_alarm_time extends AppCompatActivity {
         });
 
     }
+     */
 
 
 
