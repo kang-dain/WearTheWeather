@@ -364,4 +364,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_big_arrow_left"
         tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_tip"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

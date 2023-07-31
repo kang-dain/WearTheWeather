@@ -27,14 +27,25 @@ public class search_temperature extends AppCompatActivity {
             }
         });
 
-        ImageButton tipbutton1 = (ImageButton) findViewById(R.id.search_temperature_button);
-        tipbutton1.setOnClickListener(new View.OnClickListener() {
+        ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
+        search_temperature_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {/**
                 ImageView search_tip = (ImageView)findViewById(R.id.search_tip4);
                 search_tip.setVisibility(View.VISIBLE);*/
-                Intent intent = new Intent(getApplicationContext(), search_tip_temperature.class);
+                /**Intent intent = new Intent(getApplicationContext(), search_tip_temperature.class);
                 startActivity(intent);
+                 */
+                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
+                imageButton9.setVisibility(View.VISIBLE);
+            }
+        });
+        ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
+        imageButton9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
+                imageButton9.setVisibility(View.INVISIBLE);
             }
         });
 /**

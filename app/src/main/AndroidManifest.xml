@@ -94,7 +94,7 @@
             android:exported="true" />
         <activity
             android:name=".user_input_fashion"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".user_input_keyword"
             android:exported="true" />
