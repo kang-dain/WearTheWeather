@@ -14,18 +14,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class setting_alarm extends AppCompatActivity {
 
     //스위치버튼 상태 유지
-    private SettingAlarmPlus settingAlarmPlus;
+    private alarm_SettingAlarmPlus alarmSettingAlarmPlus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_alarm);
 
-        settingAlarmPlus = new SettingAlarmPlus(this);
+        alarmSettingAlarmPlus = new alarm_SettingAlarmPlus(this);
 
         Switch switch1 = findViewById(R.id.switch1);
         //스위치 상태 복원
-        switch1.setChecked(settingAlarmPlus.loadSwitchState());
+        switch1.setChecked(alarmSettingAlarmPlus.loadSwitchState());
 
         //스위치 버튼의 상태에 따라 초기 가시성 설정
         ImageView setting_alarm_2 = findViewById(R.id.setting_alarm_2);
@@ -45,7 +45,7 @@ public class setting_alarm extends AppCompatActivity {
                 if(isChecked){
 
                     //스위치가 ON인 상태
-                    settingAlarmPlus.saveSwitchState(true);
+                    alarmSettingAlarmPlus.saveSwitchState(true);
 
                     ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
                     setting_alarm_2.setVisibility(View.VISIBLE);
@@ -56,7 +56,7 @@ public class setting_alarm extends AppCompatActivity {
                 else{
 
                     //스위치가 OFF인 상태
-                    settingAlarmPlus.saveSwitchState(false);
+                    alarmSettingAlarmPlus.saveSwitchState(false);
 
                     ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
                     setting_alarm_2.setVisibility(View.INVISIBLE);
@@ -81,7 +81,8 @@ public class setting_alarm extends AppCompatActivity {
         setting_alarm_common_big_arrow__right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), setting_alarm_time.class);
+                //Intent intent = new Intent(getApplicationContext(), setting_alarm_time.class);
+                Intent intent = new Intent(getApplicationContext(), alarm_MainActivity.class);
                 startActivity(intent);
             }
         });

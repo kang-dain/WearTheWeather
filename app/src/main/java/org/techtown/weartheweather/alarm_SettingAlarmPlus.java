@@ -6,13 +6,13 @@ package org.techtown.weartheweather;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SettingAlarmPlus {
+public class alarm_SettingAlarmPlus {
     private static final String PREFS_NAME = "MyPrefs";
     private static final String SWITCH_STATE_KEY = "switchState";
 
     private final SharedPreferences preferences;
 
-    public SettingAlarmPlus(Context context) {
+    public alarm_SettingAlarmPlus(Context context) {
         preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
