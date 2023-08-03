@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,10 @@ public class user_input_fashion extends AppCompatActivity {
         Button user_input_fashion_button_2 = findViewById(R.id.user_input_fashion_button_2);
         Button user_input_fashion_button_3 = findViewById(R.id.user_input_fashion_button_3);
         Button user_input_fashion_button_4 = findViewById(R.id.user_input_fashion_button_4);
+        HorizontalScrollView outer = findViewById(R.id.outer);
+        HorizontalScrollView top = findViewById(R.id.top);
+        HorizontalScrollView pants = findViewById(R.id.pants);
+        HorizontalScrollView shoes = findViewById(R.id.shoes);
 
         user_input_fashion_button_1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -57,6 +62,10 @@ public class user_input_fashion extends AppCompatActivity {
                 user_input_fashion_button_2.setBackgroundResource(R.drawable.user_input_fashion_button_2);
                 user_input_fashion_button_3.setBackgroundResource(R.drawable.user_input_fashion_button_3);
                 user_input_fashion_button_4.setBackgroundResource(R.drawable.user_input_fashion_button_4);
+                outer.setVisibility(View.VISIBLE);
+                top.setVisibility(View.INVISIBLE);
+                pants.setVisibility(View.INVISIBLE);
+                shoes.setVisibility(View.INVISIBLE);
             }
             return false;
         });
@@ -66,6 +75,10 @@ public class user_input_fashion extends AppCompatActivity {
                 user_input_fashion_button_2.setBackgroundResource(R.drawable.user_input_fashion_button_2_blue);
                 user_input_fashion_button_3.setBackgroundResource(R.drawable.user_input_fashion_button_3);
                 user_input_fashion_button_4.setBackgroundResource(R.drawable.user_input_fashion_button_4);
+                top.setVisibility(View.VISIBLE);
+                outer.setVisibility(View.INVISIBLE);
+                pants.setVisibility(View.INVISIBLE);
+                shoes.setVisibility(View.INVISIBLE);
             }
             return false;
         });
@@ -75,6 +88,10 @@ public class user_input_fashion extends AppCompatActivity {
                 user_input_fashion_button_2.setBackgroundResource(R.drawable.user_input_fashion_button_2);
                 user_input_fashion_button_3.setBackgroundResource(R.drawable.user_input_fashion_button_3_blue);
                 user_input_fashion_button_4.setBackgroundResource(R.drawable.user_input_fashion_button_4);
+                pants.setVisibility(View.VISIBLE);
+                outer.setVisibility(View.INVISIBLE);
+                top.setVisibility(View.INVISIBLE);
+                shoes.setVisibility(View.INVISIBLE);
             }
             return false;
         });
@@ -84,6 +101,10 @@ public class user_input_fashion extends AppCompatActivity {
                 user_input_fashion_button_2.setBackgroundResource(R.drawable.user_input_fashion_button_2);
                 user_input_fashion_button_3.setBackgroundResource(R.drawable.user_input_fashion_button_3);
                 user_input_fashion_button_4.setBackgroundResource(R.drawable.user_input_fashion_button_4_blue);
+                shoes.setVisibility(View.VISIBLE);
+                outer.setVisibility(View.INVISIBLE);
+                top.setVisibility(View.INVISIBLE);
+                pants.setVisibility(View.INVISIBLE);
             }
             return false;
         });
