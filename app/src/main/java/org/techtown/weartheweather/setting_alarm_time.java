@@ -215,5 +215,4 @@ public class setting_alarm_time extends AppCompatActivity {
 
     }
 
-
 }

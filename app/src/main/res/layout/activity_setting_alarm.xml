@@ -43,17 +43,37 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,UseSwitchCompatOrMaterialXml" />
 
-    <ImageView
-        android:id="@+id/setting_alarm_2"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="165dp"
-        android:visibility="invisible"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/setting_alarm_2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="알람 시간 설정"
+            android:textColor="#75A3E9"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+            -->
+
+        <ImageView
+            android:id="@+id/setting_alarm_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/setting_alarm_2"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    </LinearLayout>
+
 
     <ImageButton
         android:id="@+id/setting_alarm_common_big_arrow__right"
