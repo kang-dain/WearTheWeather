@@ -299,7 +299,7 @@ public class user_input_fashion extends AppCompatActivity {
             }
             return false;
         });
-        slacks.setOnTouchListener((view,motionEvent)-> {
+        boots.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 boots.setText("selected");
                 sneakers.setText("");
@@ -307,7 +307,7 @@ public class user_input_fashion extends AppCompatActivity {
             }
             return false;
         });
-        slacks.setOnTouchListener((view,motionEvent)-> {
+        sneakers.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 boots.setText("");
                 sneakers.setText("selected");
@@ -315,7 +315,7 @@ public class user_input_fashion extends AppCompatActivity {
             }
             return false;
         });
-        slacks.setOnTouchListener((view,motionEvent)-> {
+        sandals.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 boots.setText("");
                 sneakers.setText("");
