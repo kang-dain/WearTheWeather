@@ -14,14 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class setting_alarm extends AppCompatActivity {
 
     //스위치버튼 상태 유지
-    private alarm_SettingAlarmPlus alarmSettingAlarmPlus;
+    private SettingAlarmPlus alarmSettingAlarmPlus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_alarm);
 
-        alarmSettingAlarmPlus = new alarm_SettingAlarmPlus(this);
+        alarmSettingAlarmPlus = new SettingAlarmPlus(this);
 
         Switch switch1 = findViewById(R.id.switch1);
         //스위치 상태 복원
@@ -82,7 +82,7 @@ public class setting_alarm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(getApplicationContext(), setting_alarm_time.class);
-                Intent intent = new Intent(getApplicationContext(), alarm_MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), alarmMainActivity.class);
                 startActivity(intent);
             }
         });

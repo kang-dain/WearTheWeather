@@ -2,8 +2,6 @@ package org.techtown.weartheweather;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-
-import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -18,18 +16,17 @@ import android.widget.TimePicker;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class alarm_MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+public class alarmMainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     public static final String TAG = "MAIN";
 
     private TextView time_text;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedinstanceState) {
 
         super.onCreate(savedinstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_alarm_main);
 
         time_text = findViewById(R.id.time_btn);
         Button time_btn = findViewById(R.id.time_btn);
@@ -38,7 +35,7 @@ public class alarm_MainActivity extends AppCompatActivity implements TimePickerD
         time_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment timePicker = new alarm_TimePickerFragment();
+                DialogFragment timePicker = new TimePickerFragment();
                 timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
@@ -88,7 +85,7 @@ public class alarm_MainActivity extends AppCompatActivity implements TimePickerD
     private void startAlarm(Calendar c) {
         Log.d(TAG, "## startAlarm ##");
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, alarm_AlertReceiver.class);
+        Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT); //약간 수정
 
         if(c.before(Calendar.getInstance())) {
@@ -104,7 +101,7 @@ public class alarm_MainActivity extends AppCompatActivity implements TimePickerD
     private void cancelAlarm() {
         Log.d(TAG, "## cancelAlarm ##");
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, alarm_AlertReceiver.class);
+        Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT); //약간 수정
 
         alarmManager.cancel(pendingIntent);

@@ -10,14 +10,14 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-public class alarm_NotificationHelper extends ContextWrapper {
+public class NotificationHelper extends ContextWrapper {
 
     public static final String channelID = "channelID";
     public static final String channelNm = "channelNm";
 
     private NotificationManager notiManager;
 
-    public alarm_NotificationHelper(Context base) {
+    public NotificationHelper(Context base) {
         super(base);
 
         //안드로이드 버전이 오레오거나 이상이면 채널생성
@@ -53,3 +53,4 @@ public class alarm_NotificationHelper extends ContextWrapper {
                 .setSmallIcon(R.drawable.ic_launcher_background);
     }
 }
+

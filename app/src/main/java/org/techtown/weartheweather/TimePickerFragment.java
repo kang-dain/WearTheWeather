@@ -7,7 +7,7 @@ import android.text.format.DateFormat;
 import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
-public class alarm_TimePickerFragment extends DialogFragment {
+public class TimePickerFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
