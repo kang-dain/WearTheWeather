@@ -57,9 +57,6 @@
             android:name=".calender_daily"
             android:exported="true" />
         <activity
-            android:name=".calender_month"
-            android:exported="true" />
-        <activity
             android:name=".complete"
             android:exported="true" />
         <activity

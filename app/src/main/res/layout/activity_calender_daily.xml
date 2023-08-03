@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_light"
     tools:context=".calender_daily">
 
     <ImageButton
@@ -184,6 +183,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/calender_daily_button3"
-        tools:visibility="invisible"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

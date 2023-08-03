@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".terms_of_use"
-    android:background="@drawable/background_light">
+    tools:context=".terms_of_use">
 
     <ImageButton
         android:id="@+id/terms_of_use_button1"

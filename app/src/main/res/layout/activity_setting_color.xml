@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_light"
     tools:context=".setting_color">
 
     <ImageButton
@@ -48,15 +47,17 @@
             android:id="@+id/radioLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="50"
             android:text="      라이트 모드"
-            android:layout_weight="50" />
+            tools:ignore="TextSizeCheck" />
 
         <RadioButton
             android:id="@+id/radioDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="50"
             android:text="      다크 모드"
-            android:layout_weight="50" />
+            tools:ignore="TextSizeCheck" />
 
     </RadioGroup>
 
@@ -124,4 +125,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

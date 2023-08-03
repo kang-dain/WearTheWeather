@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_light"
     tools:context=".setting_nickname">
 
     <ImageView
@@ -12,12 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/setting_nickname_1"
-        tools:ignore="ImageContrastCheck"
-        android:importantForAccessibility="no" />
+        tools:ignore="ImageContrastCheck" />
 
     <EditText
         android:id="@+id/setting_nickname"

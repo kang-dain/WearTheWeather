@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="00800dp"
-    android:background="@drawable/background_light"
     tools:context=".search_temperature">
 
     <ImageButton
