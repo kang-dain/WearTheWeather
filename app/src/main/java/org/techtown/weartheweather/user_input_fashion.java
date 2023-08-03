@@ -63,6 +63,10 @@ public class user_input_fashion extends AppCompatActivity {
         Button jumper = findViewById(R.id.jumper);
         Button zipup = findViewById(R.id.zipup);
         Button cardigon = findViewById(R.id.cardigon);
+        ImageView input_outer = findViewById(R.id.input_outer);
+        ImageView input_top = findViewById(R.id.input_top);
+        ImageView input_pants = findViewById(R.id.intput_pants);
+        ImageView input_shoes = findViewById(R.id.input_shoes);
 
         user_input_fashion_button_1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -79,6 +83,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         coat.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_outer.setBackgroundResource(R.mipmap.coat_foreground);
                 coat.setText("selected");
                 padding.setText("");
                 jumper.setText("");
@@ -88,6 +93,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         padding.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_outer.setBackgroundResource(R.mipmap.padding_foreground);
                 coat.setText("");
                 padding.setText("selected");
                 jumper.setText("");
@@ -97,6 +103,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         jumper.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_outer.setBackgroundResource(R.mipmap.jumper_foreground);
                 coat.setText("");
                 padding.setText("");
                 jumper.setText("selected");
@@ -106,6 +113,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         zipup.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_outer.setBackgroundResource(R.mipmap.zipup_foreground);
                 coat.setText("");
                 padding.setText("");
                 jumper.setText("");
@@ -115,6 +123,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         cardigon.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_outer.setBackgroundResource(R.mipmap.cardigon_foreground);
                 cardigon.setText("selected");
                 coat.setText("");
                 padding.setText("");
@@ -141,6 +150,7 @@ public class user_input_fashion extends AppCompatActivity {
         Button tshirt = findViewById(R.id.tshirt);
         hood.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_top.setBackgroundResource(R.mipmap.hood_foreground);
                 hood.setText("selected");
                 mantoman.setText("");
                 knit.setText("");
@@ -150,6 +160,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         mantoman.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_top.setBackgroundResource(R.mipmap.mantoman_foreground);
                 hood.setText("");
                 mantoman.setText("selected");
                 knit.setText("");
@@ -159,6 +170,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         knit.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_top.setBackgroundResource(R.mipmap.knit_foreground);
                 hood.setText("");
                 mantoman.setText("");
                 knit.setText("selected");
@@ -168,6 +180,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         tshirt.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_top.setBackgroundResource(R.mipmap.tshirts_foreground);
                 hood.setText("");
                 mantoman.setText("");
                 knit.setText("");
@@ -198,6 +211,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         shortskirt.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.shortskirt_foreground);
                 shortskirt.setText("selected");
                 longskirt.setText("");
                 longpants1.setText("");
@@ -210,6 +224,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         longskirt.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.longskirt_foreground);
                 shortskirt.setText("");
                 longskirt.setText("selected");
                 longpants1.setText("");
@@ -222,6 +237,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         longpants1.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.longpants_training_foreground);
                 shortskirt.setText("");
                 longskirt.setText("");
                 longpants1.setText("selected");
@@ -234,6 +250,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         longpants2.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.longpants_blue_foreground);
                 shortskirt.setText("");
                 longskirt.setText("");
                 longpants1.setText("");
@@ -246,6 +263,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         shortpants.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.shortpants_training_foreground);
                 shortskirt.setText("");
                 longskirt.setText("");
                 longpants1.setText("");
@@ -258,6 +276,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         shortpants2.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.shortpants_blue_foreground);
                 shortskirt.setText("");
                 longskirt.setText("");
                 longpants1.setText("");
@@ -270,6 +289,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         slacks.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_pants.setBackgroundResource(R.mipmap.longpants_slacks_foreground);
                 shortskirt.setText("");
                 longskirt.setText("");
                 longpants1.setText("");
@@ -301,6 +321,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         boots.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_shoes.setBackgroundResource(R.mipmap.boots_foreground);
                 boots.setText("selected");
                 sneakers.setText("");
                 sandals.setText("");
@@ -309,6 +330,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         sneakers.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_shoes.setBackgroundResource(R.mipmap.sneakers_foreground);
                 boots.setText("");
                 sneakers.setText("selected");
                 sandals.setText("");
@@ -317,6 +339,7 @@ public class user_input_fashion extends AppCompatActivity {
         });
         sandals.setOnTouchListener((view,motionEvent)-> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                input_shoes.setBackgroundResource(R.mipmap.sandles_foreground);
                 boots.setText("");
                 sneakers.setText("");
                 sandals.setText("selected");

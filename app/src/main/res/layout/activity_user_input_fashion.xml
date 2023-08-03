@@ -80,6 +80,7 @@
                     android:id="@+id/input_outer"
                     android:layout_width="270dp"
                     android:layout_height="270dp"
+                    android:layout_marginStart="15dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="ContentDescription,ImageContrastCheck" />
@@ -111,7 +112,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="40dp"
-                    android:layout_marginTop="320dp"
+                    android:layout_marginTop="300dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
