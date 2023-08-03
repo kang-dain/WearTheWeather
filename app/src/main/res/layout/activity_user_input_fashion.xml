@@ -82,7 +82,7 @@
                     android:layout_height="270dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
 
                 <ImageView
                     android:id="@+id/input_top"
@@ -104,7 +104,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
 
                 <ImageView
                     android:id="@+id/input_shoes"
@@ -307,7 +307,7 @@
                         android:id="@+id/shortpants"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/shortpants_blue_foreground"
+                        android:background="@mipmap/shortpants_training_foreground"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <android.widget.Button
@@ -366,7 +366,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@mipmap/sandles_foreground" />
+                        android:background="@mipmap/sandles_foreground"
+                        tools:ignore="InefficientWeight" />
 
                     <android.widget.Button
                         android:id="@+id/boots"
