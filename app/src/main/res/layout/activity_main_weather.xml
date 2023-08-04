@@ -16,11 +16,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/main_weather_button1"
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
+                app:layout_constraintTop_toTopOf="@+id/main_weather_1" />
 
             <ImageView
                 android:id="@+id/main_weather_1"
@@ -46,15 +55,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_weather_button1"
                 tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/weather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_weather_button1"
-                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
-                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
-                app:layout_constraintTop_toTopOf="@+id/main_weather_1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

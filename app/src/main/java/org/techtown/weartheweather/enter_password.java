@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 
 
 public class enter_password extends Activity {
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,4 +42,6 @@ public class enter_password extends Activity {
             return false;
         });
     }
+
+
 }
