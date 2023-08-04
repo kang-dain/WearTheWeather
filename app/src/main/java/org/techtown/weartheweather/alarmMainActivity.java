@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import java.text.DateFormat;
@@ -48,6 +49,16 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
                 cancelAlarm();
             }
         });
+
+        ImageButton alarm_main_backbutton = (ImageButton) findViewById(R.id.alarm_main_backbutton);
+        alarm_main_backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), setting_alarm.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

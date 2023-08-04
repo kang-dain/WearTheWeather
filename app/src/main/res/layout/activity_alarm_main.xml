@@ -13,11 +13,21 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="#75A3E9"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
         android:text="푸쉬 알림 설정"
-        android:textSize="30dp">
-
+        android:textSize="25dp">
     </TextView>
+
+    <ImageView
+        android:id="@+id/alarm_main_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="166dp"
+        app:srcCompat="@drawable/alarm_main_e"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <Button
         android:id="@+id/time_btn"
@@ -25,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_text"
         android:layout_centerHorizontal="true"
-        android:text="시간 지정">
+        android:text="시간 지정"
+        android:textColor="@color/SKY">
     </Button>
 
     <Button
@@ -34,7 +45,32 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_btn"
         android:layout_centerHorizontal="true"
-        android:text="알람 취소">
+        android:text="알람 취소"
+        android:textColor="@color/SKY">
     </Button>
+
+    <ImageButton
+        android:id="@+id/alarm_main_backbutton"
+        android:layout_width="33dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_backbutton"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/alarm_main_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/alarm_main_bar"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
 </RelativeLayout>
