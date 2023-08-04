@@ -3,8 +3,6 @@ package org.techtown.weartheweather;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +16,47 @@ public class recommended_music extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommended_music);
 
-        WebView webView = findViewById(R.id.webview_1);
-        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/w9TON4IwR2w\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
-        webView.loadData(video, "text/html", "utf-8");
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebChromeClient(new WebChromeClient());
+
+        //맑음 버튼
+        ImageButton recommended_sunny = (ImageButton) findViewById(R.id.recommended_sunny);
+        recommended_sunny.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music_sunny.class);
+                startActivity(intent);
+            }
+        });
+
+        //흐림 버튼
+        ImageButton recommended_cloudy = (ImageButton) findViewById(R.id.recommended_cloudy);
+        recommended_cloudy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music_cloudy.class);
+                startActivity(intent);
+            }
+        });
+
+        //비 버튼
+        ImageButton recommended_rainy = (ImageButton) findViewById(R.id.recommended_rainy);
+        recommended_rainy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music_rainy.class);
+                startActivity(intent);
+            }
+        });
+
+        //눈 버튼
+        ImageButton recommended_snowy = (ImageButton) findViewById(R.id.recommended_snowy);
+        recommended_snowy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), recommended_music_snowy.class);
+                startActivity(intent);
+            }
+        });
+
 
         ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
         imageButton5.setOnClickListener(new View.OnClickListener() {

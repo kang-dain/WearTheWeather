@@ -17,12 +17,6 @@ public class main_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login);
 
-        ImageButton main_backbutton = (ImageButton) findViewById(R.id.main_login_common_backbutton);
-        main_backbutton.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), main.class);
-            startActivity(intent);
-        });
-
         ImageButton find_password_button = (ImageButton) findViewById(R.id.main_login_button2);
         find_password_button.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), find_password.class);

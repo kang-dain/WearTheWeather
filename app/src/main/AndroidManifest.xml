@@ -118,6 +118,18 @@
             android:name=".alarmMainActivity"
             android:exported="true"/>
         <activity
+            android:name=".recommended_music_cloudy"
+            android:exported="true"/>
+        <activity
+            android:name=".recommended_music_rainy"
+            android:exported="true"/>
+        <activity
+            android:name=".recommended_music_snowy"
+            android:exported="true"/>
+        <activity
+            android:name=".recommended_music_sunny"
+            android:exported="true"/>
+        <activity
             android:name=".main"
             android:exported="true">
             <intent-filter>
