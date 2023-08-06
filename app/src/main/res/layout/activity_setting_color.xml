@@ -37,7 +37,7 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="272dp"
+        android:layout_height="410dp"
         android:layout_marginStart="309dp"
         android:layout_marginTop="191dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +57,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="      다크 모드"
+            tools:ignore="TextSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/radioDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="      기본 모드"
             tools:ignore="TextSizeCheck" />
 
     </RadioGroup>

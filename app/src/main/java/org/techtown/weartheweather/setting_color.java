@@ -1,5 +1,6 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,20 +23,17 @@ public class setting_color extends AppCompatActivity {
          RadioGroup radioGroup = findViewById(R.id.radioGroup);
 
          // 라디오 버튼 클릭 이벤트 처리
-         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-        // 선택된 라디오 버튼 찾기
-        RadioButton radioButton = findViewById(checkedId);
+         radioGroup.setOnCheckedChangeListener((radioGroup1, checkedId) -> {
+         // 선택된 라디오 버튼 찾기
+         RadioButton radioButton = findViewById(checkedId);
 
-        // 선택된 라디오 버튼의 텍스트 가져오기
-        String selectedColor = radioButton.getText().toString();
+         // 선택된 라디오 버튼의 텍스트 가져오기
+         String selectedColor = radioButton.getText().toString();
 
-        // 토스트 메시지로 선택된 색상 알림
-        String message = "변경된 모드:" + selectedColor;
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-        }
-        });
+         // 토스트 메시지로 선택된 색상 알림
+         String message = "변경된 모드:" + selectedColor;
+         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+         });
 
         RadioGroup radioMode = findViewById(R.id.radioGroup);
         radioMode.setOnCheckedChangeListener((group, checkedId) -> {
@@ -43,13 +41,13 @@ public class setting_color extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             } else if (checkedId == R.id.radioDark) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } /**else if (checkedId == R.id.rbDefault) {
+            } else if (checkedId == R.id.radioDefault) {
              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
              } else {
              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
              }
-             }*/
+             }
         });
 
         ImageButton setting_common_backbutton5 = (ImageButton) findViewById(R.id.setting_common_backbutton5);
