@@ -117,6 +117,9 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         });
 
 
+
+
+
         //날씨 버튼 4개를 눌렀을 때 코드 모음
 
         user_input_suggestion_button1 = findViewById(R.id.user_input_suggestion_button1);
