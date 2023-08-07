@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class search_month extends AppCompatActivity {
     long delay = 0;
+    int count1,count2,count3,count4,count5,count6,count7,count8,count9,count10,count11,count12;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +46,6 @@ public class search_month extends AppCompatActivity {
         search_temperature_button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /**ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
-                search_tip.setVisibility(View.VISIBLE);
-*/
-               /** Intent intent = new Intent(getApplicationContext(), search_tip.class);
-                startActivity(intent);
-                */
                 ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
                 imageButton.setVisibility(View.VISIBLE);
             }
@@ -63,17 +58,6 @@ public class search_month extends AppCompatActivity {
             imageButton.setVisibility(View.INVISIBLE);
             }
         });
-/**
-        ImageView closetipbutton2 = (ImageView) findViewById(R.id.search_tip2);
-        closetipbutton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageView search_tip = (ImageView)findViewById(R.id.search_tip2);
-                search_tip.setVisibility(View.INVISIBLE);
-
-            }
-        });
-*/
 
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button13.setOnClickListener(new View.OnClickListener() {
@@ -83,22 +67,34 @@ public class search_month extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //1-12월
         Button button1 = findViewById(R.id.button1);
+        Button button2 = findViewById(R.id.button2);
+        Button button3 = findViewById(R.id.button3);
+        Button button4 = findViewById(R.id.button4);
+        Button button5 = findViewById(R.id.button5);
+        Button button6 = findViewById(R.id.button6);
+        Button button7 = findViewById(R.id.button7);
+        Button button8 = findViewById(R.id.button8);
+        Button button9 = findViewById(R.id.button9);
+        Button button10 = findViewById(R.id.button10);
+        Button button11= findViewById(R.id.button11);
+        Button button12 = findViewById(R.id.button12);
+
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
             if (System.currentTimeMillis() > delay){
+                // 한 번 클릭
                 delay=System.currentTimeMillis()+200;
                 button1.setTextColor(Color.parseColor("#75a3e9"));
                 return;
             }
             if (System.currentTimeMillis() <= delay){
+                // 두 번 연속 클릭
                 button1.setTextColor(Color.parseColor("#ffffff"));
                 }
             }
         });
-
-        Button button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -111,8 +107,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -125,8 +119,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button4 = findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -139,8 +131,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button5 = findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -153,8 +143,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button6 = findViewById(R.id.button6);
         button6.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -167,8 +155,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button7 = findViewById(R.id.button7);
         button7.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -181,8 +167,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button8 = findViewById(R.id.button8);
         button8.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -195,8 +179,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button9 = findViewById(R.id.button9);
         button9.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -209,8 +191,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button10 = findViewById(R.id.button10);
         button10.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -223,8 +203,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button11 = findViewById(R.id.button11);
         button11.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
@@ -237,8 +215,6 @@ public class search_month extends AppCompatActivity {
                 }
             }
         });
-
-        Button button12 = findViewById(R.id.button12);
         button12.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
