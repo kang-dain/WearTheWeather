@@ -65,7 +65,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="      기본 모드"
-            tools:ignore="TextSizeCheck" />
+            android:visibility="invisible"
+            tools:ignore="TextSizeCheck"
+            tools:visibility="visible" />
 
     </RadioGroup>
 
