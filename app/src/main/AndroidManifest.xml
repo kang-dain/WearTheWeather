@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- 인터넷 권한 설정   -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 인터넷 연결 확인-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 권한 추가 -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- 위치 관련 권한 추가-->
+    xmlns:tools="http://schemas.android.com/tools" >
+    <!-- 인터넷 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 권한 추가 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- 위치 관련 권한 추가 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Required only when requesting background location access on
-      Android 10 (API level 29) and higher. -->
+    <!--
+ Required only when requesting background location access on
+      Android 10 (API level 29) and higher.
+    -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -28,8 +24,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WearTheWeather"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
-
+        tools:targetApi="31" >
+        <activity
+            android:name=".user_input_suggestion_key"
+            android:exported="false" />
         <activity
             android:name=".calender"
             android:exported="true" />
@@ -116,32 +114,29 @@
             android:exported="true" />
         <activity
             android:name=".alarmMainActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".recommended_music_cloudy"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".recommended_music_rainy"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".recommended_music_snowy"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".recommended_music_sunny"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".main"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 알람 설정: 삭제하면 알림이 안떠요! -->
-        <receiver android:name=".AlertReceiver"/>
-
+        </activity> <!-- 알람 설정: 삭제하면 알림이 안떠요! -->
+        <receiver android:name=".AlertReceiver" />
     </application>
 
 </manifest>
