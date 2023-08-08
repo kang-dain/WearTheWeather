@@ -4,17 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class menu extends AppCompatActivity {
-
+    private String strNick,strEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+    //카카오 로그인
+        Intent intent=getIntent();
+        strNick=intent.getStringExtra("name");
+        strEmail=intent.getStringExtra("email");
 
+        TextView tv_nick=findViewById(R.id.tv_nickname);
+        TextView tv_email=findViewById(R.id.tv_email);
 
+        //닉네임 셋
+        tv_nick.setText(strNick);
+        //이메일 셋
+        tv_email.setText(strEmail);
 
 
         ImageButton menu_button1 = (ImageButton) findViewById(R.id.menu_button1);
