@@ -98,10 +98,13 @@ public class main_login extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(MeV2Response result) { //로그인 성공
-                        Intent intent = new Intent(main_login.this,menu.class);
-                        intent.putExtra("Nickname", result.getKakaoAccount().getProfile().getNickname());
-                        intent.putExtra("email", result.getKakaoAccount().getEmail());
-                        startActivity(intent);
+                        /**
+                         Intent intent = new Intent(main_login.this,menu.class);
+                         intent.putExtra("Nickname", result.getKakaoAccount().getProfile().getNickname());
+                         intent.putExtra("email", result.getKakaoAccount().getEmail());
+                         */
+                        Intent intent_main_weather = new Intent(main_login.this, main_weather.class);
+                        startActivity(intent_main_weather);
                         Toast.makeText(main_login.this, "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
                     }

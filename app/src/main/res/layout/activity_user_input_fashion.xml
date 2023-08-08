@@ -397,51 +397,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_input_fashion_4"
                 tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,VisualLintBounds" />
 
-            <android.widget.Button
-                android:id="@+id/bg1"
-                android:layout_width="57dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="39dp"
-                android:background="@drawable/user_input_fashion_button_6"
-                app:layout_constraintBottom_toTopOf="@+id/user_input_fashion_3"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <android.widget.Button
-                android:id="@+id/bg2"
-                android:layout_width="57dp"
-                android:layout_height="25dp"
-                android:background="@drawable/user_input_fashion_button_7"
-                app:layout_constraintBottom_toTopOf="@+id/user_input_fashion_3"
-                app:layout_constraintStart_toEndOf="@+id/bg1"
-                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-            <android.widget.Button
-                android:id="@+id/bg3"
-                android:layout_width="57dp"
-                android:layout_height="25dp"
-                android:background="@drawable/user_input_fashion_button_8"
-                app:layout_constraintBottom_toTopOf="@+id/user_input_fashion_3"
-                app:layout_constraintStart_toEndOf="@+id/bg2"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <android.widget.Button
-                android:id="@+id/bg4"
-                android:layout_width="57dp"
-                android:layout_height="25dp"
-                android:background="@drawable/user_input_fashion_button_9"
-                app:layout_constraintBottom_toTopOf="@+id/user_input_fashion_3"
-                app:layout_constraintStart_toEndOf="@+id/bg3"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <android.widget.Button
-                android:id="@+id/bg5"
-                android:layout_width="57dp"
-                android:layout_height="25dp"
-                android:background="@drawable/user_input_fashion_button_10"
-                app:layout_constraintBottom_toTopOf="@+id/user_input_fashion_3"
-                app:layout_constraintStart_toEndOf="@+id/bg4"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

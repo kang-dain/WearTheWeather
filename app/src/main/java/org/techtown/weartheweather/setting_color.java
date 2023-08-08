@@ -32,7 +32,7 @@ public class setting_color extends AppCompatActivity {
              }
              }
         });
-
+/**
         // 라디오 그룹 찾기
         // 라디오 버튼 클릭 이벤트 처리
         radioGroup.setOnCheckedChangeListener((radioGroup1, checkedId) -> {
@@ -46,7 +46,7 @@ public class setting_color extends AppCompatActivity {
             String message = "변경된 모드:" + selectedColor;
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         });
-
+*/
         ImageButton setting_common_backbutton5 = (ImageButton) findViewById(R.id.setting_common_backbutton5);
         setting_common_backbutton5.setOnClickListener(new View.OnClickListener() {
             @Override

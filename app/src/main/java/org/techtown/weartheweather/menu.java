@@ -14,6 +14,7 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     //카카오 로그인
+        /**
         Intent intent=getIntent();
         strNick=intent.getStringExtra("name");
         strEmail=intent.getStringExtra("email");
@@ -25,7 +26,7 @@ public class menu extends AppCompatActivity {
         tv_nick.setText(strNick);
         //이메일 셋
         tv_email.setText(strEmail);
-
+*/
 
         ImageButton menu_button1 = (ImageButton) findViewById(R.id.menu_button1);
         menu_button1.setOnClickListener(new View.OnClickListener() {

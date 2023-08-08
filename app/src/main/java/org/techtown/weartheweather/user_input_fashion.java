@@ -44,62 +44,6 @@ public class user_input_fashion extends AppCompatActivity {
 
         ImageView user_input_fashion_3 = (ImageView) findViewById(R.id.user_input_fashion_3);
 
-        Button bg1 = (Button) findViewById(R.id.bg1);
-        Button bg2 = (Button) findViewById(R.id.bg2);
-        Button bg3 = (Button) findViewById(R.id.bg3);
-        Button bg4 = (Button) findViewById(R.id.bg4);
-        Button bg5 = (Button) findViewById(R.id.bg5);
-        bg1.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                bg1.setBackgroundResource(R.drawable.user_input_fashion_button_6_blue);
-                bg2.setBackgroundResource(R.drawable.user_input_fashion_button_7);
-                bg3.setBackgroundResource(R.drawable.user_input_fashion_button_8);
-                bg4.setBackgroundResource(R.drawable.user_input_fashion_button_9);
-                bg5.setBackgroundResource(R.drawable.user_input_fashion_button_10);
-                user_input_fashion_3.setBackgroundResource(R.drawable.user_input_fashion_3);
-            }
-            return false;
-        });
-        bg2.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                bg1.setBackgroundResource(R.drawable.user_input_fashion_button_6);
-                bg2.setBackgroundResource(R.drawable.user_input_fashion_button_7_blue);
-                bg3.setBackgroundResource(R.drawable.user_input_fashion_button_8);
-                bg4.setBackgroundResource(R.drawable.user_input_fashion_button_9);
-                bg5.setBackgroundResource(R.drawable.user_input_fashion_button_10);
-            }
-            return false;
-        });
-        bg3.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                bg1.setBackgroundResource(R.drawable.user_input_fashion_button_6);
-                bg2.setBackgroundResource(R.drawable.user_input_fashion_button_7);
-                bg3.setBackgroundResource(R.drawable.user_input_fashion_button_8_blue);
-                bg4.setBackgroundResource(R.drawable.user_input_fashion_button_9);
-                bg5.setBackgroundResource(R.drawable.user_input_fashion_button_10);
-            }
-            return false;
-        });
-        bg4.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                bg1.setBackgroundResource(R.drawable.user_input_fashion_button_6);
-                bg2.setBackgroundResource(R.drawable.user_input_fashion_button_7);
-                bg3.setBackgroundResource(R.drawable.user_input_fashion_button_8);
-                bg4.setBackgroundResource(R.drawable.user_input_fashion_button_9_blue);
-                bg5.setBackgroundResource(R.drawable.user_input_fashion_button_10);
-            }
-            return false;
-        });
-        bg5.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                bg1.setBackgroundResource(R.drawable.user_input_fashion_button_6);
-                bg2.setBackgroundResource(R.drawable.user_input_fashion_button_7);
-                bg3.setBackgroundResource(R.drawable.user_input_fashion_button_8);
-                bg4.setBackgroundResource(R.drawable.user_input_fashion_button_9);
-                bg5.setBackgroundResource(R.drawable.user_input_fashion_button_10_blue);
-            }
-            return false;
-        });
 
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
         user_input_fashion_button_5.setOnTouchListener((view, motionEvent) -> {
