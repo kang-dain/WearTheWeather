@@ -86,7 +86,7 @@ public class search_month extends AppCompatActivity {
             if (System.currentTimeMillis() > delay){
                 // 한 번 클릭
                 delay=System.currentTimeMillis()+200;
-                button1.setTextColor(Color.parseColor("#75a3e9"));
+                button1.setTextColor(Color.parseColor("#6094E3"));
                 return;
             }
             if (System.currentTimeMillis() <= delay){
@@ -99,7 +99,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button2.setTextColor(Color.parseColor("#75a3e9"));
+                    button2.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -111,7 +111,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button3.setTextColor(Color.parseColor("#75a3e9"));
+                    button3.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -123,7 +123,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button4.setTextColor(Color.parseColor("#75a3e9"));
+                    button4.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -135,7 +135,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button5.setTextColor(Color.parseColor("#75a3e9"));
+                    button5.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -147,7 +147,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button6.setTextColor(Color.parseColor("#75a3e9"));
+                    button6.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -159,7 +159,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button7.setTextColor(Color.parseColor("#75a3e9"));
+                    button7.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -171,7 +171,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button8.setTextColor(Color.parseColor("#75a3e9"));
+                    button8.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -183,7 +183,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button9.setTextColor(Color.parseColor("#75a3e9"));
+                    button9.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -195,7 +195,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button10.setTextColor(Color.parseColor("#75a3e9"));
+                    button10.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -207,7 +207,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button11.setTextColor(Color.parseColor("#75a3e9"));
+                    button11.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
@@ -219,7 +219,7 @@ public class search_month extends AppCompatActivity {
             public void onClick(View v){
                 if (System.currentTimeMillis() > delay){
                     delay=System.currentTimeMillis()+200;
-                    button12.setTextColor(Color.parseColor("#75a3e9"));
+                    button12.setTextColor(Color.parseColor("#6094E3"));
                     return;
                 }
                 if (System.currentTimeMillis() <= delay){
