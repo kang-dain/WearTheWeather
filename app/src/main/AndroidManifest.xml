@@ -50,9 +50,6 @@
             android:name=".setting_color"
             android:exported="true" />
         <activity
-            android:name=".setting_email"
-            android:exported="true" />
-        <activity
             android:name=".calender_daily"
             android:exported="true" />
         <activity

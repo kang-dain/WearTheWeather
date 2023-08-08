@@ -7,35 +7,41 @@
     android:orientation="vertical"
     tools:context=".main_login">
 
-    <ImageView
+    <TextView
         android:id="@+id/main_login_1"
         android:layout_width="78dp"
         android:layout_height="34dp"
         android:layout_gravity="center"
         android:layout_marginTop="33dp"
+        android:text="로그인"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.002"
-        app:srcCompat="@drawable/main_login_1"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,TextContrastCheck" />
 
-    <ImageView
+    <TextView
         android:id="@+id/main_login_2"
         android:layout_width="50dp"
         android:layout_height="22dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="100dp"
+        android:text="이메일"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/main_login_2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,TextContrastCheck" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -73,12 +79,16 @@
 
     </FrameLayout>
 
-    <ImageView
+    <TextView
         android:id="@+id/main_login_3"
         android:layout_width="72dp"
         android:layout_height="22dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="25dp"
+        android:text="비밀번호"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
@@ -86,7 +96,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/main_login_3"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,TextContrastCheck" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -209,7 +219,8 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

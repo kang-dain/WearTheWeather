@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".setting_alarm">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="푸쉬알림 받기"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="푸쉬알림 설정"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/setting_common_backbutton6"
         android:layout_width="33dp"
@@ -70,7 +95,17 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"
             app:srcCompat="@drawable/setting_alarm_2"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
+            tools:ignore="ContentDescription,ImageContrastCheck"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/setting_alarm_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/setting_alarm_2"
+            tools:ignore="ContentDescription,ImageContrastCheck"
+            tools:visibility="visible" />
 
     </LinearLayout>
 
@@ -87,7 +122,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_big_arrow__right"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck"
+        tools:visibility="visible" />
 
 
     <ImageView

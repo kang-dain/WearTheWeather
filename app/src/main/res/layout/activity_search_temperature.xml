@@ -18,18 +18,19 @@
         app:srcCompat="@drawable/common_backbutton"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
-    <ImageView
-        android:id="@+id/search_temperature_1"
-        android:layout_width="238dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="62dp"
+    <TextView
+        android:id="@+id/search_month_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:text="원하는 온도를 입력하고 \n원하는 계절을 선택해주세요."
+        android:textAlignment="center"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_temperature_1"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/search_temperature_2"

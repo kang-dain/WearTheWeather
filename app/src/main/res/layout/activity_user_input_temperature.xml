@@ -28,16 +28,18 @@
         app:srcCompat="@drawable/user_input_temperature_1"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/user_input_temperature_2"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="186dp"
+        android:text="기록하고자 하는\n온도를 클릭해주세요"
+        android:textAlignment="center"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_temperature_2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/user_input_temperature_common_big_arrow__right"

@@ -34,17 +34,7 @@ public class setting extends AppCompatActivity {
         });
 
 
-        ImageButton setting_button3 = (ImageButton) findViewById(R.id.setting_button3);
-        setting_button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), setting_email.class);
-                startActivity(intent);
-            }
-        });
-
-
-        ImageButton setting_button4 = (ImageButton) findViewById(R.id.setting_button4);
+        ImageButton setting_button4 = (ImageButton) findViewById(R.id.setting_button3);
         setting_button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +44,7 @@ public class setting extends AppCompatActivity {
         });
 
 
-        ImageButton setting_button5 = (ImageButton) findViewById(R.id.setting_button5);
+        ImageButton setting_button5 = (ImageButton) findViewById(R.id.setting_button4);
         setting_button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -175,16 +175,18 @@
         android:visibility="invisible"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/user_input_keyword_input3_bg"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="186dp"
+        android:text="클릭한 온도에서의\n자신의 느낌을\n키워드로 작성해주세요"
+        android:textAlignment="center"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_input_keyword_2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/user_input_keyword_input1"
