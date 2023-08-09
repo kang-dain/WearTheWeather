@@ -259,9 +259,6 @@ public class search_month extends AppCompatActivity {
                             buttons[buttonIndex].setTextColor(Color.parseColor("#6094E3"));
                             countArray[buttonIndex] = 1;
                         }
-
-                        showToast("Count for button " + (buttonIndex + 1) + ": " + countArray[buttonIndex]);
-
                         // Disable other buttons if three are selected
                         for (Button button : buttons) {
                             if (!selectedButtons.contains(button)) {
@@ -322,9 +319,4 @@ public class search_month extends AppCompatActivity {
                 }
             });
         }
-
-    private void showToast(String message) {
-        Toast.makeText(search_month.this, message, Toast.LENGTH_SHORT).show();
-    }
-
     }

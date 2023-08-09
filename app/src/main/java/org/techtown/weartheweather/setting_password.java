@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -109,6 +110,8 @@ public class setting_password extends AppCompatActivity {
 
                 if (settingPasswordButton.getBackground().getConstantState()
                         == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
+                    TextView setting_password_text = (TextView)findViewById(R.id.setting_password_text);
+                    setting_password_text.setVisibility(View.VISIBLE);
                     ImageView setting_password_6 = (ImageView)findViewById(R.id.setting_password_6);
                     setting_password_6.setVisibility(View.VISIBLE);
                     ImageView setting_password_2 = (ImageView)findViewById(R.id.setting_password_2);
