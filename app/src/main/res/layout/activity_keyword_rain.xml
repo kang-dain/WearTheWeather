@@ -36,5 +36,18 @@
 
     </FrameLayout>
 
+    <ImageButton
+        android:id="@+id/keyword_closebutton"
+        android:layout_width="33dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/keyword_closebutton"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

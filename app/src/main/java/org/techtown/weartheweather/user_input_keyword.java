@@ -46,15 +46,29 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         });
 
 
+
+/**
         ImageButton tipbutton1 = (ImageButton) findViewById(R.id.user_input_keyword_button_1);
         tipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageView search_tip = (ImageView) findViewById(R.id.user_input_suggestionkey);
+                ImageView search_tip = (ImageView) findViewById(R.id.activity_keyword_sun);
                 search_tip.setVisibility(View.VISIBLE);
 
             }
         });
+*/
+        ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(getApplicationContext(), keyword_sun.class);
+                startActivity(intent);
+            }
+
+            return false;
+        });
+
 
         ImageView closetipbutton1 = (ImageView) findViewById(R.id.user_input_suggestionkey);
         closetipbutton1.setOnClickListener(new View.OnClickListener() {

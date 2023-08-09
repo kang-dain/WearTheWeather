@@ -1,7 +1,11 @@
 package org.techtown.weartheweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,6 +15,17 @@ public class keyword_snow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword_snow);
+
+
+        ImageButton keyword_closebutton = (ImageButton) findViewById(R.id.keyword_closebutton);
+        keyword_closebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), user_input_keyword.class);
+                startActivity(intent);
+            }
+        });
+
 
         // 이미 정해놓은 비오는 날씨 키워드 리스트
         ArrayList<String> snowKeywords = new ArrayList<>();
