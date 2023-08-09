@@ -74,7 +74,6 @@
                 android:layout_width="205dp"
                 android:layout_height="18dp"
                 android:layout_marginTop="392dp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
