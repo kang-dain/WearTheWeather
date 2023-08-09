@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -269,6 +271,15 @@ public class search_month extends AppCompatActivity {
                         int sum = 0;
                         for (int count : countArray) {
                             sum += count;
+                        }
+
+                        if (sum >= 3) { // Check if sum is 3 or more
+                            // Load and start the animation
+                            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                            search_month_3.startAnimation(anim);
+                        } else {
+                            // Stop the animation
+                            search_month_3.clearAnimation();
                         }
                     } else {
                         buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
