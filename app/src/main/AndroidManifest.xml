@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WearTheWeather"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="m">
+
         <activity
             android:name=".keyword_sun"
             android:exported="true" />
