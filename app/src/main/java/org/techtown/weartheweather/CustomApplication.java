@@ -1,4 +1,4 @@
-package org.techtown.weartheweather;
+/**package org.techtown.weartheweather;
 
 import android.app.Application;
 
@@ -81,4 +81,4 @@ public class CustomApplication extends Application
         super.onTerminate();
         instance = null;
     }
-}
+}*/
