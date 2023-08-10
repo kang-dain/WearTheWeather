@@ -50,7 +50,7 @@ public class NotificationHelper extends ContextWrapper {
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle("ooo님, 오늘의 날씨는 어떨까요?")
                 .setContentText("날씨에 맞는 자신만의 옷을 기록해보세요! ")
-                .setSmallIcon(R.drawable.ic_launcher_background);
+                .setSmallIcon(R.drawable.splash);
     }
 }
 

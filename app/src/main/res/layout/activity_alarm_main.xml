@@ -24,8 +24,8 @@
         android:id="@+id/alarm_main_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
         android:layout_marginLeft="166dp"
+        android:layout_marginTop="340dp"
         app:srcCompat="@drawable/alarm_main_e"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
