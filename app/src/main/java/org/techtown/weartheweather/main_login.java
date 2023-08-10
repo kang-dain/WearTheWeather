@@ -11,12 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.techtown.weartheweather.databinding.ActivityMainLoginBinding;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.util.Base64;
-import android.util.Log;
-/**
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
@@ -24,8 +18,6 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
-*/
-import java.security.MessageDigest;
 
 import androidx.annotation.Nullable;
 
@@ -34,7 +26,7 @@ public class main_login extends AppCompatActivity {
     ActivityMainLoginBinding binding;
     DatabaseHelper databaseHelper;
     //카카오 로그인
-    //private ISessionCallback mSessionCallback;
+    private ISessionCallback mSessionCallback;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -78,10 +70,6 @@ public class main_login extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), find_password.class);
             startActivity(intent);
         });
-    }
-}
-/**
-        getAppKeyHash();
 
         mSessionCallback = new ISessionCallback() {
             @Override
@@ -100,11 +88,11 @@ public class main_login extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(MeV2Response result) { //로그인 성공
-
+                        /**
                          Intent intent = new Intent(main_login.this,menu.class);
                          intent.putExtra("Nickname", result.getKakaoAccount().getProfile().getNickname());
                          intent.putExtra("email", result.getKakaoAccount().getEmail());
-
+                         */
                         Intent intent_main_weather = new Intent(main_login.this, main_weather.class);
                         startActivity(intent_main_weather);
                         Toast.makeText(main_login.this, "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
@@ -134,20 +122,4 @@ public class main_login extends AppCompatActivity {
         super.onDestroy();
         Session.getCurrentSession().removeCallback(mSessionCallback);
     }
-
-    private void getAppKeyHash() {
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md;
-                md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String something = new String(Base64.encode(md.digest(), 0));
-                Log.e("Hash key", something);
-            }
-        } catch (Exception e) {
-            Log.e("name not found", e.toString());
-        }
-    }
 }
-*/

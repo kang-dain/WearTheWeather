@@ -10,10 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        /**maven {
+        maven {
             url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
             allowInsecureProtocol true
-        }*/
+        }
     }
 }
 rootProject.name = "WearTheWeather"
