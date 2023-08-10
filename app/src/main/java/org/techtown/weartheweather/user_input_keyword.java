@@ -47,17 +47,6 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
 
-/**
-        ImageButton tipbutton1 = (ImageButton) findViewById(R.id.user_input_keyword_button_1);
-        tipbutton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageView search_tip = (ImageView) findViewById(R.id.activity_keyword_sun);
-                search_tip.setVisibility(View.VISIBLE);
-
-            }
-        });
-*/
         ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
 
@@ -68,6 +57,42 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
             return false;
         });
+
+        ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(getApplicationContext(), keyword_cloudy.class);
+                startActivity(intent);
+            }
+
+            return false;
+        });
+
+        ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(getApplicationContext(), keyword_rain.class);
+                startActivity(intent);
+            }
+
+            return false;
+        });
+
+        ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(getApplicationContext(), keyword_snow.class);
+                startActivity(intent);
+            }
+
+            return false;
+        });
+
+
+
 
 
         ImageView closetipbutton1 = (ImageView) findViewById(R.id.user_input_suggestionkey);
@@ -134,7 +159,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
 
-        //날씨 버튼 4개를 눌렀을 때 코드 모음
+        //  <<<<<날씨 버튼 4개를 눌렀을 때 코드 모음>>>>>
 
         user_input_suggestion_button1 = findViewById(R.id.user_input_suggestion_button1);
         user_input_suggestion_button2 = findViewById(R.id.user_input_suggestion_button2);
@@ -175,7 +200,10 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             }
             return false;
         });
+
+
     }
+
 
     public void onClick(View view) {
         //클릭된 버튼을 저장, 나머지 버튼들 비활성화
@@ -218,6 +246,12 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             // 버튼의 배경이 원하는 Drawable과 같은 경우
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
+            user_input_keyword_button_1.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
+            user_input_keyword_button_1.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
+            user_input_keyword_button_1.setVisibility(View.VISIBLE);
             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
             user_input_keyword_button_2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
@@ -236,6 +270,12 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             // 버튼의 배경이 원하는 Drawable과 다른 경우
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
             user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
+            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
+            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
+            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
             user_input_keyword_button_2.setVisibility(View.INVISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
@@ -253,5 +293,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         }
 
     }
+
+
     
 }
