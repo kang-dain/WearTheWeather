@@ -1,49 +1,52 @@
 package org.techtown.weartheweather;
 
+import static org.techtown.weartheweather.TransLocalPoint.TO_GRID;
+
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 
 public class main_weather extends AppCompatActivity {
-
-    // GPS 사용을 위한 선언
-    private GpsTracker gpsTracker;
-    private static final int GPS_ENABLE_REQUEST_CODE = 2001;
-    private static final int PERMISSIONS_REQUEST_CODE = 100;
-    String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
-
-
-    private TextView test_gps;
-    private TextView tv_current_temperature, tv_wind, tv_cloud, tv_rain, tv_humidity, tv_total_weather, tv_weather_comment;
-
-
-    // 좌표값, 날짜, 일출시간, 일몰시간
-    private String x = "", y = "", address = "";
-    private String date = "", time = "";
-    private int sunrise = 800;
-    private int sunset = 1800;
-
-    private String weather = "";
-    private ImageView iv_weather_back;
-    private ImageView weather_image;
-
-    // 날씨에 따른 이미지뷰 선언
-    private BitmapDrawable iv_sun, iv_sun_cloud, iv_night, iv_night_cloud, iv_cloud, iv_rain, iv_snow;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_weather);
-
 
 
         ImageView main_weather_button1 = findViewById(R.id.main_weather_button1);
@@ -95,8 +98,5 @@ public class main_weather extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
 }
-

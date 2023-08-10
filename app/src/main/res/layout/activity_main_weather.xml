@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/test_gps"
+                android:id="@+id/weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/main_weather_button1"
@@ -55,6 +55,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_weather_button1"
                 tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/temperatureTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="112dp"
+                android:text=""
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
