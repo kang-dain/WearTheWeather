@@ -40,7 +40,7 @@ public class enter_email extends AppCompatActivity {
                             Boolean insert = databaseHelper.insertData(email, password);
                             if(insert == true){
                                 Toast.makeText(enter_email.this, "회원가입 성공!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),main_login.class);
+                                Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(enter_email.this, "회원가입 실패!", Toast.LENGTH_SHORT).show();
@@ -59,7 +59,7 @@ public class enter_email extends AppCompatActivity {
         binding.enterEmailButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(enter_email.this, main_login.class);
+                Intent intent = new Intent(enter_email.this, enter_nickname.class);
                 startActivity(intent);
             }
         });

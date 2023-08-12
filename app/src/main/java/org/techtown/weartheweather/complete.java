@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +29,16 @@ public class complete extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // 전달받은 닉네임 정보를 가져옴
+        String nickname = getIntent().getStringExtra("nickname");
+
+        // 전달받은 이메일 정보를 가져옴
+        String email = getIntent().getStringExtra("email");
+
+        // 텍스트뷰에 닉네임 정보 설정
+        TextView nicknameView = findViewById(R.id.nickname_View);
+        nicknameView.setText(nickname);
 
 
         Button complete_nextbutton = findViewById(R.id.complete_nextbutton);

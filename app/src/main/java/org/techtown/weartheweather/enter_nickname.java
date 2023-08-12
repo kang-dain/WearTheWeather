@@ -7,18 +7,24 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class enter_nickname extends Activity {
 
-
     Button nickname_button;
+    DatabaseHelper databaseHelper;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_nickname);
+
+        databaseHelper = new DatabaseHelper(this);
+        if (!databaseHelper.isNicknameTableExists()) {
+            databaseHelper.createNicknameTable();
+        }
 
         getWindow().setWindowAnimations(0);
 
@@ -31,16 +37,29 @@ public class enter_nickname extends Activity {
             }
         });
 
-
-        Button nickname_button = findViewById(R.id.nickname_button);
+        nickname_button = findViewById(R.id.nickname_button);
         nickname_button.setOnTouchListener((view, motionEvent) -> {
-
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 nickname_button.setBackgroundResource(R.drawable.add_icon2_button5);
-                Intent intent = new Intent(getApplicationContext(), complete.class);
-                startActivity(intent);
-            }
 
+                // EditText에서 입력한 닉네임을 가져옴
+                EditText nicknameEditText = findViewById(R.id.editTextText);
+                String nickname = nicknameEditText.getText().toString();
+
+                // 닉네임을 이전 액티비티에서 이메일과 함께 받아와야 함
+                String email = getIntent().getStringExtra("email");
+                boolean nicknameInserted = databaseHelper.insertNickname(email, nickname);
+
+                if (nicknameInserted) {
+                    //닉네임을 다음 액티비티에 넘겨줌
+                    Intent intent = new Intent(getApplicationContext(), complete.class);
+                    intent.putExtra("nickname", nickname);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
+                } else {
+                    // 삽입 오류 처리
+                }
+            }
             return false;
         });
     }

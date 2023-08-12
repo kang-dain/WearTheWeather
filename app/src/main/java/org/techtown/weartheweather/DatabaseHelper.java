@@ -49,4 +49,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    //닉네임을 저장할 테이블 생성
+    public void createNicknameTable() {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        MyDatabase.execSQL("create Table nicknames(email TEXT primary key, nickname TEXT)");
+    }
+
+    //닉네임을 nicknames 테이블에 삽입하는 메서드
+    public Boolean insertNickname(String email, String nickname) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("nickname", nickname);
+        long result = MyDatabase.insert("nicknames", null, contentValues);
+        return result != -1;
+    }
+
+    public boolean isNicknameTableExists() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table' AND name='nicknames'", null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
 }
