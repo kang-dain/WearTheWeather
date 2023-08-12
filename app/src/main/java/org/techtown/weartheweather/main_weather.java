@@ -30,10 +30,13 @@ import org.json.JSONObject;
 
 public class main_weather extends AppCompatActivity {
 
+
     TextView dateView;
     TextView cityView;
     TextView weatherView;
     TextView tempView;
+
+    ImageView weatherIconView; // 날씨 아이콘을 표시할 ImageView
 
 
     static RequestQueue requestQueue;
@@ -44,6 +47,7 @@ public class main_weather extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_weather);
 
+        weatherIconView = findViewById(R.id.weatherIconView);
         dateView = findViewById(R.id.dateView);
         cityView = findViewById(R.id.cityView);
         weatherView = findViewById(R.id.weatherView);
@@ -161,6 +165,9 @@ public class main_weather extends AppCompatActivity {
                     JSONArray weatherJson = jsonObject.getJSONArray("weather");
                     JSONObject weatherObj = weatherJson.getJSONObject(0);
 
+                    int weatherId = weatherObj.getInt("id");
+                    setWeatherIcon(weatherId);
+
                     String weather = weatherObj.getString("description");
 
                     weatherView.setText(weather);
@@ -198,4 +205,27 @@ public class main_weather extends AppCompatActivity {
         requestQueue.add(request);
     }
 
+    private void setWeatherIcon(int weatherId) {
+        int iconResource;
+
+        if (weatherId >= 200 && weatherId <= 232) {
+            iconResource = R.drawable.night_cloud; // 천둥 번개 //수정
+        } else if (weatherId >= 300 && weatherId <= 321) {
+            iconResource = R.drawable.night_cloud; // 이슬비 //수정
+        } else if (weatherId >= 500 && weatherId <= 531) {
+            iconResource = R.drawable.rain; // 비
+        } else if (weatherId >= 600 && weatherId <= 622) {
+            iconResource = R.drawable.snow; // 눈
+        } else if (weatherId >= 701 && weatherId <= 781) {
+            iconResource = R.drawable.night_cloud; // 대기 //수정
+        } else if (weatherId == 800) {
+            iconResource = R.drawable.sun; // 맑음
+        } else if (weatherId >= 801 && weatherId <= 804) {
+            iconResource = R.drawable.sun_cloud; // 흐림
+        } else {
+            iconResource = R.drawable.night_cloud; // 기타 상태에 대한 아이콘 //수정
+        }
+
+        weatherIconView.setImageResource(iconResource);
+    }
 }
