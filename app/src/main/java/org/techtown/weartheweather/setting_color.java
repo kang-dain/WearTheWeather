@@ -17,7 +17,7 @@ public class setting_color extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_color);
-
+/**
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.radioLight) {
@@ -32,7 +32,7 @@ public class setting_color extends AppCompatActivity {
              }
              }
         });
-/**
+
         // 라디오 그룹 찾기
         // 라디오 버튼 클릭 이벤트 처리
         radioGroup.setOnCheckedChangeListener((radioGroup1, checkedId) -> {
@@ -47,6 +47,28 @@ public class setting_color extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         });
 */
+
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedColor = radioButton.getText().toString();
+            String message = "변경된 모드: " + selectedColor;
+
+            if (checkedId == R.id.radioLight) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else if (checkedId == R.id.radioDark) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else if (checkedId == R.id.radioDefault) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
+                }
+            }
+
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+        });
+
         ImageButton setting_common_backbutton5 = (ImageButton) findViewById(R.id.setting_common_backbutton5);
         setting_common_backbutton5.setOnClickListener(new View.OnClickListener() {
             @Override
