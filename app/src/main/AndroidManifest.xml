@@ -26,7 +26,9 @@
         android:theme="@style/Theme.WearTheWeather"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
+        <activity
+            android:name=".user_input"
+            android:exported="false" />
         <activity
             android:name=".keyword_sun"
             android:exported="true" />
@@ -39,7 +41,6 @@
         <activity
             android:name=".keyword_snow"
             android:exported="true" />
-
         <activity
             android:name=".calender"
             android:exported="true" />

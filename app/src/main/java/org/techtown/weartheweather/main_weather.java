@@ -76,7 +76,7 @@ public class main_weather extends AppCompatActivity {
         main_weather_button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), user_input_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), user_input.class);
                 startActivity(intent);
             }
         });

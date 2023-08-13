@@ -14,10 +14,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         MyDatabase.execSQL("create Table users(email TEXT primary key, password TEXT)");
+        // user_input 테이블 생성
+        MyDatabase.execSQL("create Table user_input(" +
+                "date TEXT," +
+                "temperature INTEGER," +
+                "slider INTEGER," +
+                "keyword1 TEXT," +
+                "keyword2 TEXT," +
+                "keyword3 TEXT," +
+                "fashion_outer INTEGER," +
+                "fashion_top INTEGER," +
+                "fashion_pants INTEGER," +
+                "fashion_shoes INTEGER" +
+                ")");
     }
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
+        //
+        MyDB.execSQL("drop Table if exists user_input");
     }
     public Boolean insertData(String email, String password){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
@@ -74,4 +89,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
+    //사용자입력값
+    public Boolean insertUserInputData(String date, int temperature, int slider, String keyword1, String keyword2,
+                                       String keyword3, int fashion_outer, int fashion_top,
+                                       int fashion_pants, int fashion_shoes) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+
+        // 이미 해당 날짜와 온도의 데이터가 있는지 검사(날짜+온도 가 동일한 경우에는 데이터를 추가하지않음)
+        Cursor cursor = MyDatabase.rawQuery("SELECT * FROM user_input WHERE date = ? AND temperature = ?",
+                new String[]{date, String.valueOf(temperature)});
+
+        if (cursor.getCount() > 0) {
+            // 이미 데이터가 존재하므로 업데이트하지 않음
+            cursor.close();
+            return false;
+        } else {
+            // 데이터가 존재하지 않으므로 삽입 수행
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("date", date);
+            contentValues.put("temperature", temperature);
+            contentValues.put("slider", slider);
+            contentValues.put("keyword1", keyword1);
+            contentValues.put("keyword2", keyword2);
+            contentValues.put("keyword3", keyword3);
+            contentValues.put("fashion_outer", fashion_outer);
+            contentValues.put("fashion_top", fashion_top);
+            contentValues.put("fashion_pants", fashion_pants);
+            contentValues.put("fashion_shoes", fashion_shoes);
+
+            long result = MyDatabase.insert("user_input", null, contentValues);
+            return result != -1;
+        }
+    }
 }
