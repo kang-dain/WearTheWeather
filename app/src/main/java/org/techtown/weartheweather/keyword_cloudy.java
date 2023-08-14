@@ -21,7 +21,7 @@ public class keyword_cloudy extends AppCompatActivity {
         keyword_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), user_input_keyword.class);
+                Intent intent = new Intent(getApplicationContext(), user_input.class);
                 startActivity(intent);
             }
         });
