@@ -2,7 +2,6 @@ package org.techtown.weartheweather;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
@@ -30,6 +29,13 @@ public class calender extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
                 tv_date.setText(year + "년 " + (month + 1) + "월 " + day + "일 선택");
+
+                // 날짜 정보를 다음 액티비티에 전달하는 Intent 생성
+                Intent intent = new Intent(getApplicationContext(), calender_daily.class);
+                intent.putExtra("year", year);
+                intent.putExtra("month", month + 1); // 월은 0부터 시작하므로 +1 해줍니다.
+                intent.putExtra("day", day);
+                startActivity(intent);
             }
         });
 

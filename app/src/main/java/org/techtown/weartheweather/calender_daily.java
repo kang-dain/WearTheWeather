@@ -1,27 +1,53 @@
 package org.techtown.weartheweather;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class calender_daily extends AppCompatActivity {
+    private TextView dateEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
+        dateEditText = findViewById(R.id.DATE);
 
+        // 이전 액티비티에서 전달받은 날짜 정보 받기
+        int year = getIntent().getIntExtra("year", -1);
+        int month = getIntent().getIntExtra("month", -1);
+        int day = getIntent().getIntExtra("day", -1);
+
+        if (year != -1 && month != -1 && day != -1) {
+            String selectedDate = year + "년 " + month + "월 " + day + "일";
+            dateEditText.setText(selectedDate); // 선택한 날짜를 EditText에 설정
+        }
 
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageView calender_daily_button3 = (ImageView)findViewById(R.id.calender_daily_button3);
-                calender_daily_button3.setVisibility(View.VISIBLE);
+                mOnCaptureClick(view);
+                //ImageView calenderDailyButton3 = findViewById(R.id.calender_daily_button3);
+                //calenderDailyButton3.setVisibility(View.VISIBLE);
+                View rootView = getWindow().getDecorView();
+                File screenShot = ScreenShot(rootView);
+                if (screenShot != null) {
+                    // 이미지 공유 기능 호출
+                    shareImage(screenShot);
+                }
             }
         });
 
@@ -84,4 +110,60 @@ public class calender_daily extends AppCompatActivity {
             }
         });
     }
+    //캡쳐버튼클릭
+    public void mOnCaptureClick(View v){
+        //전체화면
+        View rootView = getWindow().getDecorView();
+
+        File screenShot = ScreenShot(rootView);
+        if(screenShot!=null){
+            String imagePath = screenShot.getAbsolutePath(); // 이미지 파일의 경로
+            //갤러리에 추가
+            sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + imagePath)));
+
+            // 이미지 공유 기능 호출
+            shareImage(screenShot);
+        }
+    }
+
+    //화면 캡쳐하기
+    public File ScreenShot(View view){
+        view.setDrawingCacheEnabled(true);  //화면에 뿌릴때 캐시를 사용하게 한다
+
+        Bitmap screenBitmap = view.getDrawingCache();   //캐시를 비트맵으로 변환
+
+        String filename = "screenshot.png";
+        File file = new File(Environment.getExternalStorageDirectory()+"/Pictures", filename);  //Pictures폴더 screenshot.png 파일
+        FileOutputStream os = null;
+        try{
+            os = new FileOutputStream(file);
+            screenBitmap.compress(Bitmap.CompressFormat.PNG, 90, os);   //비트맵을 PNG파일로 변환
+            os.close();
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+
+        view.setDrawingCacheEnabled(false);
+        return file;
+    }
+    // 이미지 공유 메소드
+    private void shareImage(File imageFile) {
+        // 이미지 파일의 경로를 지정해야 합니다.
+        String imagePath = "/sdcard/Pictures/screenshot.png";
+
+        // 이미지 파일의 경로로부터 Uri 생성
+        Uri screenshotUri = Uri.parse(imagePath);
+
+        // 공유 인텐트 생성
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("image/*"); // 이미지 파일 타입을 지정
+
+        // 이미지 Uri를 인텐트에 추가
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+
+        // 공유할 수 있는 앱을 선택할 수 있는 액티비티 실행
+        startActivity(Intent.createChooser(sharingIntent, "이미지 공유하기"));
+    }
+
 }
