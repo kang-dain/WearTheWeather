@@ -23,14 +23,6 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
-                android:id="@+id/dateView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_weather_button1"
-                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
-                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
-                app:layout_constraintTop_toTopOf="@+id/main_weather_1" />
             <ImageView
                 android:id="@+id/main_weather_1"
                 android:layout_width="300dp"
@@ -41,6 +33,45 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_weather_1"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/maxTempView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="304dp"
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+            <TextView
+                android:id="@+id/minTempView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="344dp"
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/feelsLikeView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="384dp"
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1"
+                app:layout_constraintTop_toTopOf="@+id/main_weather_1" />
+
+            <TextView
+                android:id="@+id/humidityView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                app:layout_constraintBottom_toBottomOf="@+id/main_weather_1"
+                app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
+                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintStart_toStartOf="@+id/main_weather_1" />
 
             <ImageButton
                 android:id="@+id/main_weather_button1"
@@ -58,21 +89,21 @@
                 android:id="@+id/cityView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="118dp"
+                android:layout_marginTop="32dp"
                 android:text=""
+                android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
-                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:id="@+id/weatherView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="356dp"
+                android:layout_marginTop="240dp"
                 android:text=""
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
-                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1"
                 app:layout_constraintTop_toTopOf="@+id/main_weather_1" />
 
@@ -80,7 +111,7 @@
                 android:id="@+id/weatherIconView"
                 android:layout_width="87dp"
                 android:layout_height="79dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="85dp"
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1"
@@ -91,8 +122,9 @@
                 android:id="@+id/tempView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="190dp"
                 android:text=""
+                android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1"
                 app:layout_constraintTop_toTopOf="parent" />
