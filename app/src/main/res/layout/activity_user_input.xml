@@ -19,6 +19,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="360dp"
         android:layout_height="600dp"
         android:layout_marginBottom="20dp"
@@ -32,6 +33,7 @@
             android:layout_height="wrap_content"
             tools:ignore="ExtraText">
             //temp
+
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
@@ -72,6 +74,17 @@
                 app:srcCompat="@drawable/common_small_arrow_left"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
             //slider
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="350dp"
+                app:layout_constraintEnd_toEndOf="@+id/user_input_temperature_common_big_arrow_right"
+                app:layout_constraintStart_toStartOf="@+id/user_input_temperature_common_small_arrow_left"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                app:srcCompat="@drawable/user_input_anim" />
+
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
@@ -99,6 +112,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
             //keyword
+
             <android.widget.Button
                 android:id="@+id/user_input_suggestion_button1"
                 android:layout_width="65dp"
@@ -112,6 +126,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_suggestion_button1"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
             <android.widget.Button
                 android:id="@+id/user_input_suggestion_button2"
                 android:layout_width="65dp"
@@ -125,6 +140,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_suggestion_button2"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
             <android.widget.Button
                 android:id="@+id/user_input_suggestion_button3"
                 android:layout_width="65dp"
@@ -138,6 +154,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_suggestion_button3"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
             <android.widget.Button
                 android:id="@+id/user_input_suggestion_button4"
                 android:layout_width="65dp"
@@ -151,6 +168,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_suggestion_button4"
                 tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_keyword_button_1"
                 android:layout_width="wrap_content"
@@ -159,11 +177,12 @@
                 android:layout_marginTop="234dp"
                 android:background="@android:color/transparent"
                 android:importantForAccessibility="no"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_button_1"
-                android:visibility="invisible"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_keyword_button_1_2"
                 android:layout_width="wrap_content"
@@ -172,11 +191,12 @@
                 android:layout_marginTop="234dp"
                 android:background="@android:color/transparent"
                 android:importantForAccessibility="no"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_button_1"
-                android:visibility="invisible"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_keyword_button_1_3"
                 android:layout_width="wrap_content"
@@ -185,11 +205,12 @@
                 android:layout_marginTop="234dp"
                 android:background="@android:color/transparent"
                 android:importantForAccessibility="no"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_button_1"
-                android:visibility="invisible"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_keyword_button_1_4"
                 android:layout_width="wrap_content"
@@ -198,11 +219,12 @@
                 android:layout_marginTop="234dp"
                 android:background="@android:color/transparent"
                 android:importantForAccessibility="no"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_button_1"
-                android:visibility="invisible"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_keyword_button_2"
                 android:layout_width="300dp"
@@ -210,44 +232,48 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="470dp"
                 android:background="@android:color/transparent"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_button_2"
-                android:visibility="invisible"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+
             <ImageView
                 android:id="@+id/user_input_keyword_inputimageView2"
                 android:layout_width="300dp"
                 android:layout_height="42.05dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="275dp"
+                android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
                 app:srcCompat="@drawable/user_input_keyword_input"
-                android:visibility="invisible"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
+
             <ImageView
                 android:id="@+id/user_input_keyword_input1_bg"
                 android:layout_width="300dp"
                 android:layout_height="42.05dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="336dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/user_input_keyword_input"
                 android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
+                app:srcCompat="@drawable/user_input_keyword_input"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
+
             <ImageView
                 android:id="@+id/user_input_keyword_input2_bg"
                 android:layout_width="300dp"
                 android:layout_height="42.05dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="397dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/user_input_keyword_input"
                 android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView12"
+                app:srcCompat="@drawable/user_input_keyword_input"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
+
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
@@ -261,9 +287,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
             <EditText
                 android:id="@+id/user_input_keyword_input1"
-                android:visibility="invisible"
                 android:layout_width="280dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="275dp"
@@ -274,13 +300,14 @@
                 android:inputType="text"
                 android:textColorHint="#C1C1C1"
                 android:textSize="15dp"
-                app:layout_constraintTop_toTopOf="@+id/textView12"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView12"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
+
             <EditText
                 android:id="@+id/user_input_keyword_input2"
-                android:visibility="invisible"
                 android:layout_width="280dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="21dp"
@@ -290,13 +317,14 @@
                 android:inputType="text"
                 android:textColorHint="#C1C1C1"
                 android:textSize="15dp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_input_keyword_input1"
                 tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
+
             <EditText
                 android:id="@+id/user_input_keyword_input3"
-                android:visibility="invisible"
                 android:layout_width="280dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="19dp"
@@ -306,10 +334,12 @@
                 android:inputType="text"
                 android:textColorHint="#C1C1C1"
                 android:textSize="15dp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_input_keyword_input1_bg"
                 tools:ignore="Autofill,HardcodedText,MissingConstraints,SpUsage,TextSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
+
             <ImageButton
                 android:id="@+id/user_input_suggestionkey"
                 android:layout_width="360dp"
@@ -325,6 +355,7 @@
                 tools:ignore="ContentDescription,VisualLintBounds"
                 tools:visibility="invisible" />
             //fashion
+
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
@@ -338,6 +369,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/textView12" />
+
             <ImageView
                 android:id="@+id/user_input_fashion_3"
                 android:layout_width="287dp"
@@ -457,6 +489,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_input_fashion_3"
                 app:srcCompat="@drawable/user_input_fashion_4"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
+
             <HorizontalScrollView
                 android:id="@+id/outer"
                 android:layout_width="284dp"
@@ -514,6 +547,7 @@
                         android:background="@mipmap/cardigon_foreground" />
                 </LinearLayout>
             </HorizontalScrollView>
+
             <HorizontalScrollView
                 android:id="@+id/top"
                 android:layout_width="284dp"
@@ -557,6 +591,7 @@
                         tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
             </HorizontalScrollView>
+
             <HorizontalScrollView
                 android:id="@+id/pants"
                 android:layout_width="284dp"

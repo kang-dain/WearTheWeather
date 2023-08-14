@@ -1,19 +1,23 @@
 package org.techtown.weartheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,12 +34,35 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
     private Button user_input_suggestion_button1, user_input_suggestion_button2, user_input_suggestion_button3, user_input_suggestion_button4;
     private Button selectedButton; //현재 선택된 버튼을 저장하는 변수
 
+
+    private ScrollView scrollView;
+    private ImageView imageView;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input);
         dbHelper = new DatabaseHelper(this);
+
+        scrollView = findViewById(R.id.scroll);
+        imageView = findViewById(R.id.imageView);
+
+        scrollView.setVerticalScrollBarEnabled(false);
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+        imageView.startAnimation(anim);
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (scrollView != null && imageView != null) {
+                    if (isImageViewVisible()) {
+                        imageView.clearAnimation();
+                        imageView.setVisibility(View.GONE);
+                    } else {
+                        imageView.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
 
         ImageButton user_input_temperature_backbutton2 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton8);
         user_input_temperature_backbutton2.setOnClickListener(new View.OnClickListener() {
@@ -563,29 +590,35 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
+        // 버튼 클릭 리스너 등록
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                // 현재 날짜 구하기 (예시: YYYY-MM-DD 형식)
-                dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                currentDate = dateFormat.format(new Date());
+                // 여기에 데이터 삽입 및 버튼 상태 변경 로직을 작성
 
-                // 기타 데이터
-                temperature = 100; //임의값
+                // 현재 날짜 구하기 (예시: YYYY-MM-DD 형식)
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String currentDate = dateFormat.format(new Date());
+
+                // 기타 데이터 (예시로 임의 값 설정)
+                int temperature = 1010; // 임의값
 
                 // 데이터베이스에 데이터 추가
                 boolean success = dbHelper.insertUserInputData(currentDate, temperature, slider,
                         keyword1, keyword2, keyword3, fashionOuter, fashionTop, fashionPants, fashionShoes);
 
                 if (success) {
-                    Toast.makeText(user_input.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
+                    // 저장이 성공한 경우
+                    Toast.makeText(user_input.this, "저장되었습니다", Toast.LENGTH_SHORT).show();
+                    user_input_fashion_button_5.setBackgroundResource(R.drawable.user_input_fashion_button_5);
+                    user_input_fashion_button_5.setEnabled(false); // 저장 후 다시 비활성화
                 } else {
-                    Toast.makeText(user_input.this, "Failed to save data", Toast.LENGTH_SHORT).show();
+                    // 저장이 실패한 경우
+                    Toast.makeText(user_input.this, "모든 항목을 채워주세요", Toast.LENGTH_SHORT).show();
                 }
-
-                user_input_fashion_button_5.setEnabled(false);
-                user_input_fashion_button_5.setBackgroundResource(R.drawable.user_input_fashion_button_5);
             }
         });
+
     }
 
 
@@ -676,5 +709,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
             user_input_keyword_input3.setVisibility(View.INVISIBLE);
         }
+    }
+    private boolean isImageViewVisible() {
+        int[] location = new int[2];
+        imageView.getLocationOnScreen(location);
+
+        int imageViewBottom = location[1] + imageView.getHeight();
+        int scrollViewBottom = scrollView.getScrollY() + scrollView.getHeight();
+
+        // 이미지뷰의 아래쪽 경계가 스크롤뷰의 아래쪽 경계보다 위에 있는 경우 숨김
+        return imageViewBottom < scrollViewBottom;
     }
 }

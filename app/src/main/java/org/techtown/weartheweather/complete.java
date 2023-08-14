@@ -45,7 +45,6 @@ public class complete extends AppCompatActivity {
         complete_nextbutton.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                complete_nextbutton.setBackgroundResource(R.drawable.add_icon2_button6);
                 Intent intent = new Intent(getApplicationContext(), main_weather.class);
                 startActivity(intent);
             }

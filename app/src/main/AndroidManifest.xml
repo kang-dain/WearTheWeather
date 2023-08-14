@@ -30,7 +30,7 @@
         tools:targetApi="m">
         <activity
             android:name=".user_input"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".keyword_sun"
             android:exported="true" />
