@@ -31,10 +31,15 @@ import org.json.JSONObject;
 public class main_weather extends AppCompatActivity {
 
 
-    TextView dateView;
+    //TextView dateView;
     TextView cityView;
     TextView weatherView;
     TextView tempView;
+
+    TextView maxTempView;
+    TextView minTempView;
+    TextView feelsLikeView;
+    TextView humidityView;
 
     ImageView weatherIconView; // 날씨 아이콘을 표시할 ImageView
 
@@ -48,10 +53,17 @@ public class main_weather extends AppCompatActivity {
         setContentView(R.layout.activity_main_weather);
 
         weatherIconView = findViewById(R.id.weatherIconView);
-        dateView = findViewById(R.id.dateView);
+        //dateView = findViewById(R.id.dateView);
         cityView = findViewById(R.id.cityView);
         weatherView = findViewById(R.id.weatherView);
         tempView = findViewById(R.id.tempView);
+        maxTempView = findViewById(R.id.maxTempView);
+        minTempView = findViewById(R.id.minTempView);
+        feelsLikeView = findViewById(R.id.feelsLikeView);
+        humidityView = findViewById(R.id.humidityView);
+
+
+
 
 
         ImageButton button = findViewById(R.id.imageButton);
@@ -125,7 +137,7 @@ public class main_weather extends AppCompatActivity {
 
     private void CurrentCall(){
 
-        String url = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ffb0f1a2074f79704a5df7e9c27431c6";
+        String url = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=ffb0f1a2074f79704a5df7e9c27431c6&units=metric&lang=kr";
 
 
 
@@ -137,19 +149,22 @@ public class main_weather extends AppCompatActivity {
 
                 try {
 
+/*
                     //System의 현재 시간(년,월,일,시,분,초까지)가져오고 Date로 객체화함
+
                     long now = System.currentTimeMillis();
                     Date date = new Date(now);
 
                     //년, 월, 일 형식으로. 시,분,초 형식으로 객체화하여 String에 형식대로 넣음
-                    SimpleDateFormat simpleDateFormatDay = new SimpleDateFormat("yyyy-MM-dd");
-                    SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat("HH:mm:ss");
-                    String getDay = simpleDateFormatDay.format(date);
-                    String getTime = simpleDateFormatTime.format(date);
 
+                     SimpleDateFormat simpleDateFormatDay = new SimpleDateFormat("yyyy-MM-dd");
+                     SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat("HH:mm:ss");
+                     String getDay = simpleDateFormatDay.format(date);
+                     String getTime = simpleDateFormatTime.format(date);
                     //getDate에 개행을 포함한 형식들을 넣은 후 dateView에 text설정
                     String getDate = getDay + "\n" + getTime;
                     dateView.setText(getDate);
+*/
 
                     //api로 받은 파일 jsonobject로 새로운 객체 선언
                     JSONObject jsonObject = new JSONObject(response);
@@ -174,12 +189,23 @@ public class main_weather extends AppCompatActivity {
 
 
 
-                    //기온 키값 받기
+                    // 기온 키값 받기
                     JSONObject tempK = new JSONObject(jsonObject.getString("main"));
-
-                    //기온 받고 켈빈 온도를 섭씨 온도로 변경
-                    double tempDo = (Math.round((tempK.getDouble("temp")-273.15)*100)/100.0);
-                    tempView.setText(tempDo +  "°C");
+                    // 화면에 섭씨 온도 표시
+                    double tempCelsius = tempK.getDouble("temp");
+                    tempView.setText(String.format("%.1f °C", tempCelsius));
+                    // 최고 기온 키값 받기
+                    double maxTemp = tempK.getDouble("temp_max");
+                    maxTempView.setText("최고 기온: " + maxTemp + "°C");
+                    // 최저 기온 키값 받기
+                    double minTemp = tempK.getDouble("temp_min");
+                    minTempView.setText("최저 기온: " + minTemp + "°C");
+                    // 체감 온도 키값 받기
+                    double feelsLike = tempK.getDouble("feels_like");
+                    feelsLikeView.setText("체감 온도: " + feelsLike + "°C");
+                    // 습도 키값 받기
+                    int humidity = tempK.getInt("humidity");
+                    humidityView.setText("습도: " + humidity + "%");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
