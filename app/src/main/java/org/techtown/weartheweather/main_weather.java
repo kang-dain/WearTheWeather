@@ -35,6 +35,7 @@ public class main_weather extends AppCompatActivity {
     TextView cityView;
     TextView weatherView;
     TextView tempView;
+    TextView rainfallView;
 
     TextView maxTempView;
     TextView minTempView;
@@ -61,7 +62,7 @@ public class main_weather extends AppCompatActivity {
         minTempView = findViewById(R.id.minTempView);
         feelsLikeView = findViewById(R.id.feelsLikeView);
         humidityView = findViewById(R.id.humidityView);
-
+        rainfallView = findViewById(R.id.rainfallView);
 
 
 
@@ -149,6 +150,8 @@ public class main_weather extends AppCompatActivity {
 
                 try {
 
+
+
 /*
                     //System의 현재 시간(년,월,일,시,분,초까지)가져오고 Date로 객체화함
 
@@ -170,6 +173,19 @@ public class main_weather extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
 
 
+                    // 강수량 정보 가져오기
+                    if (jsonObject.has("rain")) {
+                        JSONObject rainObj = jsonObject.getJSONObject("rain");
+                        if (rainObj.has("1h")) {
+                            double rainfall1h = rainObj.getDouble("1h");
+                            String rainfallText = String.format("%.2f mm", rainfall1h); // 강수량 포맷 지정
+                            rainfallView.setText("일일 누적 강수량: " + rainfallText);
+                        } else {
+                            rainfallView.setText("일일 누적 강수량 정보 없음");
+                        }
+                    } else {
+                        rainfallView.setText("일일 누적 강수량 정보 없음");
+                    }
                     //도시 키값 받기
                     String city = jsonObject.getString("name");
 
