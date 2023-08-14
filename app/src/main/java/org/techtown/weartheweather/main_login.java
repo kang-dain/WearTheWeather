@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.techtown.weartheweather.databinding.ActivityMainLoginBinding;
 
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -19,7 +18,7 @@ import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
 
-import androidx.annotation.Nullable;
+import org.techtown.weartheweather.databinding.ActivityMainLoginBinding;
 
 public class main_login extends AppCompatActivity {
 
@@ -88,6 +87,9 @@ public class main_login extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(MeV2Response result) { //로그인 성공
+                        //비밀번호 저장해야하나? 근데 저장하는방법..아니 비밀번호 불러오는 방법을 모름 메뉴화면에 이메일만 입력해도 된까 괜찮지않을까
+                        databaseHelper.insertData(result.getKakaoAccount().getEmail(), "");
+
                         /**
                          Intent intent = new Intent(main_login.this,menu.class);
                          intent.putExtra("Nickname", result.getKakaoAccount().getProfile().getNickname());
