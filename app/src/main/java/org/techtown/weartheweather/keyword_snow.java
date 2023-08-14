@@ -1,12 +1,12 @@
 package org.techtown.weartheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,8 +21,7 @@ public class keyword_snow extends AppCompatActivity {
         keyword_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), user_input.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
@@ -73,5 +72,12 @@ public class keyword_snow extends AppCompatActivity {
             }
         }
         return recommendedKeywords;
+    }
+    public void onBackPressed() {
+        // 뒤로가기 버튼을 눌렀을 때 원하는 동작을 수행
+        // 예: 특정 조건을 검사하고 동작을 수행하거나, 데이터를 저장한 후 종료 등
+
+        // 원래 뒤로가기 동작 수행 (액티비티 종료)
+        super.onBackPressed();
     }
 }
