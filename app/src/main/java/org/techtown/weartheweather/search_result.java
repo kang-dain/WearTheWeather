@@ -2,17 +2,55 @@ package org.techtown.weartheweather;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class search_result extends AppCompatActivity {
+
+    //다인
+    private FeelsDataSource dataSource;
+    private TextView resultTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+
+
+        //다인
+        dataSource = new FeelsDataSource(this);
+        dataSource.open();
+
+        resultTextView = findViewById(R.id.resultTextView);
+
+        //검색조건 설정 (예. 특정 날짜와 온도에 해당하는 데이터 검색
+        String searchDate = "2023-08-14";
+        int searchTemperature = 25;
+
+        //데이터베이스에서 검색결과 가져오기
+        List<String> searchResults = dataSource.getSearchResults(searchDate, searchTemperature);
+
+        // 검색 결과를 TextView에 보여줍니다
+        if (!searchResults.isEmpty()) {
+            String resultText = TextUtils.join("\n", searchResults);
+            resultTextView.setText(resultText);
+        } else {
+            resultTextView.setText("검색 결과가 없습니다.");
+        }
+
+        dataSource.close();
+
+
+
+
+
 
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {

@@ -588,7 +588,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 startActivity(intent);
             }
         });
-
+/**
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
         // 버튼 클릭 리스너 등록
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
@@ -618,6 +618,52 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 }
             }
         });
+*/
+
+
+//다인
+        Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
+        user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 여기에 데이터 삽입 및 버튼 상태 변경 로직을 작성
+
+/**
+                // 현재 날짜 구하기 (예시: YYYY-MM-DD 형식)
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String currentDate = dateFormat.format(new Date());
+
+                // 기타 데이터 (온도 예시로 20도 설정)
+                int temperature = 20;
+*/
+
+                // 데이터베이스에 데이터 추가
+                String currentDate = "2023-08-14";
+                int temperature = 25;
+                int sliderValue = 50;
+                String keyword1 = "happy";
+                String keyword2 = "excited";
+                String keyword3 = "energetic";
+                int fashionOuter = 1; //DatabaseHelper에 맞게 int으로 수정
+                int fashionTop = 2;
+                int fashionPants = 3;
+                int fashionShoes = 1;
+
+                boolean success = dbHelper.insertUserInputData(currentDate, temperature, sliderValue,
+                        keyword1, keyword2, keyword3, fashionOuter, fashionTop, fashionPants, fashionShoes);
+
+                if (success) {
+                    // 저장이 성공한 경우
+                    Toast.makeText(user_input.this, "저장되었습니다", Toast.LENGTH_SHORT).show();
+                    user_input_fashion_button_5.setBackgroundResource(R.drawable.user_input_fashion_button_5);
+                    user_input_fashion_button_5.setEnabled(false); // 저장 후 다시 비활성화
+                } else {
+                    // 저장이 실패한 경우
+                    Toast.makeText(user_input.this, "모든 항목을 채워주세요", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
     }
 
