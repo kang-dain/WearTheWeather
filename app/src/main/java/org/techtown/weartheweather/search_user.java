@@ -149,9 +149,7 @@ public class search_user extends AppCompatActivity {
 
 
 
-
-
-/**
+/**일단 주석처리
         //search_month
 
         //이전 액티비티에서 온도 데이터 받아오기
