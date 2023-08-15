@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="104dp"
-                android:text="기록하고자 하는\n온도를 클릭해주세요"
+                android:text="기록하고자 하는\n온도를 입력해주세요"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
                 android:textSize="24sp"
@@ -49,39 +49,42 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
-            <ImageButton
-                android:id="@+id/user_input_temperature_common_big_arrow_right"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="323dp"
-                android:layout_marginTop="300dp"
-                android:background="@android:color/transparent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/common_big_arrow_right"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
-            <ImageButton
-                android:id="@+id/user_input_temperature_common_small_arrow_left"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="300dp"
-                android:background="@android:color/transparent"
-                android:importantForAccessibility="no"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/common_small_arrow_left"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+            <!-- 이렇게 TextView 요소들을 레이아웃 XML 파일에 추가하세요 -->
+
             //slider
+
+            <TextView
+                android:id="@+id/maxTempTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="236dp"
+                android:text="오늘의 최고 온도: "
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/minTempTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="288dp"
+                android:text="오늘의 ㅁㄴ최저 온도: "
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="350dp"
-                app:layout_constraintEnd_toEndOf="@+id/user_input_temperature_common_big_arrow_right"
-                app:layout_constraintStart_toStartOf="@+id/user_input_temperature_common_small_arrow_left"
+                android:layout_marginTop="368dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.06"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10"
                 app:srcCompat="@drawable/user_input_anim" />
 

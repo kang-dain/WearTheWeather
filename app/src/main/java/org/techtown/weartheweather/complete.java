@@ -33,9 +33,6 @@ public class complete extends AppCompatActivity {
         // 전달받은 닉네임 정보를 가져옴
         String nickname = getIntent().getStringExtra("nickname");
 
-        // 전달받은 이메일 정보를 가져옴
-        String email = getIntent().getStringExtra("email");
-
         // 텍스트뷰에 닉네임 정보 설정
         TextView nicknameView = findViewById(R.id.nickname_View);
         nicknameView.setText(nickname);

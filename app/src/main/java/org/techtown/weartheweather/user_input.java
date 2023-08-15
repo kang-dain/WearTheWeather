@@ -1,5 +1,7 @@
 package org.techtown.weartheweather;
 
+import static org.techtown.weartheweather.main_weather.requestQueue;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,19 +17,36 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class user_input extends AppCompatActivity implements View.OnClickListener{
     //데이터베이스
     private DatabaseHelper dbHelper;
     int fashionOuter, fashionTop, fashionPants, fashionShoes,slider,temperature;
     String keyword1,keyword2,keyword3,currentDate;
+
+    TextView maxTempView1;
+    TextView minTempView1;
     SimpleDateFormat dateFormat;
 
     //날씨 버튼 4개를 눌렀을 때 변수 설정
@@ -43,6 +62,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input);
         dbHelper = new DatabaseHelper(this);
+        
+
+
+        CurrentCall();
+
+        //volley를 쓸 때 큐가 비어있으면 새로운 큐 생성하기
+        if(requestQueue == null){
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
 
         scrollView = findViewById(R.id.scroll);
         imageView = findViewById(R.id.imageView);
@@ -665,6 +693,58 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
 
+    }
+
+    private void CurrentCall(){
+
+        String url = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=5bdc57d38b0a192f0fa45c6e71b7bc34&units=metric&lang=kr";
+
+
+
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    // main 오브젝트에서 최고 온도와 최저 온도 값 가져오기
+                    JSONObject mainObject = jsonObject.getJSONObject("main");
+                    double maxTemp = mainObject.getDouble("temp_max");
+                    double minTemp = mainObject.getDouble("temp_min");
+
+                    // 화면에 온도 값을 표시하기 위해 TextView 요소 찾기
+                    TextView maxTempTextView = findViewById(R.id.maxTempTextView);
+                    TextView minTempTextView = findViewById(R.id.minTempTextView);
+
+                    // TextView 엘리먼트를 온도 값으로 업데이트
+                    maxTempTextView.setText("최고 온도: " + maxTemp + "°C");
+                    minTempTextView.setText("최저 온도: " + minTemp + "°C");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+
+                return params;
+            }
+
+        };
+
+        request.setShouldCache(false);
+        requestQueue.add(request);
     }
 
 
