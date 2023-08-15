@@ -31,6 +31,8 @@ public class keyword_sun extends AppCompatActivity {
 
 
 
+
+
         // 이미 정해놓은 비오는 날씨 키워드 리스트
         ArrayList<String> sunKeywords = new ArrayList<>();
         sunKeywords.add("상쾌함");   sunKeywords.add("활기참");   sunKeywords.add("행복함");

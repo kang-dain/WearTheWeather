@@ -172,9 +172,6 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         user_input_suggestion_button3.setOnClickListener(this);
         user_input_suggestion_button4.setOnClickListener(this);
 
-
-
-
         //수정
         user_input_suggestion_button1.setOnClickListener(view -> {
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
@@ -283,13 +280,14 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
 
-        //각 버튼에 대한 onTouchListenenr 등록
+        //각 버튼에 대한 onTouchListenenr 등록 (누르면 파란색으로 변함)
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
             }
             return false;
         });
+
 
         user_input_suggestion_button2.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -360,9 +358,6 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
         }
     }
-
-
-
 
 
 
