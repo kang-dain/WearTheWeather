@@ -590,7 +590,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
-        // 버튼 클릭 리스너 등록
+// 버튼 클릭 리스너 등록
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -601,24 +601,38 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 String currentDate = dateFormat.format(new Date());
 
                 // 기타 데이터 (예시로 임의 값 설정)
-                int temperature = 1010; // 임의값
+                int temperature = 1000000000; // 임의값
+                String keyword1 = "keyword1";
+                String keyword2 = "keyword2";
+                String keyword3 = "keyword3";
 
-                // 데이터베이스에 데이터 추가
-                boolean success = dbHelper.insertUserInputData(currentDate, temperature, slider,
+                // 데이터베이스에 데이터 추가 또는 업데이트
+                boolean isInsertedOrUpdated = dbHelper.insertUserInputData(currentDate, temperature, slider,
                         keyword1, keyword2, keyword3, fashionOuter, fashionTop, fashionPants, fashionShoes);
 
-                if (success) {
-                    // 저장이 성공한 경우
-                    Toast.makeText(user_input.this, "저장되었습니다", Toast.LENGTH_SHORT).show();
-                    user_input_fashion_button_5.setBackgroundResource(R.drawable.user_input_fashion_button_5);
-                    user_input_fashion_button_5.setEnabled(false); // 저장 후 다시 비활성화
-                } else {
-                    // 저장이 실패한 경우
-                    Toast.makeText(user_input.this, "모든 항목을 채워주세요", Toast.LENGTH_SHORT).show();
+                if (isInsertedOrUpdated) {
+                    if (dbHelper.someDataIsMissing(slider, fashionOuter, fashionTop, fashionPants, fashionShoes,
+                            keyword1, keyword2, keyword3)) {
+                        Toast.makeText(user_input.this, "모든 항목을 채워주세요", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (dbHelper.isInsertOperation(currentDate, temperature)) {
+                        // 새로운 데이터가 추가된 경우
+                        Toast.makeText(user_input.this, "저장되었습니다", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(user_input.this, main_weather.class);
+                        startActivity(intent);
+                    } else {
+                        // 데이터가 업데이트된 경우
+                        Toast.makeText(user_input.this, "업데이트되었습니다", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(user_input.this, main_weather.class);
+                        startActivity(intent);
+                    }
+                }
+                else {
+                    // 저장 또는 업데이트 실패한 경우
+                    Toast.makeText(user_input.this, "저장에 실패했습니다", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
 
