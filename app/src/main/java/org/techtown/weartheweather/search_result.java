@@ -28,11 +28,16 @@ public class search_result extends AppCompatActivity {
         // 결과를 표시할 TextView
         resultTextView = findViewById(R.id.resultTextView);
 
+
+        int targetTemperature = getIntent().getIntExtra("targetTemperature", 0);
+        /**
         //search_temperature에서 입력한 온도 값을 가져오기
         Intent intent = getIntent();
-        //int targetTemperature = intent.getIntExtra("targetTemperature", 0);
-        int targetTemperature = 0;
-        targetTemperature = intent.getIntExtra("targetTemperature",targetTemperature);
+        int targetTemperature = intent.getIntExtra("targetTemperature", 0);
+        //int targetTemperature = 0;
+        //targetTemperature = intent.getIntExtra("targetTemperature",targetTemperature);
+*/
+
         // user_input 테이블의 데이터 가져와서 출력
         List<String> searchResults = dataSource.getSearchResults(targetTemperature);
 

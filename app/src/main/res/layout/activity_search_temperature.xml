@@ -55,14 +55,30 @@
         app:srcCompat="@drawable/search_temperature_button"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
+
     <ImageButton
-        android:id="@+id/common_big_arrow__right"
+        android:id="@+id/common_big_arrow__right_month"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="319dp"
         android:layout_marginTop="430dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_big_arrow__right_full"
+        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
+
+    <ImageButton
+        android:id="@+id/common_big_arrow__right"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="324dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_big_arrow__right"

@@ -21,6 +21,7 @@ public class search_temperature extends AppCompatActivity {
 
 //다인
         ImageButton search_temperature_right = (ImageButton) findViewById(R.id.common_big_arrow__right);
+
         search_temperature_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,14 +33,25 @@ public class search_temperature extends AppCompatActivity {
                 Intent resultIntent = new Intent(getApplicationContext(), search_result.class);
                 resultIntent.putExtra("targetTemperature", targetTemperature);
 
-                //화면 전환하기
-                Intent nextScreenIntent = new Intent(getApplicationContext(), search_month.class);
+                // search_result 화면으로 데이터 전달만 하고 화면 전환은 하지 않음
+                //startActivity(resultIntent);
+                //setResult(RESULT_OK, resultIntent);
 
-                //두 개의 인텐트를 하나로 묶어서 실행
-                Intent[] intents = {resultIntent, nextScreenIntent};
-                startActivities(intents);
+                //search_result화면으로 전환
+                startActivity(resultIntent);
             }
         });
+
+        //search_month화면으로 이동하기
+        ImageButton common_big_arrow__right_month = (ImageButton) findViewById(R.id.common_big_arrow__right_month);
+        common_big_arrow__right_month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),search_month.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
@@ -74,6 +86,7 @@ public class search_temperature extends AppCompatActivity {
             }
         });
 */
+
 
 
         ImageButton user_input_temperature_backbutton5 = (ImageButton) findViewById(R.id.user_input_temperature_backbutton5);
