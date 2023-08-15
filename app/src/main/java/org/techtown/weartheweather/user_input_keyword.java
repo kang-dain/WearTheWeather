@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class user_input_keyword extends AppCompatActivity implements View.OnClickListener {
 
-    //날씨 버튼 4개를 눌렀을 때 변수 설정
+    //날씨 버튼 4개를 눌렀을 때 변수 설정 -> 날씨 키워드 버튼
     private Button user_input_suggestion_button1, user_input_suggestion_button2, user_input_suggestion_button3, user_input_suggestion_button4;
     private Button selectedButton; //현재 선택된 버튼을 저장하는 변수
 
@@ -24,8 +24,9 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input_keyword);
 
-        getWindow().setWindowAnimations(0);
+        getWindow().setWindowAnimations(0); // 화면 전환 애니메이션 제거
 
+        // 이전 화면으로 돌아가는 버튼
         ImageButton keyword_right = (ImageButton) findViewById(R.id.user_input_keyword_common_big_arrow_left);
         keyword_right.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +36,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             }
         });
 
-
+        // 다음 화면으로 이동하는 버튼
         ImageButton keyword_left = (ImageButton) findViewById(R.id.user_input_keyword_common_big_arrow__right);
         keyword_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,8 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
         ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
+
+        // 날씨 키워드 버튼 처리
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -58,6 +61,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             return false;
         });
 
+        // 기타 버튼 처리
         ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
 
@@ -279,7 +283,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
 
-
+        // 날씨 키워드 선택 시 특정 배경 변경
         //각 버튼에 대한 onTouchListenenr 등록 (누르면 파란색으로 변함)
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
@@ -314,16 +318,18 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
     }
 
-
+    // 날씨 키워드 버튼 클릭 처리
     public void onClick(View view) {
         //클릭된 버튼을 저장, 나머지 버튼들 비활성화
         if (selectedButton != null) {
             selectedButton.setEnabled(true);
         }
 
+        // 현재 선택된 버튼 활성화 및 다른 버튼 비활성화
         selectedButton = (Button) view;
         selectedButton.setEnabled(false);
 
+        // 선택된 버튼에 따라 해당하는 기능 활성회
         if (view.getId() == R.id.user_input_suggestion_button1) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button1;
             handleButtonBackgroundChange(user_input_suggestion_button1, desiredBackgroundResource);
@@ -360,25 +366,25 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
     }
 
 
-
+    // 선택된 버튼의 배경 변경 및 UI 표시
     private void handleButtonBackgroundChange(Button button, int desiredBackgroundResource) {
         if (button.getBackground().getConstantState() == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
             // 버튼의 배경이 원하는 Drawable과 같은 경우
             /**
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
-            user_input_keyword_button_2.setVisibility(View.VISIBLE);
-            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
-            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
-            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
-            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
-            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
-            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
-            user_input_keyword_input1.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
-            user_input_keyword_input2.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
-            user_input_keyword_input3.setVisibility(View.VISIBLE);
+             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
+             user_input_keyword_button_2.setVisibility(View.VISIBLE);
+             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
+             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
+             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
+             user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
+             ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
+             user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
+             EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
+             user_input_keyword_input1.setVisibility(View.VISIBLE);
+             EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
+             user_input_keyword_input2.setVisibility(View.VISIBLE);
+             EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
+             user_input_keyword_input3.setVisibility(View.VISIBLE);
              */
         } else {
             // 버튼의 배경이 원하는 Drawable과 다른 경우
@@ -409,5 +415,5 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
     }
 
 
-    
+
 }
