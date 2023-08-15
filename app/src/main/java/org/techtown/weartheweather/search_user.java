@@ -40,33 +40,29 @@ public class search_user extends AppCompatActivity {
         setContentView(R.layout.activity_search_user);
 
 
+
+
         //search_temperature
         getWindow().setWindowAnimations(0);
 
 
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
-
         search_month_button13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //온도 검색을 위한 코드 추가
-                EditText ediTextNumberSigned = findViewById(R.id.editTextNumberSigned);
-                int targetTemperature = Integer.parseInt(ediTextNumberSigned.getText().toString());
+                //EditText에서 온도를 읽어와서 targetTemperature에 저장
+                EditText editTextNumberSigned = findViewById(R.id.editTextNumberSigned);
+                int targetTemperature = Integer.parseInt(editTextNumberSigned.getText().toString());
 
-                //search_month로 온도 데이터 전달 및 화면 전환
-                Intent monthIntent = new Intent(getApplicationContext(), search_month.class);
-                monthIntent.putExtra("targetTemperature", targetTemperature);
-                startActivity(monthIntent);
-                /**
-                 //검색 결과를 search_result화면으로 전달하기
-                 Intent resultIntent = new Intent(getApplicationContext(), search_result.class);
-                 resultIntent.putExtra("targetTemperature", targetTemperature);
-
-                 //search_result화면으로 데이터 전달만 하고 화면 전환은 하지 않음
-                 startActivity(resultIntent);
-                 */
+                //Intent 생성하여 온도 데이터를 search_result로 전달
+                Intent intent = new Intent(getApplicationContext(), search_result.class);
+                intent.putExtra("targetTemperature", targetTemperature);
+                startActivity(intent);
             }
         });
+
+
+
 
         ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
         search_temperature_button.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +78,7 @@ public class search_user extends AppCompatActivity {
             }
         });
 
+
         ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
         imageButton9.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +88,7 @@ public class search_user extends AppCompatActivity {
             }
         });
 
+
         ImageButton search_user_backbutton = (ImageButton) findViewById(R.id.search_user_backbutton);
         search_user_backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +97,7 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
         imageButton5.setOnClickListener(new View.OnClickListener() {
@@ -152,8 +151,9 @@ public class search_user extends AppCompatActivity {
 
 
 
-
+/**
         //search_month
+
         //이전 액티비티에서 온도 데이터 받아오기
         Intent intent = getIntent();
         targetTemperature = intent.getIntExtra("targetTemperature", 0);
@@ -168,6 +168,8 @@ public class search_user extends AppCompatActivity {
         startActivity(resultIntent);
 
         getWindow().setWindowAnimations(0);
+
+
 
         ImageButton search_month_button = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button.setOnClickListener(new View.OnClickListener() {
@@ -249,6 +251,8 @@ public class search_user extends AppCompatActivity {
             });
         }
 
-
+*/
     }
 }
+
+

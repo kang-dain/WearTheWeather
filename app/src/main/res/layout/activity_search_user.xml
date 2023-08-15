@@ -78,7 +78,7 @@
                 android:layout_width="60dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="144dp"
-                android:layout_marginTop="420dp"
+                android:layout_marginTop="360dp"
                 android:background="@null"
                 android:digits="0123456789-"
                 android:ems="10"
@@ -368,6 +368,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/button9"
                 tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="360dp"
+                android:layout_height="800dp"
+                android:background="@android:color/transparent"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/search_tip"
+                tools:ignore="SpeakableTextPresentCheck" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -436,17 +445,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="360dp"
-        android:layout_height="800dp"
-        android:background="@android:color/transparent"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_tip"
-        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
