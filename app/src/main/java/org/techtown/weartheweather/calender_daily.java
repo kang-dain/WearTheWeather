@@ -1,5 +1,7 @@
 package org.techtown.weartheweather;
 
+import static java.sql.Types.NULL;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,12 +20,14 @@ import java.io.IOException;
 
 public class calender_daily extends AppCompatActivity {
     private TextView dateEditText;
+    private TextView keywordText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
         dateEditText = findViewById(R.id.DATE);
+
 
         // 이전 액티비티에서 전달받은 날짜 정보 받기
         int year = getIntent().getIntExtra("year", -1);
@@ -34,6 +38,31 @@ public class calender_daily extends AppCompatActivity {
             String selectedDate = year + "년 " + month + "월 " + day + "일";
             dateEditText.setText(selectedDate); // 선택한 날짜를 EditText에 설정
         }
+
+        //이전 액티비티에서 전달받은 키워드 정보 받기
+        keywordText = findViewById(R.id.KEYWORD);
+        String keyword1 = getIntent().getStringExtra("keyword1");
+        String keyword2 = getIntent().getStringExtra("keyword2");
+        String keyword3 = getIntent().getStringExtra("keyword3");
+
+        if (keyword1 != null) {
+            if (keyword2 != null && keyword3 !=null){
+                keywordText.setText("#"+keyword1+" #"+keyword2+" #"+keyword3);
+            } else if (keyword2 != null && keyword3 == null) {
+                keywordText.setText("#"+keyword1+" #"+keyword2);
+            } else if (keyword2 == null && keyword3 != null) {
+                keywordText.setText("#"+keyword1+" #"+keyword3);
+            }
+        } else {
+            if (keyword2 != null && keyword3 != null){
+                keywordText.setText("#"+keyword2+" #"+keyword3);
+            } else if (keyword2 != null && keyword3 == null) {
+                keywordText.setText("#"+keyword2);
+            } else if (keyword2 == null && keyword3 != null) {
+                keywordText.setText("#"  + keyword3);
+            }
+        }
+
 
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {

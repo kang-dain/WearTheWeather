@@ -126,6 +126,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 slider = seekBar.getProgress();
             }
         });
+
+
+
 //keyword
         ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
@@ -298,7 +301,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
 
-        //각 버튼에 대한 onTouchListenenr 등록
+        //각 버튼에 대한 onTouchListenenr 등록(누르면 파란색으로 변함)
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
@@ -327,12 +330,19 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             return false;
         });
 
+
+
+
+//keyword
         EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
         keyword1 = user_input_keyword_input1.getText().toString();
         EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
         keyword2 = user_input_keyword_input2.getText().toString();
         EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
         keyword3 = user_input_keyword_input3.getText().toString();
+
+
+
 //fashion
         /**
          ImageView user_input_fashion_3 = (ImageView) findViewById(R.id.user_input_fashion_3);
@@ -678,6 +688,10 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
+
+
+
+
 //menubar
         ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
         imageButton5.setOnClickListener(new View.OnClickListener() {
@@ -833,7 +847,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
 
-    //keyword
+
+
+//keyword
     public void onClick (View view){
         //클릭된 버튼을 저장, 나머지 버튼들 비활성화
         if (selectedButton != null) {
@@ -877,6 +893,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
         }
     }
+
     private void handleButtonBackgroundChange(Button button, int desiredBackgroundResource) {
         if (button.getBackground().getConstantState() == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
             // 버튼의 배경이 원하는 Drawable과 같은 경우
@@ -918,6 +935,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_keyword_input3.setVisibility(View.INVISIBLE);
         }
     }
+
+
+
     private boolean isImageViewVisible() {
         int[] location = new int[2];
         imageView.getLocationOnScreen(location);

@@ -11,8 +11,7 @@
  Required only when requesting background location access on
       Android 10 (API level 29) and higher.
     -->
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <!--캡쳐-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- 캡쳐 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -28,6 +27,9 @@
         android:theme="@style/Theme.WearTheWeather"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".search_user"
+            android:exported="true" />
         <activity
             android:name=".user_input"
             android:exported="true" />
