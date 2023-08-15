@@ -5,23 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".calender_daily">
-    <!-- 키워드 확인 -->
-    <TextView
-        android:id="@+id/KEYWORD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="@color/text_75A3E9_FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/calender_daily_button3"
-        app:layout_constraintVertical_bias="0.235"
-        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/calender_daily_button1"
@@ -58,7 +41,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/calender_daily_common_big_arrow_left"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_big_arrow__right_new"
+        app:srcCompat="@drawable/common_big_arrow__right"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <ImageButton
@@ -87,6 +70,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <!-- 키워드 확인 -->
+
+    <TextView
+        android:id="@+id/KEYWORD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/calender_daily_button3"
+        app:layout_constraintVertical_bias="0.274"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
     <ImageView
@@ -125,7 +127,6 @@
         app:srcCompat="@drawable/common_big_arrow_right"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck"
         tools:visibility="invisible" />
-
 
 
     <ImageView
