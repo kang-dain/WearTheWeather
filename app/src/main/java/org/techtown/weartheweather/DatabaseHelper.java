@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+
 import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String databaseName = "SignLog.db";
@@ -89,36 +91,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    //사용자입력값
+    // 사용자 입력값
     public Boolean insertUserInputData(String date, int temperature, int slider, String keyword1, String keyword2,
-                                       String keyword3, int fashion_outer, int fashion_top,
-                                       int fashion_pants, int fashion_shoes) {
+                                               String keyword3, int fashion_outer, int fashion_top,
+                                               int fashion_pants, int fashion_shoes) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
 
-        // 이미 해당 날짜와 온도의 데이터가 있는지 검사(날짜+온도 가 동일한 경우에는 데이터를 추가하지않음)
-        Cursor cursor = MyDatabase.rawQuery("SELECT * FROM user_input WHERE date = ? AND temperature = ?",
-                new String[]{date, String.valueOf(temperature)});
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("date", date);
+        contentValues.put("temperature", temperature);
+        contentValues.put("slider", slider);
+        contentValues.put("keyword1", keyword1);
+        contentValues.put("keyword2", keyword2);
+        contentValues.put("keyword3", keyword3);
+        contentValues.put("fashion_outer", fashion_outer);
+        contentValues.put("fashion_top", fashion_top);
+        contentValues.put("fashion_pants", fashion_pants);
+        contentValues.put("fashion_shoes", fashion_shoes);
 
-        if (cursor.getCount() > 0) {
-            // 이미 데이터가 존재하므로 업데이트하지 않음
-            cursor.close();
-            return false;
+        int rowsAffected = MyDatabase.update("user_input", contentValues,
+                "date = ? AND temperature = ?", new String[]{date, String.valueOf(temperature)});
+
+        if (rowsAffected > 0) {
+            // 업데이트가 성공한 경우
+            return true;
         } else {
-            // 데이터가 존재하지 않으므로 삽입 수행
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("date", date);
-            contentValues.put("temperature", temperature);
-            contentValues.put("slider", slider);
-            contentValues.put("keyword1", keyword1);
-            contentValues.put("keyword2", keyword2);
-            contentValues.put("keyword3", keyword3);
-            contentValues.put("fashion_outer", fashion_outer);
-            contentValues.put("fashion_top", fashion_top);
-            contentValues.put("fashion_pants", fashion_pants);
-            contentValues.put("fashion_shoes", fashion_shoes);
-
+            // 해당 조건의 데이터가 없는 경우, 새로운 데이터로 추가
             long result = MyDatabase.insert("user_input", null, contentValues);
             return result != -1;
         }
     }
+    public boolean isInsertOperation(String date, int temperature) {
+        SQLiteDatabase MyDatabase = this.getReadableDatabase();
+
+        Cursor cursor = MyDatabase.rawQuery("SELECT * FROM user_input WHERE date = ? AND temperature = ?",
+                new String[]{date, String.valueOf(temperature)});
+
+        boolean isInsert = cursor.getCount() == 0;
+        cursor.close();
+        return isInsert;
+    }
+    // 데이터 입력 유효성 검사 메서드 추가
+    public boolean someDataIsMissing(int slider, int fashionOuter, int fashionTop, int fashionPants, int fashionShoes,
+                                     String keyword1, String keyword2, String keyword3) {
+        return slider == 0 || fashionOuter == 0 || fashionTop == 0 || fashionPants == 0 || fashionShoes == 0 ||
+                TextUtils.isEmpty(keyword1) || TextUtils.isEmpty(keyword2) || TextUtils.isEmpty(keyword3);
+    }
+
 }

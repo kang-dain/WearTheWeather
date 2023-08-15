@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_light"
     tools:context=".alarmMainActivity">
 
     <TextView
         android:id="@+id/time_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#75A3E9"
-        android:textStyle="bold"
+        android:layout_centerVertical="true"
         android:gravity="center_horizontal"
         android:text="푸쉬 알림 설정"
-        android:textSize="25dp">
-    </TextView>
+        android:textColor="#75A3E9"
+        android:textSize="25dp"
+        android:textStyle="bold"></TextView>
 
     <ImageView
         android:id="@+id/alarm_main_e"
@@ -36,8 +34,7 @@
         android:layout_below="@+id/time_text"
         android:layout_centerHorizontal="true"
         android:text="시간 지정"
-        android:textColor="@color/SKY">
-    </Button>
+        android:textColor="@color/SKY"></Button>
 
     <Button
         android:id="@+id/time_cancel_btn"
@@ -46,8 +43,7 @@
         android:layout_below="@+id/time_btn"
         android:layout_centerHorizontal="true"
         android:text="알람 취소"
-        android:textColor="@color/SKY">
-    </Button>
+        android:textColor="@color/SKY"></Button>
 
     <ImageButton
         android:id="@+id/alarm_main_backbutton"

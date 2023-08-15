@@ -2,7 +2,6 @@ package org.techtown.weartheweather;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -11,44 +10,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-public class search_result extends AppCompatActivity {
 
-    //다인
+public class search_result extends AppCompatActivity {
     private FeelsDataSource dataSource;
     private TextView resultTextView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
-
-        //다인
+        //출력
+        // FeelsDataSource 인스턴스 생성
         dataSource = new FeelsDataSource(this);
+        // 데이터베이스 연결 열기
         dataSource.open();
 
+        // 결과를 표시할 TextView
         resultTextView = findViewById(R.id.resultTextView);
 
-        //검색조건 설정 (예. 특정 날짜와 온도에 해당하는 데이터 검색
-        String searchDate = "2023-08-14";
-        int searchTemperature = 25;
+        //search_temperature에서 입력한 온도 값을 가져오기
+        Intent intent = getIntent();
+        //int targetTemperature = intent.getIntExtra("targetTemperature", 0);
+        int targetTemperature = 0;
+        targetTemperature = intent.getIntExtra("targetTemperature",targetTemperature);
+        // user_input 테이블의 데이터 가져와서 출력
+        List<String> searchResults = dataSource.getSearchResults(targetTemperature);
 
-        //데이터베이스에서 검색결과 가져오기
-        List<String> searchResults = dataSource.getSearchResults(searchDate, searchTemperature);
-
-        // 검색 결과를 TextView에 보여줍니다
-        if (!searchResults.isEmpty()) {
-            String resultText = TextUtils.join("\n", searchResults);
-            resultTextView.setText(resultText);
-        } else {
-            resultTextView.setText("검색 결과가 없습니다.");
+        StringBuilder resultBuilder = new StringBuilder();
+        for (String result : searchResults) {
+            resultBuilder.append(result).append("\n\n");
         }
 
+        resultTextView.setText(resultBuilder.toString());
+
+        // 데이터베이스 연결 닫기
         dataSource.close();
-
-
-
 
 
 
@@ -69,6 +65,7 @@ public class search_result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         ImageButton imageButton6 = (ImageButton) findViewById(R.id.imageButton6);
         imageButton6.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +74,7 @@ public class search_result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         ImageButton imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
         imageButton7.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,5 +99,12 @@ public class search_result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    protected void onDestory() {
+        super.onDestroy();
+        if(dataSource != null) {
+            dataSource.close();
+        }
     }
 }
