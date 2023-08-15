@@ -8,12 +8,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 public class menu extends AppCompatActivity {
-    private String strNick,strEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-    //카카오 로그인
+
+        // 전달받은 닉네임 정보를 가져옴
+        String nickname = getIntent().getStringExtra("nickname");
+
+        // 텍스트뷰에 닉네임 정보 설정
+        TextView nicknameView = findViewById(R.id.nickname_View);
+        nicknameView.setText("닉네임: " + nickname);
+
+
+        //카카오 로그인
         /**
         Intent intent=getIntent();
         strNick=intent.getStringExtra("name");
