@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,8 +48,14 @@ public class terms_of_use extends AppCompatActivity {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 terms_of_use_button5.setBackgroundResource(R.drawable.add_icon2_button3);
-                Intent intent = new Intent(getApplicationContext(), enter_email.class);
-                startActivity(intent);
+                // 체크박스들이 모두 체크되었는지 확인
+                if (allCheckBtn.isChecked() && firstCheckBtn.isChecked() && secondCheckBtn.isChecked() && thirdCheckBtn.isChecked()) {
+                    Intent intent = new Intent(getApplicationContext(), enter_email.class);
+                    startActivity(intent);
+                } else {
+                    // 체크되지 않은 항목이 있는 경우에 대한 처리
+                    Toast.makeText(getApplicationContext(), "모든 항목에 동의해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
             return false;
         });
@@ -76,45 +83,55 @@ public class terms_of_use extends AppCompatActivity {
             }
         });
 
-        //첫번째 체크
+        // 각 체크박스의 상태 변경에 대한 동작을 정의
         firstCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    firstCheckBtn.setChecked(true);}
-                else {
-                    firstCheckBtn.setChecked(false);}
+                // 첫번째 체크박스 상태 변경
+                // 코드 중복을 줄이기 위해 체크 상태 변경 메서드를 따로 정의하고 활용
+                updateAllCheckButton();
             }
         });
 
-        //두번째 체크
+        // 두번째 체크
         secondCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    secondCheckBtn.setChecked(true);}
-                else {
-                    secondCheckBtn.setChecked(false);}
+                // 두번째 체크박스 상태 변경
+                updateAllCheckButton();
             }
         });
 
-        //세번째 체크
+        // 세번째 체크
         thirdCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    thirdCheckBtn.setChecked(true);}
-                else {
-                    thirdCheckBtn.setChecked(false);}
+                // 세번째 체크박스 상태 변경
+                updateAllCheckButton();
+            }
+        });
+
+        // "전체 동의" 체크박스 상태 변경
+        allCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // "전체 동의" 체크박스를 클릭하여 상태 변경된 경우
+                // 각 체크박스의 상태를 모두 동일하게 변경
+                firstCheckBtn.setChecked(isChecked);
+                secondCheckBtn.setChecked(isChecked);
+                thirdCheckBtn.setChecked(isChecked);
             }
         });
 
 
-
-
-
-
-
+    }
+    // 각 체크박스 상태에 따라 "전체 동의" 체크박스 상태 업데이트
+    private void updateAllCheckButton() {
+        if (firstCheckBtn.isChecked() && secondCheckBtn.isChecked() && thirdCheckBtn.isChecked()) {
+            allCheckBtn.setChecked(true);
+        } else {
+            allCheckBtn.setChecked(false);
+        }
     }
 
 }
