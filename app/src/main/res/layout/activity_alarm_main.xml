@@ -27,23 +27,28 @@
         app:srcCompat="@drawable/alarm_main_e"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/time_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_text"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="시간 지정"
-        android:textColor="@color/SKY"></Button>
+        android:background="@drawable/alarm_main_btn"
+        android:textColor="@color/SKY"></androidx.appcompat.widget.AppCompatButton>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/time_cancel_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_btn"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="알람 취소"
-        android:textColor="@color/SKY"></Button>
+        android:textColor="@color/SKY"
+        android:background="@drawable/alarm_main_btn"
+        android:textColorLink="#ff6750a4"></androidx.appcompat.widget.AppCompatButton>
 
     <ImageButton
         android:id="@+id/alarm_main_backbutton"
