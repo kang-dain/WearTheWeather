@@ -72,6 +72,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             return false;
         });
 
+
         ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
 
