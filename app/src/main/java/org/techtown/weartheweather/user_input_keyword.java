@@ -18,7 +18,6 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
     private Button user_input_suggestion_button1, user_input_suggestion_button2, user_input_suggestion_button3, user_input_suggestion_button4;
     private Button selectedButton; //현재 선택된 버튼을 저장하는 변수
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
