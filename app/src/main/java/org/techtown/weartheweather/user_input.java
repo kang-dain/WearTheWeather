@@ -29,7 +29,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -628,8 +627,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                 String currentDate = dateFormat.format(new Date());
 
-                // 기타 데이터 (예시로 임의 값 설정)
-                int temperature = 1000000000;
+                // temperature 가져오기
+                EditText temperatureEditText = findViewById(R.id.temperature);
+                try {
+                    String temperatureStr = temperatureEditText.getText().toString();
+                    temperature = Integer.parseInt(temperatureStr);
+                } catch (NumberFormatException e) {
+                    // 변환 실패 시 처리할 내용
+                    e.printStackTrace();
+                }
 
                 // 사용자가 입력한 키워드 가져오기
                 EditText keywordInput1 = findViewById(R.id.user_input_keyword_input1);
