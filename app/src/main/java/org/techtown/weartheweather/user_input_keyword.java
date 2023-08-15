@@ -390,11 +390,11 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
             user_input_keyword_button_1.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
-            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            user_input_keyword_button_1_2.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
-            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            user_input_keyword_button_1_3.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
-            user_input_keyword_button_1.setVisibility(View.INVISIBLE);
+            user_input_keyword_button_1_4.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
             user_input_keyword_button_2.setVisibility(View.INVISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);

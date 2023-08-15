@@ -29,7 +29,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -194,6 +193,110 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         user_input_suggestion_button2.setOnClickListener(this);
         user_input_suggestion_button3.setOnClickListener(this);
         user_input_suggestion_button4.setOnClickListener(this);
+
+        user_input_suggestion_button1.setOnClickListener(view -> {
+            user_input_keyword_button_1.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
+            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
+            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
+            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
+            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
+            user_input_keyword_input1.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
+            user_input_keyword_input2.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
+            user_input_keyword_input3.setVisibility(View.VISIBLE);
+        });
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(this, keyword_sun.class);
+                startActivity(intent);
+            }
+            return true;
+        });
+
+
+        user_input_suggestion_button2.setOnClickListener(view -> {
+            user_input_keyword_button_1_2.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
+            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
+            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
+            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
+            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
+            user_input_keyword_input1.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
+            user_input_keyword_input2.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
+            user_input_keyword_input3.setVisibility(View.VISIBLE);
+        });
+        user_input_keyword_button_1_2.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(this, keyword_cloudy.class);
+                startActivity(intent);
+            }
+            return true;
+        });
+
+
+        user_input_suggestion_button3.setOnClickListener(view -> {
+            user_input_keyword_button_1_3.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
+            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
+            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
+            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
+            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
+            user_input_keyword_input1.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
+            user_input_keyword_input2.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
+            user_input_keyword_input3.setVisibility(View.VISIBLE);
+        });
+        user_input_keyword_button_1_3.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(this, keyword_rain.class);
+                startActivity(intent);
+            }
+            return true;
+        });
+
+
+        user_input_suggestion_button4.setOnClickListener(view -> {
+            user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
+            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
+            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
+            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
+            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
+            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
+            user_input_keyword_input1.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
+            user_input_keyword_input2.setVisibility(View.VISIBLE);
+            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
+            user_input_keyword_input3.setVisibility(View.VISIBLE);
+        });
+        user_input_keyword_button_1_4.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                Intent intent = new Intent(this, keyword_snow.class);
+                startActivity(intent);
+            }
+            return true;
+        });
+
 
         //각 버튼에 대한 onTouchListenenr 등록
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
@@ -628,8 +731,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                 String currentDate = dateFormat.format(new Date());
 
-                // 기타 데이터 (예시로 임의 값 설정)
-                int temperature = 1000000000;
+                // temperature 가져오기
+                EditText temperatureEditText = findViewById(R.id.temperature);
+                try {
+                    String temperatureStr = temperatureEditText.getText().toString();
+                    temperature = Integer.parseInt(temperatureStr);
+                } catch (NumberFormatException e) {
+                    // 변환 실패 시 처리할 내용
+                    e.printStackTrace();
+                }
 
                 // 사용자가 입력한 키워드 가져오기
                 EditText keywordInput1 = findViewById(R.id.user_input_keyword_input1);
@@ -739,37 +849,38 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
+            ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
+            user_input_keyword_button_1.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button2) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button2;
             handleButtonBackgroundChange(user_input_suggestion_button2, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
+            ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
+            user_input_keyword_button_1_2.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button3) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button3;
             handleButtonBackgroundChange(user_input_suggestion_button3, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
+            ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
+            user_input_keyword_button_1_3.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button4) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button4;
             handleButtonBackgroundChange(user_input_suggestion_button4, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
+            ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
+            user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
         }
     }
     private void handleButtonBackgroundChange(Button button, int desiredBackgroundResource) {
         if (button.getBackground().getConstantState() == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
             // 버튼의 배경이 원하는 Drawable과 같은 경우
-            ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
-            user_input_keyword_button_1.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
-            user_input_keyword_button_1.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
-            user_input_keyword_button_1.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
-            user_input_keyword_button_1.setVisibility(View.VISIBLE);
+            /**
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
@@ -782,6 +893,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_keyword_input2.setVisibility(View.VISIBLE);
             EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
             user_input_keyword_input3.setVisibility(View.VISIBLE);
+             */
         } else {
             // 버튼의 배경이 원하는 Drawable과 다른 경우
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);

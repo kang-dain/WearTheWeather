@@ -1,6 +1,8 @@
 package org.techtown.weartheweather;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ public class keyword_sun extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword_sun);
 
+
         ImageButton keyword_closebutton = (ImageButton) findViewById(R.id.keyword_closebutton);
         keyword_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,6 +27,8 @@ public class keyword_sun extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
 
 
         // 이미 정해놓은 비오는 날씨 키워드 리스트

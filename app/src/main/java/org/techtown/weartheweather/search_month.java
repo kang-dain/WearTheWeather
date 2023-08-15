@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class search_month extends AppCompatActivity {
+    //다인
+    private int targetTemperature;
+
     long delay = 0;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -26,6 +29,22 @@ public class search_month extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_month);
+
+        //다인
+        //이전 액티비티에서 온도 데이터 받아오기
+        Intent intent = getIntent();
+        targetTemperature = intent.getIntExtra("targetTemperature", 0);
+        //달 선택 후 검색 결과를 search_result로 전달
+        //선택된 달을 받아서 사용
+
+        //검색 결과 전달 및 화면 전환
+        Intent resultIntent = new Intent(getApplicationContext(), search_result.class);
+        resultIntent.putExtra("targetTemperature", targetTemperature);
+        //다른 데이터 추가(선택된 달 등)
+        //resultIntent.putExtra("selectoedMonth", selectedMonth);
+        startActivity(resultIntent);
+
+
 
         getWindow().setWindowAnimations(0);
         ImageButton search_month_left = (ImageButton) findViewById(R.id.common_big_arrow_left);

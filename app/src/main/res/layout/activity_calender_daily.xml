@@ -41,7 +41,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/calender_daily_common_big_arrow_left"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_big_arrow__right"
+        app:srcCompat="@drawable/common_big_arrow__right_new"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <ImageButton
