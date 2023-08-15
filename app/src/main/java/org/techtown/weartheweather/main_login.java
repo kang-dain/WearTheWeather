@@ -59,7 +59,7 @@ public class main_login extends AppCompatActivity {
         binding.mainLoginButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(main_login.this, enter_email.class);
+                Intent intent = new Intent(main_login.this, terms_of_use.class);
                 startActivity(intent);
             }
         });
