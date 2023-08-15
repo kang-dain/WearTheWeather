@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class search_temperature extends AppCompatActivity {
 
@@ -29,16 +30,20 @@ public class search_temperature extends AppCompatActivity {
                 EditText ediTextNumberSigned = findViewById(R.id.editTextNumberSigned);
                 int targetTemperature = Integer.parseInt(ediTextNumberSigned.getText().toString());
 
+                //search_month로 온도 데이터 전달 및 화면 전환
+                Intent monthIntent = new Intent(getApplicationContext(), search_month.class);
+                monthIntent.putExtra("targetTemperature", targetTemperature);
+                startActivity(monthIntent);
+                /**
                 //검색 결과를 search_result화면으로 전달하기
                 Intent resultIntent = new Intent(getApplicationContext(), search_result.class);
                 resultIntent.putExtra("targetTemperature", targetTemperature);
 
-                // search_result 화면으로 데이터 전달만 하고 화면 전환은 하지 않음
-                //startActivity(resultIntent);
-                //setResult(RESULT_OK, resultIntent);
-
-                //search_result화면으로 전환
+                //search_result화면으로 데이터 전달만 하고 화면 전환은 하지 않음
                 startActivity(resultIntent);
+                 */
+
+
             }
         });
 

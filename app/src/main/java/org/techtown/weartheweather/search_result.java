@@ -30,6 +30,9 @@ public class search_result extends AppCompatActivity {
 
 
         int targetTemperature = getIntent().getIntExtra("targetTemperature", 0);
+        //선택한 달 데이터도 받아와서 사용
+        //int selectedMonth = getIntent().getIntExtra("selectedMonth", 0);
+
         /**
         //search_temperature에서 입력한 온도 값을 가져오기
         Intent intent = getIntent();
