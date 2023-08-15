@@ -22,15 +22,19 @@ public class search_result extends AppCompatActivity {
         //출력
         // FeelsDataSource 인스턴스 생성
         dataSource = new FeelsDataSource(this);
-
         // 데이터베이스 연결 열기
         dataSource.open();
 
         // 결과를 표시할 TextView
         resultTextView = findViewById(R.id.resultTextView);
 
+        //search_temperature에서 입력한 온도 값을 가져오기
+        Intent intent = getIntent();
+        //int targetTemperature = intent.getIntExtra("targetTemperature", 0);
+        int targetTemperature = 0;
+        targetTemperature = intent.getIntExtra("targetTemperature",targetTemperature);
         // user_input 테이블의 데이터 가져와서 출력
-        List<String> searchResults = dataSource.getSearchResults();
+        List<String> searchResults = dataSource.getSearchResults(targetTemperature);
 
         StringBuilder resultBuilder = new StringBuilder();
         for (String result : searchResults) {
@@ -41,6 +45,7 @@ public class search_result extends AppCompatActivity {
 
         // 데이터베이스 연결 닫기
         dataSource.close();
+
 
 
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
@@ -94,5 +99,12 @@ public class search_result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    protected void onDestory() {
+        super.onDestroy();
+        if(dataSource != null) {
+            dataSource.close();
+        }
     }
 }
