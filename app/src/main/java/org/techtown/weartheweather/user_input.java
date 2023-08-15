@@ -601,10 +601,16 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 String currentDate = dateFormat.format(new Date());
 
                 // 기타 데이터 (예시로 임의 값 설정)
-                int temperature = 1000000000; // 임의값추가
-                String keyword1 = "keyword1";
-                String keyword2 = "keyword2";
-                String keyword3 = "keyword3";
+                int temperature = 1000000000;
+
+                // 사용자가 입력한 키워드 가져오기
+                EditText keywordInput1 = findViewById(R.id.user_input_keyword_input1);
+                EditText keywordInput2 = findViewById(R.id.user_input_keyword_input2);
+                EditText keywordInput3 = findViewById(R.id.user_input_keyword_input3);
+
+                keyword1 = keywordInput1.getText().toString();
+                keyword2 = keywordInput2.getText().toString();
+                keyword3 = keywordInput3.getText().toString();
 
                 // 데이터베이스에 데이터 추가 또는 업데이트
                 boolean isInsertedOrUpdated = dbHelper.insertUserInputData(currentDate, temperature, slider,
