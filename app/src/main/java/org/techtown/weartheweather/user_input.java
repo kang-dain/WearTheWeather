@@ -601,7 +601,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 String currentDate = dateFormat.format(new Date());
 
                 // 기타 데이터 (예시로 임의 값 설정)
-                int temperature = 1000000000; // 임의값
+                int temperature = 1000000000; // 임의값추가
                 String keyword1 = "keyword1";
                 String keyword2 = "keyword2";
                 String keyword3 = "keyword3";
