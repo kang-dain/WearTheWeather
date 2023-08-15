@@ -250,16 +250,14 @@ public class main_weather extends AppCompatActivity {
     private void setWeatherIcon(int weatherId) {
         int iconResource;
 
-        if (weatherId >= 200 && weatherId <= 232) {
-            iconResource = R.drawable.night_cloud; // 천둥 번개 //수정
-        } else if (weatherId >= 300 && weatherId <= 321) {
-            iconResource = R.drawable.night_cloud; // 이슬비 //수정
+        if (weatherId >= 300 && weatherId <= 321) {
+            iconResource = R.drawable.rain; // 이슬비
         } else if (weatherId >= 500 && weatherId <= 531) {
             iconResource = R.drawable.rain; // 비
         } else if (weatherId >= 600 && weatherId <= 622) {
             iconResource = R.drawable.snow; // 눈
         } else if (weatherId >= 701 && weatherId <= 781) {
-            iconResource = R.drawable.night_cloud; // 대기 //수정
+            iconResource = R.drawable.mist; // mist
         } else if (weatherId == 800) {
             iconResource = R.drawable.sun; // 맑음
         } else if (weatherId >= 801 && weatherId <= 804) {
