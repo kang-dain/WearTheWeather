@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -109,13 +111,20 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
 
 
     //알람 취소
+    //알람 취소
     private void cancelAlarm() {
         Log.d(TAG, "## cancelAlarm ##");
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT); //약간 수정
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.cancel(pendingIntent);
-        time_text.setText("알람 취소");
+
+        // 알림 취소 메시지 표시
+        Toast.makeText(this, "알림이 취소되었습니다.", Toast.LENGTH_SHORT).show();
+
+        // 시간 설정 버튼 텍스트 업데이트
+        time_text.setText("시간 지정");
     }
+
 }

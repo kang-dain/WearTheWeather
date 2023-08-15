@@ -45,7 +45,7 @@
         android:layout_below="@+id/time_btn"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="알람 취소"
+        android:text="알림 취소"
         android:textColor="@color/SKY"
         android:background="@drawable/alarm_main_btn"
         android:textColorLink="#ff6750a4"></androidx.appcompat.widget.AppCompatButton>
