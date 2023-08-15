@@ -690,8 +690,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
             ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
-            user_input_keyword_button_2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
@@ -714,8 +712,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             user_input_keyword_button_1.setVisibility(View.INVISIBLE);
             ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
             user_input_keyword_button_1.setVisibility(View.INVISIBLE);
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
-            user_input_keyword_button_2.setVisibility(View.INVISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.INVISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
