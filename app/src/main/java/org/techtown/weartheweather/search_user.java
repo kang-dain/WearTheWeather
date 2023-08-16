@@ -54,8 +54,34 @@ public class search_user extends AppCompatActivity {
 
         //search_temperature
         getWindow().setWindowAnimations(0);
+//혜음 수정
+        ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
+        search_month_button13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editTextNumberSigned = findViewById(R.id.editTextNumberSigned);
+                int temperature = Integer.parseInt(editTextNumberSigned.getText().toString());
+
+                ArrayList<Integer> selectedButtonIds = new ArrayList<>();
+
+                for (int i = 0; i < 12; i++) {
+                    int buttonId = getResources().getIdentifier("button" + (i + 1), "id", getPackageName());
+                    Button button = findViewById(buttonId);
+                    if (button.getCurrentTextColor() == Color.parseColor("#6094E3")) {
+                        selectedButtonIds.add(buttonId);
+                    }
+                }
+
+                // Intent 생성하여 온도 데이터와 선택된 버튼 아이디들을 search_result로 전달
+                Intent intent = new Intent(getApplicationContext(), search_result.class);
+                intent.putExtra("temperature", temperature);
+                intent.putIntegerArrayListExtra("selectedButtonIds", selectedButtonIds);
+                startActivity(intent);
+            }
+        });
 
 
+/**
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button13.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +96,7 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
 
         ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 

@@ -51,6 +51,27 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/resultTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="검색 결과를 여기에 표시하세요"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/resultTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="검색 결과를 여기에 표시하세요"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,TextSizeCheck" />
+
         </LinearLayout>
     </ScrollView>
 
