@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private static final String TAG = "DatabaseHelper";
     public static final String databaseName = "SignLog.db";
     public DatabaseHelper(@Nullable Context context) {
         super(context, "SignLog.db", null, 1);
@@ -29,12 +31,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "fashion_pants INTEGER," +
                 "fashion_shoes INTEGER" +
                 ")");
+        MyDatabase.execSQL("create Table alarmTime(time INTEGER)");
     }
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
         //
         MyDB.execSQL("drop Table if exists user_input");
+        //
+        // alarmTime 테이블 생성
+        MyDB.execSQL("drop Table if exists alarmTime");
     }
     public Boolean insertData(String email, String password){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
@@ -136,6 +142,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                      String keyword1, String keyword2, String keyword3) {
         return slider == 0 || fashionOuter == 0 || fashionTop == 0 || fashionPants == 0 || fashionShoes == 0 ||
                 TextUtils.isEmpty(keyword1) || TextUtils.isEmpty(keyword2) || TextUtils.isEmpty(keyword3);
+    }
+    /**
+    public Boolean insertAlarmTime(long timeInMillis) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("time", timeInMillis);
+
+        long rowId = MyDatabase.insert("alarmTime", null, values);
+        return rowId != -1;
+    }
+     */
+    // 알람 시간을 업로드하거나 업데이트하는 메서드 수정
+    public boolean insertOrUpdateAlarmTime(long timeInMillis) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("time", timeInMillis);
+
+        // 데이터베이스에 해당 알람 시간이 있는지 확인
+        Cursor cursor = db.rawQuery("SELECT * FROM alarmTime", null);
+        boolean hasData = cursor.moveToFirst(); // 데이터가 있으면 true, 없으면 false
+        cursor.close();
+
+        long rowId;
+
+        if (hasData) {
+            // 이미 데이터가 있는 경우 업데이트
+            rowId = db.update("alarmTime", values, null, null);
+        } else {
+            // 데이터가 없는 경우 새로 삽입
+            rowId = db.insert("alarmTime", null, values);
+        }
+
+        db.close();
+        return rowId != -1;
+    }
+    // 알람 시간이 저장되어 있는지 여부를 확인하는 메서드
+    public boolean checkAlarmTimeExists() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM alarmTime", null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+    public long getAlarmTime() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT time FROM alarmTime";
+        Cursor cursor = db.rawQuery(query, null);
+
+        long alarmTimeInMillis = -1; // Default value
+
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("time");
+            if (columnIndex >= 0) {
+                alarmTimeInMillis = cursor.getLong(columnIndex);
+            } else {
+                // Handle the case where the column index is -1
+                // This can be useful for debugging or error reporting
+                Log.e(TAG, "Column index for 'time' not found");
+            }
+        }
+
+        cursor.close();
+        db.close();
+
+        return alarmTimeInMillis;
     }
 
 }

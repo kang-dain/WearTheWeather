@@ -1,7 +1,5 @@
 package org.techtown.weartheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -16,6 +14,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -24,7 +25,7 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
     public static final String TAG = "MAIN";
 
     private TextView time_text;
-
+    private DatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedinstanceState) {
 
@@ -82,8 +83,6 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
         //알람 설정
         startAlarm(c);
     }
-
-
     //화면에 사용자가 선택한 시간을 보여주는 메소드
     private void updateTimeText(Calendar c) {
 
@@ -92,8 +91,6 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         time_text.setText(timeText);
     }
-
-
     //알람 시작
     private void startAlarm(Calendar c) {
         Log.d(TAG, "## startAlarm ##");
@@ -108,9 +105,6 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
         //RTC_WAKE: 지정된 시간에 기기의 절전 모드를 해체하여 대기 중인 인텐트를 실행
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
     }
-
-
-    //알람 취소
     //알람 취소
     private void cancelAlarm() {
         Log.d(TAG, "## cancelAlarm ##");
@@ -126,5 +120,4 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
         // 시간 설정 버튼 텍스트 업데이트
         time_text.setText("시간 지정");
     }
-
 }
