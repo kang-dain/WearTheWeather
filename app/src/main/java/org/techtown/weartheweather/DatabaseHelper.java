@@ -33,7 +33,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")");
         MyDatabase.execSQL("create Table alarmTime(time INTEGER)");
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
@@ -117,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("fashion_shoes", fashion_shoes);
 
         int rowsAffected = MyDatabase.update("user_input", contentValues,
-                "date = ? AND temperature = ?", new String[]{date, String.valueOf(temperature)});
+                "date = ?", new String[]{date});
 
         if (rowsAffected > 0) {
             // 업데이트가 성공한 경우
@@ -128,7 +127,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result != -1;
         }
     }
-
     public boolean isInsertOperation(String date, int temperature) {
         SQLiteDatabase MyDatabase = this.getReadableDatabase();
 

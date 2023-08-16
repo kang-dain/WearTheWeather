@@ -51,9 +51,6 @@ public class search_user extends AppCompatActivity {
             }
         });
 
-
-        //search_temperature
-        getWindow().setWindowAnimations(0);
 //혜음 수정
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button13.setOnClickListener(new View.OnClickListener() {

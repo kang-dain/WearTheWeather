@@ -813,28 +813,23 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                     if (dbHelper.someDataIsMissing(slider, fashionOuter, fashionTop, fashionPants, fashionShoes,
                             keyword1, keyword2, keyword3)) {
                         Toast.makeText(user_input.this, "모든 항목을 채워주세요", Toast.LENGTH_SHORT).show();
-                    }
-                    else if (dbHelper.isInsertOperation(currentDate, temperature)) {
-                        // 새로운 데이터가 추가된 경우
-                        Toast.makeText(user_input.this, "저장되었습니다", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(user_input.this, main_weather.class);
-                        startActivity(intent);
                     } else {
-                        // 데이터가 업데이트된 경우
-                        Toast.makeText(user_input.this, "업데이트되었습니다", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(user_input.this, main_weather.class);
+                        String message;
+                        if (dbHelper.isInsertOperation(currentDate, temperature)) {
+                            message = "저장되었습니다";
+                        } else {
+                            message = currentDate + "에 저장된 기존 데이터가 변경됩니다";
+                        }
+                        Toast.makeText(user_input.this, message, Toast.LENGTH_SHORT).show();
+
+                        // 데이터 전달을 위한 Intent 생성
+                        Intent intent = new Intent(user_input.this, calender_daily.class);
+                        intent.putExtra("keyword1", keyword1);
+                        intent.putExtra("keyword2", keyword2);
+                        intent.putExtra("keyword3", keyword3);
                         startActivity(intent);
                     }
-
-                    // 데이터 전달을 위한 Intent 생성
-                    Intent intent = new Intent(user_input.this, calender_daily.class);
-                    intent.putExtra("keyword1", keyword1);
-                    intent.putExtra("keyword2", keyword2);
-                    intent.putExtra("keyword3", keyword3);
-
-
-                }
-                else {
+                } else {
                     // 저장 또는 업데이트 실패한 경우
                     Toast.makeText(user_input.this, "저장에 실패했습니다", Toast.LENGTH_SHORT).show();
                 }

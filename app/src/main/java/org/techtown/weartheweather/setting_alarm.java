@@ -29,6 +29,19 @@ public class setting_alarm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_alarm);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         alarmSettingAlarmPlus = new SettingAlarmPlus(this);
 
         alarmSwitch = findViewById(R.id.switch1);
