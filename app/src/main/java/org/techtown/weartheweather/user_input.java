@@ -127,6 +127,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
         });
 
+        // slider 에 저장된 값을 다른 액티비티로 송신
+        int sliderValue = seekBar.getProgress();
+        Intent intent_slider = new Intent(this, calender_daily.class);
+        intent_slider.putExtra("sliderValue", sliderValue);
+        startActivity(intent_slider);
 
 
 //keyword
