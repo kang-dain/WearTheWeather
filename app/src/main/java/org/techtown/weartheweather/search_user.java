@@ -2,17 +2,21 @@ package org.techtown.weartheweather;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class search_user extends AppCompatActivity {
 
@@ -147,8 +151,60 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//숫자 3개 이상 클릭하면 애니메이션 효과 + 버튼 모두 비활성화
+        ImageView search_month_3 = findViewById(R.id.search_month_3);
+        Button[] buttons = new Button[12];
+        int[] countArray = new int[12]; // To store count values for each button
 
+// Track the selected buttons
+        ArrayList<Button> selectedButtons = new ArrayList<>();
 
+        for (int i = 0; i < 12; i++) {
+            int buttonId = getResources().getIdentifier("button" + (i + 1), "id", getPackageName());
+            buttons[i] = findViewById(buttonId);
+
+            final int buttonIndex = i;
+            buttons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (System.currentTimeMillis() > delay) {
+                        delay = System.currentTimeMillis() + 200;
+
+                        if (selectedButtons.contains(buttons[buttonIndex])) {
+                            selectedButtons.remove(buttons[buttonIndex]);
+                            buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
+                            countArray[buttonIndex] = 0;
+                        } else if (selectedButtons.size() < 3) {
+                            selectedButtons.add(buttons[buttonIndex]);
+                            buttons[buttonIndex].setTextColor(Color.parseColor("#6094E3"));
+                            countArray[buttonIndex] = 1;
+                        }
+                        // Disable other buttons if three are selected
+                        for (Button button : buttons) {
+                            if (!selectedButtons.contains(button)) {
+                                button.setEnabled(selectedButtons.size() < 3);
+                            }
+                        }
+
+                        int sum = 0;
+                        for (int count : countArray) {
+                            sum += count;
+                        }
+
+                        if (sum >= 3) { // Check if sum is 3 or more
+                            // Load and start the animation
+                            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                            search_month_3.startAnimation(anim);
+                        } else {
+                            // Stop the animation
+                            search_month_3.clearAnimation();
+                        }
+                    } else {
+                        buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
+                    }
+                }
+            });
+        }
 
 
 
