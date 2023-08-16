@@ -803,7 +803,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                     }
 
                     // 데이터 전달을 위한 Intent 생성
-                    Intent intent = new Intent(user_input.this, AnotherActivity.class);
+                    Intent intent = new Intent(user_input.this, calender_daily.class);
                     intent.putExtra("keyword1", keyword1);
                     intent.putExtra("keyword2", keyword2);
                     intent.putExtra("keyword3", keyword3);
