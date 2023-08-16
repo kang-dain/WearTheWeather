@@ -70,12 +70,12 @@
                 android:id="@+id/humidityView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:textSize="15dp"
+                android:layout_marginBottom="52dp"
                 android:textColor="@color/text_main_weather"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/main_weather_1"
                 app:layout_constraintEnd_toEndOf="@+id/main_weather_1"
-                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintHorizontal_bias="0.153"
                 app:layout_constraintStart_toStartOf="@+id/main_weather_1" />
 
             <TextView
