@@ -41,9 +41,10 @@ public class calender_daily extends AppCompatActivity {
 
         //이전 액티비티에서 전달받은 키워드 정보 받기
         keywordText = findViewById(R.id.KEYWORD);
-        String keyword1 = getIntent().getStringExtra("keyword1");
-        String keyword2 = getIntent().getStringExtra("keyword2");
-        String keyword3 = getIntent().getStringExtra("keyword3");
+        Intent intent = getIntent();
+        String keyword1 = intent.getStringExtra("keyword1");
+        String keyword2 = intent.getStringExtra("keyword2");
+        String keyword3 = intent.getStringExtra("keyword3");
 
         if (keyword1 != null) {
             if (keyword2 != null && keyword3 !=null){
