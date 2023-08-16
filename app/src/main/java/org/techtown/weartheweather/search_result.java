@@ -30,11 +30,11 @@ public class search_result extends AppCompatActivity {
 
 // 결과 값을 TextView에 표시 (온도)
         TextView resultTextView = findViewById(R.id.resultTextView);
-        resultTextView.setText("Temperature: " + temperature + "°C");
+        resultTextView.setText("▼Temperature: " + temperature + "°C");
 
 // 선택된 버튼 아이디들을 Month 텍스트로 변환하여 TextView에 표시
         TextView resultTextView2 = findViewById(R.id.resultTextView2);
-        StringBuilder selectedMonths = new StringBuilder("Month: ");
+        StringBuilder selectedMonths = new StringBuilder("▼Month: ");
         for (int buttonId : selectedButtonIds) {
             String buttonIndexString = getResources().getResourceEntryName(buttonId).replace("button", "");
             selectedMonths.append(buttonIndexString).append(",");
@@ -49,7 +49,7 @@ public class search_result extends AppCompatActivity {
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
 
 // 온도 값의 ±3 범위 내에 해당하는 데이터를 검색하여 출력
-        String query = "SELECT * FROM user_input WHERE temperature BETWEEN ? AND ?";
+        String query = "SELECT * FROM user_input WHERE temperature BETWEEN ? AND ? ORDER BY ABS(temperature - ?) ASC, temperature ASC";
         Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{String.valueOf(temperature - 3), String.valueOf(temperature + 3)});
 
         StringBuilder userData = new StringBuilder();
@@ -61,8 +61,8 @@ public class search_result extends AppCompatActivity {
             if (userTemperature >= temperature - 3 && userTemperature <= temperature + 3) {
                 int month = getMonthFromDateString(cursor.getString(cursor.getColumnIndex("date")));
                 if (selectedButtonIds.contains(getResources().getIdentifier("button" + month, "id", getPackageName()))) {
-                    userData.append("Date: ").append(cursor.getString(cursor.getColumnIndex("date"))).append("\n");
-                    userData.append("Temperature: ").append(userTemperature).append("°C\n");
+                    userData.append("\n\n▶Date: ").append(cursor.getString(cursor.getColumnIndex("date"))).append("\n");
+                    userData.append("Temperature: ").append(userTemperature).append("°C\n\n");
                 }
             }
         }
@@ -92,7 +92,7 @@ public class search_result extends AppCompatActivity {
         int[] selectedMonths = getIntent().getIntArrayExtra("selectedMonths");
 
         // user_input 테이블의 데이터 가져와서 출력
-        List<String> searchResults = dataSource.getSearchResults(targetTemperature);
+        List<String> searchResults = dataSource.getSearchResults(targetTemperature, selectedMonths);
 
         StringBuilder resultBuilder = new StringBuilder();
         for (String result : searchResults) {
@@ -157,6 +157,7 @@ public class search_result extends AppCompatActivity {
             }
         });
     }
+
     // 월에 해당하는 데이터 가져오는 함수
     @SuppressLint("Range")
     private String getMonthData(int month) {

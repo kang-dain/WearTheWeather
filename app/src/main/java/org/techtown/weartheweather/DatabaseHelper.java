@@ -115,6 +115,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("fashion_pants", fashion_pants);
         contentValues.put("fashion_shoes", fashion_shoes);
 
+
         int rowsAffected = MyDatabase.update("user_input", contentValues,
                 "date = ?", new String[]{date});
 
