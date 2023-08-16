@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".calender_daily">
 
+
+    <!-- 슬라이더 데이터 수신 -->
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="276dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/user_input_slider_3"
+        android:progressDrawable="@null"
+        android:thumb="@drawable/user_input_slider_4"
+        android:thumbTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="139dp"
+        tools:ignore="MissingConstraints" />
+
     <ImageButton
         android:id="@+id/calender_daily_button1"
         android:layout_width="35dp"
@@ -221,8 +236,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/calender_daily_button3"
         tools:ignore="ContentDescription"
         tools:visibility="invisible" />
