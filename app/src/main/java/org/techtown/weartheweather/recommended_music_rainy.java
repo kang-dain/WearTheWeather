@@ -11,6 +11,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class recommended_music_rainy extends AppCompatActivity {
 
+    private String[] videoUrls = {
+            "https://www.youtube.com/embed/A-51aNViFxk",
+            "https://www.youtube.com/embed/mUBK3pVsXLo",
+            "https://www.youtube.com/embed/J79HVjqxejs",
+            "https://www.youtube.com/embed/4FRRTSuhIBk",
+            "https://www.youtube.com/embed/CSs63ZT3rxw",
+            "https://www.youtube.com/embed/ZQ4meRd4k0Y",
+            "https://www.youtube.com/embed/dn1Yn4b6fWU",
+            "https://www.youtube.com/embed/ElHNCC-eSZo",
+            "https://www.youtube.com/embed/-45HCuZjsog",
+            "https://www.youtube.com/embed/RN31XpLyR_8",
+            "https://www.youtube.com/embed/Bs5Ltau0KiQ",
+            "https://www.youtube.com/embed/bmyeHpAcsXY"
+
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +83,13 @@ public class recommended_music_rainy extends AppCompatActivity {
         });
 
         WebView webView = findViewById(R.id.webview_2);
-        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/2Uycc9jxfjc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        // 랜덤한 인덱스 생성
+        int randomIndex = (int) (Math.random() * videoUrls.length);
+
+        // 선택한 동영상 URL을 웹뷰에 로드
+        String randomVideoUrl = videoUrls[randomIndex];
+        String video = "<iframe width=\"100%\" height=\"100%\" src=\"" + randomVideoUrl + "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\n";
+
         webView.loadData(video, "text/html", "utf-8");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());

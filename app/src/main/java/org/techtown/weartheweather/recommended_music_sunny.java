@@ -11,6 +11,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class recommended_music_sunny extends AppCompatActivity {
 
+    private String[] videoUrls = {
+            "https://www.youtube.com/embed/hPwMSH1RPMQ",
+            "https://www.youtube.com/embed/zAFYo-qteug",
+            "https://www.youtube.com/embed/WKqasNKfcFY",
+            "https://www.youtube.com/embed/dLrxto-1cu8",
+            "https://www.youtube.com/embed/w9TON4IwR2w",
+            "https://www.youtube.com/embed/pDTJPg5gOxU",
+            "https://www.youtube.com/embed/fj8ReY0HxWc",
+            "https://www.youtube.com/embed/k1V4ho7w_Ww",
+            "https://www.youtube.com/embed/E0COLl4M1i4",
+            "https://www.youtube.com/embed/WoLjqsYDQIM",
+            "https://www.youtube.com/embed/wyR0IfWC9Lg",
+            "https://www.youtube.com/embed/lx0wyILl4-c"
+
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +84,13 @@ public class recommended_music_sunny extends AppCompatActivity {
         });
 
         WebView webView = findViewById(R.id.webview_4);
-        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/zAFYo-qteug\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        // 랜덤한 인덱스 생성
+        int randomIndex = (int) (Math.random() * videoUrls.length);
+
+        // 선택한 동영상 URL을 웹뷰에 로드
+        String randomVideoUrl = videoUrls[randomIndex];
+        String video = "<iframe width=\"100%\" height=\"100%\" src=\"" + randomVideoUrl + "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\n";
+
         webView.loadData(video, "text/html", "utf-8");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
