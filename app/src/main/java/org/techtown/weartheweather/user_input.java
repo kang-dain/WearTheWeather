@@ -131,7 +131,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         int sliderValue = seekBar.getProgress();
         Intent intent_slider = new Intent(this, calender_daily.class);
         intent_slider.putExtra("sliderValue", sliderValue);
-        startActivity(intent_slider);
 
 
 //keyword
@@ -833,7 +832,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                     intent.putExtra("keyword2", keyword2);
                     intent.putExtra("keyword3", keyword3);
 
-                    startActivity(intent);
 
                 }
                 else {
