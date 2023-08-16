@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,12 +21,9 @@ public class complete extends AppCompatActivity {
         getWindow().setWindowAnimations(0);
 
         ImageButton complete_back_button = findViewById(R.id.complete_button1);
-        complete_back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
-                startActivity(intent);
-            }
+        complete_back_button.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
+            startActivity(intent);
         });
 
         // 전달받은 닉네임 정보를 가져옴
@@ -35,7 +31,7 @@ public class complete extends AppCompatActivity {
 
         // 텍스트뷰에 닉네임 정보 설정
         TextView nicknameView = findViewById(R.id.nickname_View);
-        nicknameView.setText(nickname);
+        nicknameView.setText(nickname+"님,");
 
 
         Button complete_nextbutton = findViewById(R.id.complete_nextbutton);

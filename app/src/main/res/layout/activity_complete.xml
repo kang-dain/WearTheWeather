@@ -32,12 +32,13 @@
     <TextView
         android:id="@+id/complete_text2"
         android:layout_width="320dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@drawable/complete_2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nickname_View" />
 
     <android.widget.Button
         android:id="@+id/complete_nextbutton"
@@ -52,15 +53,15 @@
 
     <TextView
         android:id="@+id/nickname_View"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
         android:text=""
+        android:textAlignment="viewStart"
         android:textColor="@color/text_75A3E9_FFFFFF"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
