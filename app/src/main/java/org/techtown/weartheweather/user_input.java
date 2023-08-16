@@ -306,30 +306,43 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
             }
             return false;
         });
 
         user_input_suggestion_button2.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
                 user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
             }
             return false;
         });
 
         user_input_suggestion_button3.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
                 user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
             }
             return false;
         });
 
         user_input_suggestion_button4.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
                 user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_button4);
             }
             return false;
         });
+
 
 
 
