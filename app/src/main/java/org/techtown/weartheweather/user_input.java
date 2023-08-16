@@ -801,6 +801,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         Intent intent = new Intent(user_input.this, main_weather.class);
                         startActivity(intent);
                     }
+
+                    // 데이터 전달을 위한 Intent 생성
+                    Intent intent = new Intent(user_input.this, AnotherActivity.class);
+                    intent.putExtra("keyword1", keyword1);
+                    intent.putExtra("keyword2", keyword2);
+                    intent.putExtra("keyword3", keyword3);
+
+                    startActivity(intent);
+
                 }
                 else {
                     // 저장 또는 업데이트 실패한 경우
