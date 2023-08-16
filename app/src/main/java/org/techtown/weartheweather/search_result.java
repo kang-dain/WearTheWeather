@@ -28,18 +28,11 @@ public class search_result extends AppCompatActivity {
         // 결과를 표시할 TextView
         resultTextView = findViewById(R.id.resultTextView);
 
-
+        //온도 받아오기
         int targetTemperature = getIntent().getIntExtra("targetTemperature", 0);
-        //선택한 달 데이터도 받아와서 사용
-        //int selectedMonth = getIntent().getIntExtra("selectedMonth", 0);
 
-        /**
-        //search_temperature에서 입력한 온도 값을 가져오기
-        Intent intent = getIntent();
-        int targetTemperature = intent.getIntExtra("targetTemperature", 0);
-        //int targetTemperature = 0;
-        //targetTemperature = intent.getIntExtra("targetTemperature",targetTemperature);
-*/
+        //선택된 달 데이터 받아오기
+        int[] selectedMonths = getIntent().getIntArrayExtra("selectedMonths");
 
         // user_input 테이블의 데이터 가져와서 출력
         List<String> searchResults = dataSource.getSearchResults(targetTemperature);
@@ -59,7 +52,7 @@ public class search_result extends AppCompatActivity {
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), search_user.class);
                 startActivity(intent);
             }
         });
@@ -108,7 +101,7 @@ public class search_result extends AppCompatActivity {
         });
     }
 
-    protected void onDestory() {
+    protected void onDestroy() {
         super.onDestroy();
         if(dataSource != null) {
             dataSource.close();

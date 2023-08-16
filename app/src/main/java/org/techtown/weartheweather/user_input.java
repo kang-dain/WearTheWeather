@@ -185,7 +185,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         //  <<<<<날씨 버튼 4개를 눌렀을 때 코드 모음>>>>>
-
         user_input_suggestion_button1 = findViewById(R.id.user_input_suggestion_button1);
         user_input_suggestion_button2 = findViewById(R.id.user_input_suggestion_button2);
         user_input_suggestion_button3 = findViewById(R.id.user_input_suggestion_button3);
@@ -196,6 +195,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         user_input_suggestion_button2.setOnClickListener(this);
         user_input_suggestion_button3.setOnClickListener(this);
         user_input_suggestion_button4.setOnClickListener(this);
+
 
         user_input_suggestion_button1.setOnClickListener(view -> {
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
@@ -299,6 +299,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return true;
         });
+
 
 
         //각 버튼에 대한 onTouchListenenr 등록(누르면 파란색으로 변함)
@@ -734,6 +735,8 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
         });
 
+
+
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
 // 버튼 클릭 리스너 등록
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
@@ -764,6 +767,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 keyword2 = keywordInput2.getText().toString();
                 keyword3 = keywordInput3.getText().toString();
 
+
                 // 데이터베이스에 데이터 추가 또는 업데이트
                 boolean isInsertedOrUpdated = dbHelper.insertUserInputData(currentDate, temperature, slider,
                         keyword1, keyword2, keyword3, fashionOuter, fashionTop, fashionPants, fashionShoes);
@@ -792,6 +796,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
         });
     }
+
 
     private void CurrentCall(){
 

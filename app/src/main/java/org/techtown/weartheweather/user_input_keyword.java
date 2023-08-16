@@ -48,7 +48,6 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
 
         ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
-
         // 날씨 키워드 버튼 처리
         user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
 
@@ -285,6 +284,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
         // 날씨 키워드 선택 시 특정 배경 변경
         //각 버튼에 대한 onTouchListenenr 등록 (누르면 파란색으로 변함)
+        /**
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
@@ -313,6 +313,48 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             }
             return false;
         });
+         */
+        user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
+            }
+            return false;
+        });
+
+        user_input_suggestion_button2.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
+            }
+            return false;
+        });
+
+        user_input_suggestion_button3.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_key_button4);
+            }
+            return false;
+        });
+
+        user_input_suggestion_button4.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_key_button1);
+                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_key_button2);
+                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_key_button3);
+                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_button4);
+            }
+            return false;
+        });
+
+
 
 
 
@@ -336,32 +378,24 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
-            ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
-            user_input_keyword_button_1.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button2) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button2;
             handleButtonBackgroundChange(user_input_suggestion_button2, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
-            ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
-            user_input_keyword_button_1_2.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button3) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button3;
             handleButtonBackgroundChange(user_input_suggestion_button3, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button4.setEnabled(false);
-            ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
-            user_input_keyword_button_1_3.setVisibility(View.VISIBLE);
         } else if (view.getId() == R.id.user_input_suggestion_button4) {
             int desiredBackgroundResource = R.drawable.user_input_suggestion_button4;
             handleButtonBackgroundChange(user_input_suggestion_button4, desiredBackgroundResource);
             user_input_suggestion_button1.setEnabled(false);
             user_input_suggestion_button2.setEnabled(false);
             user_input_suggestion_button3.setEnabled(false);
-            ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
-            user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
         }
     }
 

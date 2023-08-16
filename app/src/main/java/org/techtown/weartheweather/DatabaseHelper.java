@@ -33,6 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")");
         MyDatabase.execSQL("create Table alarmTime(time INTEGER)");
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
@@ -127,6 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result != -1;
         }
     }
+
     public boolean isInsertOperation(String date, int temperature) {
         SQLiteDatabase MyDatabase = this.getReadableDatabase();
 
