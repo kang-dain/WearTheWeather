@@ -31,7 +31,7 @@ public class keyword_cloudy extends AppCompatActivity {
         cloudyKeywords.add("상쾌함");  cloudyKeywords.add("어둠"); cloudyKeywords.add("무기력"); cloudyKeywords.add("적막함");
         cloudyKeywords.add("불투명함"); cloudyKeywords.add("습함"); cloudyKeywords.add("활기 없음"); cloudyKeywords.add("분위기");
         cloudyKeywords.add("아늑함"); cloudyKeywords.add("고요함"); cloudyKeywords.add("편안함"); cloudyKeywords.add("낭만적");
-        cloudyKeywords.add("차분함"); cloudyKeywords.add("맑음"); cloudyKeywords.add("우수수함"); cloudyKeywords.add("나른함");
+        cloudyKeywords.add("차분함"); cloudyKeywords.add("우수수함"); cloudyKeywords.add("나른함");
         cloudyKeywords.add("추억"); cloudyKeywords.add("집순이"); cloudyKeywords.add("우중충함"); cloudyKeywords.add("우울함");
         cloudyKeywords.add("잔잔함"); cloudyKeywords.add("어두움"); cloudyKeywords.add("시원함");
 

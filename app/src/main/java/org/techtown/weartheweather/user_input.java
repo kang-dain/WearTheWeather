@@ -142,7 +142,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
-        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+        user_input_keyword_button_1_2.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 Intent intent = new Intent(getApplicationContext(), keyword_cloudy.class);
@@ -153,7 +153,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
-        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+        user_input_keyword_button_1_3.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 Intent intent = new Intent(getApplicationContext(), keyword_rain.class);
@@ -164,7 +164,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
         ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
-        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+        user_input_keyword_button_1_4.setOnTouchListener((view, motionEvent) -> {
 
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 Intent intent = new Intent(getApplicationContext(), keyword_snow.class);
@@ -198,6 +198,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
         user_input_suggestion_button1.setOnClickListener(view -> {
+            user_input_keyword_button_1.setEnabled(true); // sun만 활성화
+            user_input_keyword_button_1_2.setEnabled(false);
+            user_input_keyword_button_1_3.setEnabled(false);
+            user_input_keyword_button_1_4.setEnabled(false);
+
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_1);
             user_input_keyword_button_2.setVisibility(View.VISIBLE);
@@ -224,9 +229,14 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
         user_input_suggestion_button2.setOnClickListener(view -> {
+            user_input_keyword_button_1_2.setEnabled(true); //cloud만 활성화
+            user_input_keyword_button_1.setEnabled(false);
+            user_input_keyword_button_1_3.setEnabled(false);
+            user_input_keyword_button_1_4.setEnabled(false);
+
             user_input_keyword_button_1_2.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_1_2);
-            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_3 = findViewById(R.id.user_input_keyword_button_1_2);
+            user_input_keyword_button_3.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
@@ -250,9 +260,14 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
         user_input_suggestion_button3.setOnClickListener(view -> {
+            user_input_keyword_button_1_3.setEnabled(true); //rain만 활성화
+            user_input_keyword_button_1_2.setEnabled(false);
+            user_input_keyword_button_1.setEnabled(false);
+            user_input_keyword_button_1_4.setEnabled(false);
+
             user_input_keyword_button_1_3.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_1_3);
-            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_4 = findViewById(R.id.user_input_keyword_button_1_3);
+            user_input_keyword_button_4.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
@@ -276,9 +291,14 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
         user_input_suggestion_button4.setOnClickListener(view -> {
+            user_input_keyword_button_1_4.setEnabled(true);//snow만 활성화
+            user_input_keyword_button_1_2.setEnabled(false);
+            user_input_keyword_button_1_3.setEnabled(false);
+            user_input_keyword_button_1.setEnabled(false);
+
             user_input_keyword_button_1_4.setVisibility(View.VISIBLE);
-            ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_1_4);
-            user_input_keyword_button_2.setVisibility(View.VISIBLE);
+            ImageButton user_input_keyword_button_5 = findViewById(R.id.user_input_keyword_button_1_4);
+            user_input_keyword_button_5.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
