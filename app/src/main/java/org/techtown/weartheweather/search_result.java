@@ -55,7 +55,6 @@ public class search_result extends AppCompatActivity {
         dataSource.close();
 
 
-
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {
             @Override

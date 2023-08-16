@@ -1,45 +1,51 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
 
 public class search_user extends AppCompatActivity {
 
     //search_month변수
     private int targetTemperature;
     long delay = 0;
-
+    private ScrollView scrollView;
+    private ImageView imageView;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
 
+        scrollView = findViewById(R.id.scroll);
+        imageView = findViewById(R.id.search_user_bottom);
 
+        scrollView.setVerticalScrollBarEnabled(false);
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+        imageView.startAnimation(anim);
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (scrollView != null && imageView != null) {
+                    if (isImageViewVisible()) {
+                        imageView.clearAnimation();
+                        imageView.setVisibility(View.GONE);
+                    } else {
+                        imageView.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
 
 
         //search_temperature
@@ -62,28 +68,26 @@ public class search_user extends AppCompatActivity {
         });
 
 
-
+        ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 
         ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
         search_temperature_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {/**
-             ImageView search_tip = (ImageView)findViewById(R.id.search_tip4);
-             search_tip.setVisibility(View.VISIBLE);*/
-                /**Intent intent = new Intent(getApplicationContext(), search_tip_temperature.class);
-                 startActivity(intent);
-                 */
-                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
+            public void onClick(View view) {
+                imageButton9.setVisibility(View.VISIBLE);
+            }
+        });
+        ImageButton search_temperature_button2 = (ImageButton) findViewById(R.id.search_temperature_button2);
+        search_temperature_button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 imageButton9.setVisibility(View.VISIBLE);
             }
         });
 
-
-        ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
         imageButton9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
                 imageButton9.setVisibility(View.INVISIBLE);
             }
         });
@@ -250,6 +254,16 @@ public class search_user extends AppCompatActivity {
         }
 
 */
+    }
+    private boolean isImageViewVisible() {
+        int[] location = new int[2];
+        imageView.getLocationOnScreen(location);
+
+        int imageViewBottom = location[1] + imageView.getHeight();
+        int scrollViewBottom = scrollView.getScrollY() + scrollView.getHeight();
+
+        // 이미지뷰의 아래쪽 경계가 스크롤뷰의 아래쪽 경계보다 위에 있는 경우 숨김
+        return imageViewBottom < scrollViewBottom;
     }
 }
 

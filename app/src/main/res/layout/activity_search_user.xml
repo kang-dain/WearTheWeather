@@ -21,7 +21,7 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="360dp"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
                 android:id="@+id/search_user_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="430dp"
+                android:layout_marginTop="445dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search_month_1"
@@ -100,6 +100,7 @@
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
             //search_month
+
             <TextView
                 android:id="@+id/search_month_1_2"
                 android:layout_width="wrap_content"
@@ -112,8 +113,8 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_month_1"/>
+                app:layout_constraintTop_toBottomOf="@+id/search_month_1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/search_temperature_button2"
@@ -162,19 +163,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/search_month_button13"
                 tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/imageButton9"
-                android:layout_width="360dp"
-                android:layout_height="800dp"
-                android:background="@android:color/transparent"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/search_tip"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <Button
                 android:id="@+id/button1"
@@ -368,15 +356,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/button9"
                 tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="360dp"
-                android:layout_height="800dp"
-                android:background="@android:color/transparent"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/search_tip"
-                tools:ignore="SpeakableTextPresentCheck" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -401,6 +380,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_tip"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck"
+        tools:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="360dp"
+        android:layout_height="800dp"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_tip"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/imageButton6"
