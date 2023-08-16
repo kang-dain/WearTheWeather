@@ -26,14 +26,17 @@ public class keyword_snow extends AppCompatActivity {
         });
 
 
-        // 이미 정해놓은 비오는 날씨 키워드 리스트
+
         ArrayList<String> snowKeywords = new ArrayList<>();
-        snowKeywords.add("깨끗함");   snowKeywords.add("설레임");   snowKeywords.add("환상적");   snowKeywords.add("로맨틱");
-        snowKeywords.add("촉촉함");   snowKeywords.add("맑음");   snowKeywords.add("기분 좋음");   snowKeywords.add("하얀 눈송이");
-        snowKeywords.add("평온함");   snowKeywords.add("정적");   snowKeywords.add("차가움");   snowKeywords.add("기다림");
-        snowKeywords.add("행복함");   snowKeywords.add("따뜻함");   snowKeywords.add("아늑함");   snowKeywords.add("즐거움");
-        snowKeywords.add("산뜻함");   snowKeywords.add("축축함");   snowKeywords.add("펑펑");   snowKeywords.add("아름다움");
-        snowKeywords.add("기대감");    snowKeywords.add("편안함");
+        snowKeywords.add("Clean");  snowKeywords.add("Excitement");  snowKeywords.add("Fantastic");
+        snowKeywords.add("Romantic");  snowKeywords.add("Moist");  snowKeywords.add("Clear");
+        snowKeywords.add("GoodFeeling");  snowKeywords.add("WhiteSnowflake");
+        snowKeywords.add("Tranquil");  snowKeywords.add("Stillness");  snowKeywords.add("Chill");
+        snowKeywords.add("Anticipation");  snowKeywords.add("Happiness");  snowKeywords.add("Warmth");
+        snowKeywords.add("Coziness");  snowKeywords.add("Joy");  snowKeywords.add("Freshness");
+        snowKeywords.add("Dampness");  snowKeywords.add("Crunchy");  snowKeywords.add("Beauty");
+        snowKeywords.add("Expectation");  snowKeywords.add("Comfort");
+
 
 
         // 이미 정해놓은 키워드 리스트에서 랜덤으로 3개의 키워드를 추천

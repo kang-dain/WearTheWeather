@@ -30,18 +30,16 @@ public class keyword_sun extends AppCompatActivity {
 
 
 
-
-
-
-        // 이미 정해놓은 비오는 날씨 키워드 리스트
         ArrayList<String> sunKeywords = new ArrayList<>();
-        sunKeywords.add("상쾌함");   sunKeywords.add("활기참");   sunKeywords.add("행복함");
-        sunKeywords.add("밝음");    sunKeywords.add("경쾌함");   sunKeywords.add("즐거움");
-        sunKeywords.add("유쾌함");   sunKeywords.add("기분좋음");  sunKeywords.add("더움");
-        sunKeywords.add("생기발랄");  sunKeywords.add("에너지");   sunKeywords.add("창의적");
-        sunKeywords.add("자유로움");  sunKeywords.add("신선함");   sunKeywords.add("희망적");
-        sunKeywords.add("해방감");   sunKeywords.add("활기참");   sunKeywords.add("쾌적함");
-        sunKeywords.add("싱그러움");  sunKeywords.add("여유로움");
+        sunKeywords.add("Fresh");   sunKeywords.add("Vibrant");   sunKeywords.add("Happy");
+        sunKeywords.add("Bright");   sunKeywords.add("Lively");   sunKeywords.add("Joyful");
+        sunKeywords.add("Cheerful");   sunKeywords.add("GoodFeeling");   sunKeywords.add("Warm");
+        sunKeywords.add("Energetic");   sunKeywords.add("Energized");   sunKeywords.add("Creative");
+        sunKeywords.add("Free");   sunKeywords.add("Refreshing");   sunKeywords.add("Hopeful");
+        sunKeywords.add("Liberating");   sunKeywords.add("Dynamic");   sunKeywords.add("Pleasant");
+        sunKeywords.add("Invigorating");   sunKeywords.add("Relaxed");
+
+
 
 
         // 이미 정해놓은 키워드 리스트에서 랜덤으로 3개의 키워드를 추천

@@ -26,14 +26,16 @@ public class keyword_rain extends AppCompatActivity {
         });
 
 
-        // 이미 정해놓은 비오는 날씨 키워드 리스트
+
         ArrayList<String> rainKeywords = new ArrayList<>();
-        rainKeywords.add("추적추적");    rainKeywords.add("상쾌함");   rainKeywords.add("시원함");   rainKeywords.add("깨끗함");
-        rainKeywords.add("청량함");   rainKeywords.add("고요함");   rainKeywords.add("빗소리");   rainKeywords.add("장마");
-        rainKeywords.add("선선함");   rainKeywords.add("비바람");   rainKeywords.add("차가움");   rainKeywords.add("조용함");
-        rainKeywords.add("여유로움");   rainKeywords.add("싱그러움");   rainKeywords.add("잔잔함");   rainKeywords.add("감성적");
-        rainKeywords.add("나른함");   rainKeywords.add("찜찜함");   rainKeywords.add("우중충한");   rainKeywords.add("낭만적");
-        rainKeywords.add("아늑함");   rainKeywords.add("우울함");   rainKeywords.add("습함");
+        rainKeywords.add("Pattering");  rainKeywords.add("Fresh");  rainKeywords.add("Cool");
+        rainKeywords.add("Clean");  rainKeywords.add("Refreshing");  rainKeywords.add("Serene");
+        rainKeywords.add("SoundOfRain");  rainKeywords.add("Monsoon");  rainKeywords.add("Mild");
+        rainKeywords.add("RainyBreeze");  rainKeywords.add("Chilly");  rainKeywords.add("Quiet");
+        rainKeywords.add("Leisurely");  rainKeywords.add("Vivid");  rainKeywords.add("Calm");
+        rainKeywords.add("Tranquil");  rainKeywords.add("Dreamy");  rainKeywords.add("Languid");
+        rainKeywords.add("Stuffy");  rainKeywords.add("Sultry");  rainKeywords.add("Moody");
+
 
 
         // 이미 정해놓은 키워드 리스트에서 랜덤으로 3개의 키워드를 추천

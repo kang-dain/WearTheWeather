@@ -26,15 +26,15 @@ public class keyword_cloudy extends AppCompatActivity {
         });
 
 
-        // 이미 정해놓은 비오는 날씨 키워드 리스트
-        ArrayList<String> cloudyKeywords = new ArrayList<>();
-        cloudyKeywords.add("상쾌함");  cloudyKeywords.add("어둠"); cloudyKeywords.add("무기력"); cloudyKeywords.add("적막함");
-        cloudyKeywords.add("불투명함"); cloudyKeywords.add("습함"); cloudyKeywords.add("활기 없음"); cloudyKeywords.add("분위기");
-        cloudyKeywords.add("아늑함"); cloudyKeywords.add("고요함"); cloudyKeywords.add("편안함"); cloudyKeywords.add("낭만적");
-        cloudyKeywords.add("차분함"); cloudyKeywords.add("우수수함"); cloudyKeywords.add("나른함");
-        cloudyKeywords.add("추억"); cloudyKeywords.add("집순이"); cloudyKeywords.add("우중충함"); cloudyKeywords.add("우울함");
-        cloudyKeywords.add("잔잔함"); cloudyKeywords.add("어두움"); cloudyKeywords.add("시원함");
 
+        ArrayList<String> cloudyKeywords = new ArrayList<>();
+        cloudyKeywords.add("Lethargic");    cloudyKeywords.add("Quiet");    cloudyKeywords.add("Opaque");
+        cloudyKeywords.add("Humid");    cloudyKeywords.add("LackingVitality");    cloudyKeywords.add("Atmospheric");
+        cloudyKeywords.add("Cozy");    cloudyKeywords.add("Serene");    cloudyKeywords.add("Comforting");
+        cloudyKeywords.add("Romantic");    cloudyKeywords.add("Calm");    cloudyKeywords.add("Melancholic");
+        cloudyKeywords.add("Languid");    cloudyKeywords.add("Depressing");    cloudyKeywords.add("Remembering");
+        cloudyKeywords.add("Homebody");    cloudyKeywords.add("Indecisive");    cloudyKeywords.add("Tranquil");
+        cloudyKeywords.add("Dark");    cloudyKeywords.add("Cool");
 
         // 이미 정해놓은 키워드 리스트에서 랜덤으로 3개의 키워드를 추천
         ArrayList<String> recommendedKeywords = getRandomKeywords(cloudyKeywords, 3);
