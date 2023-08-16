@@ -1,27 +1,18 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,14 +23,33 @@ public class search_user extends AppCompatActivity {
     //search_month변수
     private int targetTemperature;
     long delay = 0;
-
+    private ScrollView scrollView;
+    private ImageView imageView;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
 
+        scrollView = findViewById(R.id.scroll);
+        imageView = findViewById(R.id.search_user_bottom);
 
+        scrollView.setVerticalScrollBarEnabled(false);
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+        imageView.startAnimation(anim);
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (scrollView != null && imageView != null) {
+                    if (isImageViewVisible()) {
+                        imageView.clearAnimation();
+                        imageView.setVisibility(View.GONE);
+                    } else {
+                        imageView.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
 
 
         //search_temperature
@@ -62,28 +72,26 @@ public class search_user extends AppCompatActivity {
         });
 
 
-
+        ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 
         ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
         search_temperature_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {/**
-             ImageView search_tip = (ImageView)findViewById(R.id.search_tip4);
-             search_tip.setVisibility(View.VISIBLE);*/
-                /**Intent intent = new Intent(getApplicationContext(), search_tip_temperature.class);
-                 startActivity(intent);
-                 */
-                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
+            public void onClick(View view) {
+                imageButton9.setVisibility(View.VISIBLE);
+            }
+        });
+        ImageButton search_temperature_button2 = (ImageButton) findViewById(R.id.search_temperature_button2);
+        search_temperature_button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 imageButton9.setVisibility(View.VISIBLE);
             }
         });
 
-
-        ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
         imageButton9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageButton imageButton9 = (ImageButton)findViewById(R.id.imageButton9);
                 imageButton9.setVisibility(View.INVISIBLE);
             }
         });
@@ -143,8 +151,60 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//숫자 3개 이상 클릭하면 애니메이션 효과 + 버튼 모두 비활성화
+        ImageView search_month_3 = findViewById(R.id.search_month_3);
+        Button[] buttons = new Button[12];
+        int[] countArray = new int[12]; // To store count values for each button
 
+// Track the selected buttons
+        ArrayList<Button> selectedButtons = new ArrayList<>();
 
+        for (int i = 0; i < 12; i++) {
+            int buttonId = getResources().getIdentifier("button" + (i + 1), "id", getPackageName());
+            buttons[i] = findViewById(buttonId);
+
+            final int buttonIndex = i;
+            buttons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (System.currentTimeMillis() > delay) {
+                        delay = System.currentTimeMillis() + 200;
+
+                        if (selectedButtons.contains(buttons[buttonIndex])) {
+                            selectedButtons.remove(buttons[buttonIndex]);
+                            buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
+                            countArray[buttonIndex] = 0;
+                        } else if (selectedButtons.size() < 3) {
+                            selectedButtons.add(buttons[buttonIndex]);
+                            buttons[buttonIndex].setTextColor(Color.parseColor("#6094E3"));
+                            countArray[buttonIndex] = 1;
+                        }
+                        // Disable other buttons if three are selected
+                        for (Button button : buttons) {
+                            if (!selectedButtons.contains(button)) {
+                                button.setEnabled(selectedButtons.size() < 3);
+                            }
+                        }
+
+                        int sum = 0;
+                        for (int count : countArray) {
+                            sum += count;
+                        }
+
+                        if (sum >= 3) { // Check if sum is 3 or more
+                            // Load and start the animation
+                            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                            search_month_3.startAnimation(anim);
+                        } else {
+                            // Stop the animation
+                            search_month_3.clearAnimation();
+                        }
+                    } else {
+                        buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
+                    }
+                }
+            });
+        }
 
 
 
@@ -250,6 +310,16 @@ public class search_user extends AppCompatActivity {
         }
 
 */
+    }
+    private boolean isImageViewVisible() {
+        int[] location = new int[2];
+        imageView.getLocationOnScreen(location);
+
+        int imageViewBottom = location[1] + imageView.getHeight();
+        int scrollViewBottom = scrollView.getScrollY() + scrollView.getHeight();
+
+        // 이미지뷰의 아래쪽 경계가 스크롤뷰의 아래쪽 경계보다 위에 있는 경우 숨김
+        return imageViewBottom < scrollViewBottom;
     }
 }
 
