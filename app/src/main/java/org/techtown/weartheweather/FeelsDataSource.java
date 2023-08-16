@@ -2,11 +2,6 @@ package org.techtown.weartheweather;
 
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FeelsDataSource {
     private DatabaseHelper dbHelper;
@@ -52,6 +47,7 @@ public class FeelsDataSource {
 
             return searchResults;
     }*/
+/**
 public List<String> getSearchResults(int targetTemperature) {
     List<String> searchResults = new ArrayList<>();
 
@@ -84,6 +80,6 @@ public List<String> getSearchResults(int targetTemperature) {
 
     return searchResults;
 }
-
+*/
 
 }

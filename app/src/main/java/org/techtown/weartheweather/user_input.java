@@ -127,6 +127,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
         });
 
+        // slider 에 저장된 값을 다른 액티비티로 송신
+        int sliderValue = seekBar.getProgress();
+        Intent intent_slider = new Intent(this, calender_daily.class);
+        intent_slider.putExtra("sliderValue", sliderValue);
+        startActivity(intent_slider);
 
 
 //keyword
@@ -755,7 +760,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         imageButton8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), search_user.class);
                 startActivity(intent);
             }
         });
@@ -821,6 +826,15 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         Intent intent = new Intent(user_input.this, main_weather.class);
                         startActivity(intent);
                     }
+
+                    // 데이터 전달을 위한 Intent 생성
+                    Intent intent = new Intent(user_input.this, calender_daily.class);
+                    intent.putExtra("keyword1", keyword1);
+                    intent.putExtra("keyword2", keyword2);
+                    intent.putExtra("keyword3", keyword3);
+
+                    startActivity(intent);
+
                 }
                 else {
                     // 저장 또는 업데이트 실패한 경우
