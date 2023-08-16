@@ -90,9 +90,13 @@ public class search_user extends AppCompatActivity {
                 EditText editTextNumberSigned = findViewById(R.id.editTextNumberSigned);
                 int targetTemperature = Integer.parseInt(editTextNumberSigned.getText().toString());
 
+
+                //달(month)값을 12 + 1 (13)으로 설정
+                int month = 13;
                 //Intent 생성하여 온도 데이터를 search_result로 전달
                 Intent intent = new Intent(getApplicationContext(), search_result.class);
                 intent.putExtra("targetTemperature", targetTemperature);
+                intent.putExtra("selectedMonths", new int[]{month});// 배열로 전달하므로 달(month) 값도 배열로 저장
                 startActivity(intent);
             }
         });
