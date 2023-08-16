@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import android.view.LayoutInflater;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -72,7 +70,7 @@ public class setting_nickname extends AppCompatActivity {
         imageButton8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), search_user.class);
                 startActivity(intent);
             }
         });

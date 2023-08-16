@@ -164,7 +164,7 @@ public class search_user extends AppCompatActivity {
         imageButton8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), search_user.class);
                 startActivity(intent);
             }
         });

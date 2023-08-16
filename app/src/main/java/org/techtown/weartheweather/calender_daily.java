@@ -1,7 +1,5 @@
 package org.techtown.weartheweather;
 
-import static java.sql.Types.NULL;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -126,7 +124,7 @@ public class calender_daily extends AppCompatActivity {
         imageButton8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
+                Intent intent = new Intent(getApplicationContext(), search_user.class);
                 startActivity(intent);
             }
         });
