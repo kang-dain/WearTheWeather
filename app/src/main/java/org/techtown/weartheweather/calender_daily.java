@@ -1,5 +1,7 @@
 package org.techtown.weartheweather;
 
+import static java.sql.Types.NULL;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,6 +10,7 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +27,10 @@ public class calender_daily extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
-        dateEditText = findViewById(R.id.DATE);
 
 
         // 이전 액티비티에서 전달받은 날짜 정보 받기
+        dateEditText = findViewById(R.id.DATE);
         int year = getIntent().getIntExtra("year", -1);
         int month = getIntent().getIntExtra("month", -1);
         int day = getIntent().getIntExtra("day", -1);
@@ -61,6 +64,13 @@ public class calender_daily extends AppCompatActivity {
                 keywordText.setText("#"  + keyword3);
             }
         }
+
+        // 이전 액티비티에서 전달받은 seekbar data 수신
+        int receivedSliderValue = getIntent().getIntExtra("sliderValue", 0);
+        SeekBar seekBar = findViewById(R.id.seekBar3);
+        seekBar.setProgress(receivedSliderValue);
+
+
 
 
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
@@ -124,7 +134,7 @@ public class calender_daily extends AppCompatActivity {
         imageButton8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_user.class);
+                Intent intent = new Intent(getApplicationContext(), search_temperature.class);
                 startActivity(intent);
             }
         });
