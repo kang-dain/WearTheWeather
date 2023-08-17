@@ -33,11 +33,11 @@ public class keyword_sun extends AppCompatActivity {
         ArrayList<String> sunKeywords = new ArrayList<>();
         sunKeywords.add("Fresh");   sunKeywords.add("Vibrant");   sunKeywords.add("Happy");
         sunKeywords.add("Bright");   sunKeywords.add("Lively");   sunKeywords.add("Joyful");
-        sunKeywords.add("Cheerful");   sunKeywords.add("GoodFeeling");   sunKeywords.add("Warm");
+        sunKeywords.add("Cheerful");   sunKeywords.add("Good");   sunKeywords.add("Warm");
         sunKeywords.add("Energetic");   sunKeywords.add("Energized");   sunKeywords.add("Creative");
-        sunKeywords.add("Free");   sunKeywords.add("Refreshing");   sunKeywords.add("Hopeful");
-        sunKeywords.add("Liberating");   sunKeywords.add("Dynamic");   sunKeywords.add("Pleasant");
-        sunKeywords.add("Invigorating");   sunKeywords.add("Relaxed");
+        sunKeywords.add("Free");   sunKeywords.add("Refresh");   sunKeywords.add("Hopeful");
+        sunKeywords.add("Liberate");   sunKeywords.add("Dynamic");   sunKeywords.add("Pleasant");
+        sunKeywords.add("Invigorate");   sunKeywords.add("Relaxed");
 
 
 

@@ -29,7 +29,7 @@ public class keyword_rain extends AppCompatActivity {
 
         ArrayList<String> rainKeywords = new ArrayList<>();
         rainKeywords.add("Pattering");  rainKeywords.add("Fresh");  rainKeywords.add("Cool");
-        rainKeywords.add("Clean");  rainKeywords.add("Refreshing");  rainKeywords.add("Serene");
+        rainKeywords.add("Clean");  rainKeywords.add("Refresh");  rainKeywords.add("Serene");
         rainKeywords.add("SoundOfRain");  rainKeywords.add("Monsoon");  rainKeywords.add("Mild");
         rainKeywords.add("RainyBreeze");  rainKeywords.add("Chilly");  rainKeywords.add("Quiet");
         rainKeywords.add("Leisurely");  rainKeywords.add("Vivid");  rainKeywords.add("Calm");

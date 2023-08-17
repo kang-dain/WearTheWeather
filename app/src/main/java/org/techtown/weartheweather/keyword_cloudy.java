@@ -30,9 +30,9 @@ public class keyword_cloudy extends AppCompatActivity {
         ArrayList<String> cloudyKeywords = new ArrayList<>();
         cloudyKeywords.add("Lethargic");    cloudyKeywords.add("Quiet");    cloudyKeywords.add("Opaque");
         cloudyKeywords.add("Humid");    cloudyKeywords.add("LackingVitality");    cloudyKeywords.add("Atmospheric");
-        cloudyKeywords.add("Cozy");    cloudyKeywords.add("Serene");    cloudyKeywords.add("Comforting");
+        cloudyKeywords.add("Cozy");    cloudyKeywords.add("Serene");    cloudyKeywords.add("Comfort");
         cloudyKeywords.add("Romantic");    cloudyKeywords.add("Calm");    cloudyKeywords.add("Melancholic");
-        cloudyKeywords.add("Languid");    cloudyKeywords.add("Depressing");    cloudyKeywords.add("Remembering");
+        cloudyKeywords.add("Languid");    cloudyKeywords.add("Depress");    cloudyKeywords.add("Remember");
         cloudyKeywords.add("Homebody");    cloudyKeywords.add("Indecisive");    cloudyKeywords.add("Tranquil");
         cloudyKeywords.add("Dark");    cloudyKeywords.add("Cool");
 
