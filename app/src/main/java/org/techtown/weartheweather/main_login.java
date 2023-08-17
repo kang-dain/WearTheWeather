@@ -1,7 +1,9 @@
 package org.techtown.weartheweather;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -49,21 +51,35 @@ public class main_login extends AppCompatActivity {
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
                     if (checkCredentials == true) {
                         Toast.makeText(main_login.this, "로그인에 성공하였습니다", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), main_weather.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(main_login.this, "잘못된 자격증명입니다.", Toast.LENGTH_SHORT).show();
+
+                        // 닉네임 가져오기
+                        String nickname = databaseHelper.getNicknameByEmail(email);
+
+                        // SharedPreferences에 데이터 저장
+                        SharedPreferences sharedPref = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("email", email);
+                        editor.putString("nickname", nickname);
+                        editor.apply();
+
+                        // 메뉴 액티비티로 전환
+                        Intent menuIntent = new Intent(getApplicationContext(), menu.class);
+                        startActivity(menuIntent);
+
+                        // main_weather 액티비티로 전환
+                        Intent mainWeatherIntent = new Intent(getApplicationContext(), main_weather.class);
+                        startActivity(mainWeatherIntent);
+                        } else {
+                            Toast.makeText(main_login.this, "잘못된 자격증명입니다.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
-            }
         });
 
-        binding.mainLoginButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(main_login.this, terms_of_use.class);
-                startActivity(intent);
-            }
+
+        binding.mainLoginButton3.setOnClickListener(view -> {
+            Intent intent = new Intent(main_login.this, terms_of_use.class);
+            startActivity(intent);
         });
 
         ImageButton find_password_button = (ImageButton) findViewById(R.id.main_login_button2);

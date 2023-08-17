@@ -1,7 +1,10 @@
 package org.techtown.weartheweather;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,12 +16,16 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        // 전달받은 닉네임 정보를 가져옴
-        String nickname = getIntent().getStringExtra("nickname");
+        // SharedPreferences에서 데이터 가져오기
+        SharedPreferences sharedPref = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String email = sharedPref.getString("email", "");
+        String nickname = sharedPref.getString("nickname", "");
 
-        // 텍스트뷰에 닉네임 정보 설정
-        TextView nicknameView = findViewById(R.id.nickname_View);
-        nicknameView.setText("닉네임: " + nickname);
+        // 텍스트뷰에 이메일 정보 설정
+        TextView emailView = findViewById(R.id.email_View);
+        emailView.setText("이메일: " + email);
+
+
 
 
         ImageButton menu_button1 = (ImageButton) findViewById(R.id.menu_button1);

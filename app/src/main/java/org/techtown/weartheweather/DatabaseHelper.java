@@ -19,7 +19,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         MyDatabase.execSQL("create Table users(email TEXT primary key, password TEXT)");
-        // user_input 테이블 생성
         MyDatabase.execSQL("create Table user_input(" +
                 "date TEXT," +
                 "temperature INTEGER," +
@@ -80,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDatabase.execSQL("create Table nicknames(email TEXT primary key, nickname TEXT)");
     }
 
-    //닉네임을 nicknames 테이블에 삽입
+    // 닉네임을 nicknames 테이블에 삽입
     public Boolean insertNickname(String email, String nickname) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -90,6 +89,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    // 이메일로 닉네임 조회
+    public String getNicknameByEmail(String email) {
+        SQLiteDatabase MyDatabase = this.getReadableDatabase();
+        String[] projection = {"nickname"};
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
+
+        Cursor cursor = MyDatabase.query("nicknames", projection, selection, selectionArgs, null, null, null);
+
+        String nickname = null;
+        if (cursor.moveToFirst()) {
+            nickname = cursor.getString(cursor.getColumnIndexOrThrow("nickname"));
+        }
+
+        cursor.close();
+        return nickname;
+    }
+
+    // nicknames 테이블 존재 여부 확인
     public boolean isNicknameTableExists() {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table' AND name='nicknames'", null);
