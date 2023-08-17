@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="35dp"
+            android:fontFamily="@font/air"
             android:text="여기에 키워드가 표시됩니다."
             android:textColor="#FFFFFF"
             android:textSize="20sp"
