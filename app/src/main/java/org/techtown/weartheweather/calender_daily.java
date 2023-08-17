@@ -1,11 +1,14 @@
 package org.techtown.weartheweather;
 
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 public class calender_daily extends AppCompatActivity {
     private TextView dateEditText;
@@ -82,7 +86,7 @@ public class calender_daily extends AppCompatActivity {
         TextView tempText = findViewById(R.id.TEMP);
         int receicedTemp = getIntent().getIntExtra("tempValue", 0);
         // tempText.setText(receicedTemp); -> 지우면 오류는 없어지만 설정도 안돼
-        
+
         // 이전 액티비티에서 전달받은 fashion 수신
         int fashion_Outer = getIntent().getIntExtra("fashionOuter",0);
         int fashion_Top = getIntent().getIntExtra("fashionTop",0);
@@ -98,10 +102,10 @@ public class calender_daily extends AppCompatActivity {
                 //ImageView calenderDailyButton3 = findViewById(R.id.calender_daily_button3);
                 //calenderDailyButton3.setVisibility(View.VISIBLE);
                 View rootView = getWindow().getDecorView();
-                File screenShot = ScreenShot(rootView);
+                Bitmap screenShot = takeScreenShot(rootView); // 수정된 부분
                 if (screenShot != null) {
                     // 이미지 공유 기능 호출
-                    shareImage(screenShot);
+                    saveAndShareImage(screenShot);
                 }
             }
         });
@@ -164,6 +168,41 @@ public class calender_daily extends AppCompatActivity {
             }
         });
     }
+
+    // 스크린샷 캡처
+    private Bitmap takeScreenShot(View view) {
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    // 이미지 저장 및 공유
+    private void saveAndShareImage(Bitmap imageBitmap) {
+        // 이미지 파일 저장
+        ContentResolver contentResolver = getContentResolver();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MediaStore.Images.Media.DISPLAY_NAME, "screenshot.png");
+        contentValues.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
+
+        // 이미지 파일을 외부 저장소의 Pictures 디렉토리에 저장
+        Uri imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+        try {
+            OutputStream outputStream = contentResolver.openOutputStream(imageUri);
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.close();
+
+            // 이미지를 공유하기 위한 인텐트 생성
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("image/*");
+            sharingIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+
+            // 공유할 수 있는 앱을 선택할 수 있는 액티비티 실행
+            startActivity(Intent.createChooser(sharingIntent, "이미지 공유하기"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     //캡쳐버튼클릭
     public void mOnCaptureClick(View v){
         //전체화면
@@ -201,7 +240,7 @@ public class calender_daily extends AppCompatActivity {
         view.setDrawingCacheEnabled(false);
         return file;
     }
-    // 이미지 공유 메소드
+    // 이미지 공유
     private void shareImage(File imageFile) {
         // 이미지 파일의 경로를 지정
         String imagePath = "/sdcard/Pictures/screenshot.png";
@@ -223,4 +262,5 @@ public class calender_daily extends AppCompatActivity {
         // 뒤로가기(액티비티 종료)
         super.onBackPressed();
     }
+
 }
