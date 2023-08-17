@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class search_result extends AppCompatActivity {
@@ -68,9 +69,32 @@ public class search_result extends AppCompatActivity {
         }
 
         cursor.close();
+
         // 결과 값을 TextView에 표시 (user_data)
         TextView resultTextView3 = findViewById(R.id.resultTextView3);
         resultTextView3.setText(userData.toString());
+
+        resultTextView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // resultTextView3 클릭 시 날짜 정보 가져오기
+                String date = extractDateFromTextView(resultTextView3.getText().toString());
+
+                // 이전 액티비티에서 전달받은 날짜 정보 받기
+                int year = getIntent().getIntExtra("year", -1);
+                int month = getIntent().getIntExtra("month", -1);
+                int day = getIntent().getIntExtra("day", -1);
+
+                // 날짜 정보를 인텐트에 추가하여 새로운 액티비티 시작
+                Intent intent = new Intent(search_result.this, calender_daily.class);
+                intent.putExtra("date", date); // 날짜 정보 추가
+                intent.putExtra("year", year); // 이전 액티비티에서 받아온 년도 정보 추가
+                intent.putExtra("month", month); // 이전 액티비티에서 받아온 월 정보 추가
+                intent.putExtra("day", day); // 이전 액티비티에서 받아온 일 정보 추가
+                startActivity(intent);
+            }
+        });
+
 
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {
@@ -157,4 +181,16 @@ public class search_result extends AppCompatActivity {
             dataSource.close();
         }
     }
+
+    // TextView에서 날짜 정보 추출하는 함수
+    private String extractDateFromTextView(String text) {
+
+        // text에서 날짜 정보 추출 (예: "▶ 날짜: 2023-08-17")
+        int startIndex = text.indexOf("날짜: ") + 5;
+        int endIndex = text.indexOf("\n", startIndex);
+        return text.substring(startIndex, endIndex);
+    }
+
 }
+
+

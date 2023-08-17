@@ -35,7 +35,8 @@ public class calender_daily extends AppCompatActivity {
         int day = getIntent().getIntExtra("day", -1);
 
         if (year != -1 && month != -1 && day != -1) {
-            String selectedDate = year + "년 " + month + "월 " + day + "일";
+            //String selectedDate = year + "년 " + month + "월 " + day + "일";
+            String selectedDate = String.format("%04d년 %02d월 %02d일", year, month, day);
             dateEditText.setText(selectedDate); // 선택한 날짜를 EditText에 설정
         }
 
@@ -45,6 +46,11 @@ public class calender_daily extends AppCompatActivity {
         String keyword1 = intent.getStringExtra("keyword1");
         String keyword2 = intent.getStringExtra("keyword2");
         String keyword3 = intent.getStringExtra("keyword3");
+
+        // 전달받은 날짜 정보를 가져와서 화면에 표시
+        String date = getIntent().getStringExtra("date");
+        TextView dateTextView = findViewById(R.id.DATE);
+        dateTextView.setText(date);
 
         if (keyword1 != null) {
             if (keyword2 != null && keyword3 !=null){

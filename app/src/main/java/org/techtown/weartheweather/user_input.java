@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+
 public class user_input extends AppCompatActivity implements View.OnClickListener {
     //데이터베이스
     private DatabaseHelper dbHelper;
