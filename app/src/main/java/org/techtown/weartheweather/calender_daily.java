@@ -75,10 +75,15 @@ public class calender_daily extends AppCompatActivity {
         // 이전 액티비티에서 전달받은 temperature 수신
         TextView tempText = findViewById(R.id.TEMP);
         int receicedTemp = getIntent().getIntExtra("tempValue", 0);
-        // tempText.setText(receicedTemp);
-
-
+        // tempText.setText(receicedTemp); -> 지우면 오류는 없어지만 설정도 안돼
         
+        // 이전 액티비티에서 전달받은 fashion 수신
+        int fashion_Outer = getIntent().getIntExtra("fashionOuter",0);
+        int fashion_Top = getIntent().getIntExtra("fashionTop",0);
+        int fashion_Pants = getIntent().getIntExtra("fashionPants",0);
+        int fashion_Shoes = getIntent().getIntExtra("fashionShoes",0);
+
+
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -832,6 +832,12 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         intent.putExtra("keyword1", keyword1);
                         intent.putExtra("keyword2", keyword2);
                         intent.putExtra("keyword3", keyword3);
+                        intent.putExtra("fashionOuter", fashionOuter);
+                        intent.putExtra("fashionTop", fashionTop);
+                        intent.putExtra("fashionPants", fashionPants);
+                        intent.putExtra("fashionShoes", fashionShoes);
+
+
                         startActivity(intent);
                     }
                 } else {
