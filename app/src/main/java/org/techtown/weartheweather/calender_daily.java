@@ -75,7 +75,7 @@ public class calender_daily extends AppCompatActivity {
         // 이전 액티비티에서 전달받은 temperature 수신
         TextView tempText = findViewById(R.id.TEMP);
         int receicedTemp = getIntent().getIntExtra("tempValue", 0);
-        tempText.setText(receicedTemp);
+        // tempText.setText(receicedTemp);
 
 
         
