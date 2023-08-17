@@ -31,17 +31,77 @@ public class setting_alarm extends AppCompatActivity {
 
 
 
+        alarmSettingAlarmPlus = new SettingAlarmPlus(this);
+
+        alarmSwitch = findViewById(R.id.switch1);
+        dbHelper = new DatabaseHelper(this);
+        ImageView setting_alarm_2 = findViewById(R.id.setting_alarm_2);
+        ImageButton setting_alarm_common_big_arrow__right = findViewById(R.id.setting_alarm_common_big_arrow__right);
+
+// 데이터베이스에 알람 시간이 저장되어 있는지 확인
+        boolean alarmTimeExists = dbHelper.checkAlarmTimeExists();
+        TextView textView2 = findViewById(R.id.textView2);
+
+// 알람 시간이 저장되어 있다면 스위치를 On으로 설정
+        alarmSwitch.setChecked(alarmTimeExists);
+
+// 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
+        long alarmTimeInMillis = dbHelper.getAlarmTime();
+
+        if (alarmTimeInMillis == 0) {
+            // 데이터베이스의 알람 시간이 0일 경우
+            textView2.setText(""); // 빈 텍스트 설정
+            alarmSwitch.setChecked(false); // 스위치를 Off로 설정
+        } else {
+            setting_alarm_2.setVisibility(View.VISIBLE);
+            setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
+            // 밀리초 시간값을 시간 형태로 변환하여 출력
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(alarmTimeInMillis);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            String formattedTime = dateFormat.format(calendar.getTime());
+
+            // 변환된 시간 형태를 출력
+            textView2.setText("푸쉬알림 시간  " + formattedTime);
+        }
+
+        alarmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // 스위치 상태가 변경되었을 때의 동작 처리
+                if (isChecked) {
+                    // 스위치가 On 상태일 때의 처리
+                    setting_alarm_2.setVisibility(View.VISIBLE);
+                    setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
+
+                    // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
+                    long alarmTimeInMillis = dbHelper.getAlarmTime();
+
+                    if (alarmTimeInMillis == 0) {
+                        // 데이터베이스의 알람 시간이 0일 경우
+                        textView2.setText("시간을 설정해주세요"); // 빈 텍스트 설정
+                        alarmSwitch.setChecked(false); // 스위치를 Off로 설정
+                    } else {
+                        // 밀리초 시간값을 시간 형태로 변환하여 출력
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTimeInMillis(alarmTimeInMillis);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+                        String formattedTime = dateFormat.format(calendar.getTime());
+
+                        // 변환된 시간 형태를 출력
+                        textView2.setText("푸쉬알림 시간  " + formattedTime);
+                    }
+                } else {
+                    // 스위치가 Off 상태일 때의 처리
+                    setting_alarm_2.setVisibility(View.INVISIBLE);
+                    setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
 
-
-
-
-
-
-
-
-
-
+/**
+ 혜음
         alarmSettingAlarmPlus = new SettingAlarmPlus(this);
 
         alarmSwitch = findViewById(R.id.switch1);
@@ -56,13 +116,16 @@ public class setting_alarm extends AppCompatActivity {
         // 알람 시간이 저장되어 있다면 스위치를 On으로 설정
         alarmSwitch.setChecked(alarmTimeExists);
         // 스위치가 On 상태일 때의 처리
-        if (alarmSwitch.isChecked()) {
-            setting_alarm_2.setVisibility(View.VISIBLE);
-            setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
+        setting_alarm_2.setVisibility(View.VISIBLE);
+        setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
 
-            // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
-            long alarmTimeInMillis = dbHelper.getAlarmTime();
+        // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
+        long alarmTimeInMillis = dbHelper.getAlarmTime();
 
+        if (alarmTimeInMillis == 0) {
+            // 데이터베이스의 알람 시간이 0일 경우
+            textView2.setText(""); // 빈 텍스트 설정
+        } else {
             // 밀리초 시간값을 시간 형태로 변환하여 출력
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(alarmTimeInMillis);
@@ -76,6 +139,7 @@ public class setting_alarm extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                // 스위치 상태가 변경되었을 때의 동작 처리
+                // 스위치 상태가 변경되었을 때의 동작 처리
                 if (isChecked) {
                     // 스위치가 On 상태일 때의 처리
                     setting_alarm_2.setVisibility(View.VISIBLE);
@@ -84,14 +148,19 @@ public class setting_alarm extends AppCompatActivity {
                     // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
                     long alarmTimeInMillis = dbHelper.getAlarmTime();
 
-                    // 밀리초 시간값을 시간 형태로 변환하여 출력
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(alarmTimeInMillis);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-                    String formattedTime = dateFormat.format(calendar.getTime());
+                    if (alarmTimeInMillis == 0) {
+                        // 데이터베이스의 알람 시간이 0일 경우
+                        textView2.setText(""); // 빈 텍스트 설정
+                    } else {
+                        // 밀리초 시간값을 시간 형태로 변환하여 출력
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTimeInMillis(alarmTimeInMillis);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+                        String formattedTime = dateFormat.format(calendar.getTime());
 
-                    // 변환된 시간 형태를 출력
-                    textView2.setText("알람 시간: " + formattedTime);
+                        // 변환된 시간 형태를 출력
+                        textView2.setText("푸쉬알림 시간  " + formattedTime);
+                    }
                 } else {
                     // 스위치가 Off 상태일 때의 처리
                     setting_alarm_2.setVisibility(View.INVISIBLE);
@@ -99,6 +168,7 @@ public class setting_alarm extends AppCompatActivity {
                 }
             }
         });
+        */
        /**
         //스위치 상태 복원
         switch1.setChecked(alarmSettingAlarmPlus.loadSwitchState());
