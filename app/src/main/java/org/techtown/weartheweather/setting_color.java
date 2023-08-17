@@ -22,7 +22,6 @@ public class setting_color extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedColor = radioButton.getText().toString();
-            String message = "변경된 모드: " + selectedColor;
 
             if (checkedId == R.id.radioLight) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -36,7 +35,8 @@ public class setting_color extends AppCompatActivity {
                 }
             }
 
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            String message = "변경된 모드: " + selectedColor;
+            showToast(message);
         });
 
         ImageButton setting_common_backbutton5 = (ImageButton) findViewById(R.id.setting_common_backbutton5);
@@ -88,5 +88,9 @@ public class setting_color extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    // Toast 메시지를 표시하는 메서드
+    private void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
