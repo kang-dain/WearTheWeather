@@ -30,14 +30,14 @@ public class search_result extends AppCompatActivity {
 
 // 결과 값을 TextView에 표시 (온도)
         TextView resultTextView = findViewById(R.id.resultTextView);
-        resultTextView.setText("▼Temperature: " + temperature + "°C");
+        resultTextView.setText("▼ 온도:  " + temperature + "°C");
 
 // 선택된 버튼 아이디들을 Month 텍스트로 변환하여 TextView에 표시
         TextView resultTextView2 = findViewById(R.id.resultTextView2);
-        StringBuilder selectedMonths = new StringBuilder("▼Month: ");
+        StringBuilder selectedMonths = new StringBuilder("▼ 달:  ");
         for (int buttonId : selectedButtonIds) {
             String buttonIndexString = getResources().getResourceEntryName(buttonId).replace("button", "");
-            selectedMonths.append(buttonIndexString).append(",");
+            selectedMonths.append(buttonIndexString).append("월,");
         }
 // 마지막에 추가된 쉼표 제거
         if (selectedMonths.length() > 0) {
@@ -61,8 +61,8 @@ public class search_result extends AppCompatActivity {
             if (userTemperature >= temperature - 3 && userTemperature <= temperature + 3) {
                 int month = getMonthFromDateString(cursor.getString(cursor.getColumnIndex("date")));
                 if (selectedButtonIds.contains(getResources().getIdentifier("button" + month, "id", getPackageName()))) {
-                    userData.append("\n\n▶Date: ").append(cursor.getString(cursor.getColumnIndex("date"))).append("\n");
-                    userData.append("Temperature: ").append(userTemperature).append("°C\n\n");
+                    userData.append("\n\n▶ 날짜: ").append(cursor.getString(cursor.getColumnIndex("date"))).append("\n");
+                    userData.append(" 온도: ").append(userTemperature).append("°C\n\n");
                 }
             }
         }

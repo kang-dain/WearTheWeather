@@ -177,7 +177,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             // 데이터가 없는 경우 새로 삽입
             rowId = db.insert("alarmTime", null, values);
         }
-
         db.close();
         return rowId != -1;
     }
@@ -207,7 +206,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Log.e(TAG, "Column index for 'time' not found");
             }
         }
-
         cursor.close();
         db.close();
 

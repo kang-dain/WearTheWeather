@@ -38,11 +38,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class user_input extends AppCompatActivity implements View.OnClickListener{
+public class user_input extends AppCompatActivity implements View.OnClickListener {
     //데이터베이스
     private DatabaseHelper dbHelper;
-    int fashionOuter, fashionTop, fashionPants, fashionShoes,slider,temperature;
-    String keyword1,keyword2,keyword3,currentDate;
+    int fashionOuter, fashionTop, fashionPants, fashionShoes, slider, temperature;
+    String keyword1, keyword2, keyword3, currentDate;
 
     TextView maxTempView1;
     TextView minTempView1;
@@ -55,19 +55,19 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
     private ScrollView scrollView;
     private ImageView imageView;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_input);
         dbHelper = new DatabaseHelper(this);
-        
 
 
         CurrentCall();
 
         //volley를 쓸 때 큐가 비어있으면 새로운 큐 생성하기
-        if(requestQueue == null){
+        if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
@@ -133,51 +133,8 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         intent_slider.putExtra("sliderValue", sliderValue);
 
 
+
 //keyword
-        ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
-        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
-
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                Intent intent = new Intent(getApplicationContext(), keyword_sun.class);
-                startActivity(intent);
-            }
-
-            return false;
-        });
-
-        ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
-        user_input_keyword_button_1_2.setOnTouchListener((view, motionEvent) -> {
-
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                Intent intent = new Intent(getApplicationContext(), keyword_cloudy.class);
-                startActivity(intent);
-            }
-
-            return false;
-        });
-
-        ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
-        user_input_keyword_button_1_3.setOnTouchListener((view, motionEvent) -> {
-
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                Intent intent = new Intent(getApplicationContext(), keyword_rain.class);
-                startActivity(intent);
-            }
-
-            return false;
-        });
-
-        ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
-        user_input_keyword_button_1_4.setOnTouchListener((view, motionEvent) -> {
-
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                Intent intent = new Intent(getApplicationContext(), keyword_snow.class);
-                startActivity(intent);
-            }
-
-            return false;
-        });
-
         ImageView closetipbutton1 = (ImageView) findViewById(R.id.user_input_suggestionkey);
         closetipbutton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +144,55 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
             }
         });
+
+        ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
+        user_input_keyword_button_1.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    Intent intent = new Intent(getApplicationContext(), keyword_sun.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+            return false;
+        });
+
+        ImageButton user_input_keyword_button_1_2 = findViewById(R.id.user_input_keyword_button_1_2);
+        user_input_keyword_button_1_2.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    Intent intent = new Intent(getApplicationContext(), keyword_cloudy.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+            return false;
+        });
+
+        ImageButton user_input_keyword_button_1_3 = findViewById(R.id.user_input_keyword_button_1_3);
+        user_input_keyword_button_1_3.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    Intent intent = new Intent(getApplicationContext(), keyword_rain.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+            return false;
+        });
+
+        ImageButton user_input_keyword_button_1_4 = findViewById(R.id.user_input_keyword_button_1_4);
+        user_input_keyword_button_1_4.setOnTouchListener((view, motionEvent) -> {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    Intent intent = new Intent(getApplicationContext(), keyword_snow.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+            return false;
+        });
+
 
         //  <<<<<날씨 버튼 4개를 눌렀을 때 코드 모음>>>>>
         user_input_suggestion_button1 = findViewById(R.id.user_input_suggestion_button1);
@@ -262,7 +268,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             return true;
         });
 
-
         user_input_suggestion_button3.setOnClickListener(view -> {
             user_input_keyword_button_1_3.setEnabled(true); //rain만 활성화
             user_input_keyword_button_1_2.setEnabled(false);
@@ -292,7 +297,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return true;
         });
-
 
         user_input_suggestion_button4.setOnClickListener(view -> {
             user_input_keyword_button_1_4.setEnabled(true);//snow만 활성화
@@ -368,9 +372,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
 
-
-
-
 //keyword
         EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
         keyword1 = user_input_keyword_input1.getText().toString();
@@ -378,7 +379,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         keyword2 = user_input_keyword_input2.getText().toString();
         EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
         keyword3 = user_input_keyword_input3.getText().toString();
-
 
 
 //fashion
@@ -424,7 +424,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        none.setOnTouchListener((view,motionEvent)-> {
+        none.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.none_2_foreground);
                 none.setText("SELECTED");
@@ -437,7 +437,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        coat.setOnTouchListener((view,motionEvent)-> {
+        coat.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.coat_foreground);
                 none.setText("");
@@ -446,10 +446,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 padding.setText("");
                 jumper.setText("");
                 zipup.setText("");
-                cardigon.setText("");}
+                cardigon.setText("");
+            }
             return false;
         });
-        padding.setOnTouchListener((view,motionEvent)-> {
+        padding.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.padding_foreground);
                 none.setText("");
@@ -458,10 +459,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 fashionOuter = R.mipmap.padding_foreground;
                 jumper.setText("");
                 zipup.setText("");
-                cardigon.setText("");}
+                cardigon.setText("");
+            }
             return false;
         });
-        jumper.setOnTouchListener((view,motionEvent)-> {
+        jumper.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.jumper_foreground);
                 none.setText("");
@@ -470,10 +472,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 jumper.setText("SELECTED");
                 fashionOuter = R.mipmap.jumper_foreground;
                 zipup.setText("");
-                cardigon.setText("");}
+                cardigon.setText("");
+            }
             return false;
         });
-        zipup.setOnTouchListener((view,motionEvent)-> {
+        zipup.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.zipup_foreground);
                 none.setText("");
@@ -482,10 +485,11 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 jumper.setText("");
                 zipup.setText("SELECTED");
                 fashionOuter = R.mipmap.zipup_foreground;
-                cardigon.setText("");}
+                cardigon.setText("");
+            }
             return false;
         });
-        cardigon.setOnTouchListener((view,motionEvent)-> {
+        cardigon.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.cardigon_foreground);
                 none.setText("");
@@ -494,7 +498,8 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 coat.setText("");
                 padding.setText("");
                 jumper.setText("");
-                zipup.setText("");}
+                zipup.setText("");
+            }
             return false;
         });
         user_input_fashion_button_2.setOnTouchListener((view, motionEvent) -> {
@@ -514,7 +519,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         Button mantoman = findViewById(R.id.mantoman);
         Button knit = findViewById(R.id.knit);
         Button tshirt = findViewById(R.id.tshirt);
-        hood.setOnTouchListener((view,motionEvent)-> {
+        hood.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_top.setBackgroundResource(R.mipmap.hood_foreground);
                 hood.setText("SELECTED");
@@ -525,7 +530,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        mantoman.setOnTouchListener((view,motionEvent)-> {
+        mantoman.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_top.setBackgroundResource(R.mipmap.mantoman_foreground);
                 hood.setText("");
@@ -536,7 +541,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        knit.setOnTouchListener((view,motionEvent)-> {
+        knit.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_top.setBackgroundResource(R.mipmap.knit_foreground);
                 hood.setText("");
@@ -547,7 +552,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        tshirt.setOnTouchListener((view,motionEvent)-> {
+        tshirt.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_top.setBackgroundResource(R.mipmap.tshirts_foreground);
                 hood.setText("");
@@ -579,7 +584,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        shortskirt.setOnTouchListener((view,motionEvent)-> {
+        shortskirt.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.shortskirt_foreground);
                 shortskirt.setText("SELECTED");
@@ -593,7 +598,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        longskirt.setOnTouchListener((view,motionEvent)-> {
+        longskirt.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.longskirt_foreground);
                 shortskirt.setText("");
@@ -607,7 +612,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        longpants1.setOnTouchListener((view,motionEvent)-> {
+        longpants1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.longpants_training_foreground);
                 shortskirt.setText("");
@@ -621,7 +626,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        longpants2.setOnTouchListener((view,motionEvent)-> {
+        longpants2.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.longpants_blue_foreground);
                 shortskirt.setText("");
@@ -635,7 +640,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        shortpants.setOnTouchListener((view,motionEvent)-> {
+        shortpants.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.shortpants_training_foreground);
                 shortskirt.setText("");
@@ -649,7 +654,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        shortpants2.setOnTouchListener((view,motionEvent)-> {
+        shortpants2.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.shortpants_blue_foreground);
                 shortskirt.setText("");
@@ -663,7 +668,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        slacks.setOnTouchListener((view,motionEvent)-> {
+        slacks.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_pants.setBackgroundResource(R.mipmap.longpants_slacks_foreground);
                 shortskirt.setText("");
@@ -696,7 +701,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        boots.setOnTouchListener((view,motionEvent)-> {
+        boots.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_shoes.setBackgroundResource(R.mipmap.boots_foreground);
                 boots.setText("SELECTED");
@@ -706,7 +711,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        sneakers.setOnTouchListener((view,motionEvent)-> {
+        sneakers.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_shoes.setBackgroundResource(R.mipmap.sneakers_foreground);
                 boots.setText("");
@@ -716,7 +721,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-        sandals.setOnTouchListener((view,motionEvent)-> {
+        sandals.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_shoes.setBackgroundResource(R.mipmap.sandles_foreground);
                 boots.setText("");
@@ -726,8 +731,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-
-
 
 
 //menubar
@@ -771,7 +774,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 startActivity(intent);
             }
         });
-
 
 
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
@@ -838,10 +840,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
     }
 
 
-    private void CurrentCall(){
+    private void CurrentCall() {
 
         String url = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=5bdc57d38b0a192f0fa45c6e71b7bc34&units=metric&lang=kr";
-
 
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -876,7 +877,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -891,11 +892,8 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
     }
 
 
-
-
-
-//keyword
-    public void onClick (View view){
+    //keyword
+    public void onClick(View view) {
         //클릭된 버튼을 저장, 나머지 버튼들 비활성화
         if (selectedButton != null) {
             selectedButton.setEnabled(true);
@@ -942,20 +940,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
     private void handleButtonBackgroundChange(Button button, int desiredBackgroundResource) {
         if (button.getBackground().getConstantState() == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
             // 버튼의 배경이 원하는 Drawable과 같은 경우
-            /**
-            ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
-            user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
-            ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
-            user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
-            ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
-            user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
-            user_input_keyword_input1.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
-            user_input_keyword_input2.setVisibility(View.VISIBLE);
-            EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
-            user_input_keyword_input3.setVisibility(View.VISIBLE);
-             */
+
         } else {
             // 버튼의 배경이 원하는 Drawable과 다른 경우
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
@@ -982,8 +967,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
     }
 
 
-
-    private boolean isImageViewVisible() {
+private boolean isImageViewVisible() {
         int[] location = new int[2];
         imageView.getLocationOnScreen(location);
 
@@ -993,4 +977,5 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         // 이미지뷰의 아래쪽 경계가 스크롤뷰의 아래쪽 경계보다 위에 있는 경우 숨김
         return imageViewBottom < scrollViewBottom;
     }
+
 }
