@@ -146,6 +146,7 @@
         android:layout_marginStart="79dp"
         android:layout_marginBottom="70dp"
         android:background="@android:color/transparent"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/calender_daily_button2"
