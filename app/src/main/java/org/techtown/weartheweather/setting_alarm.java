@@ -70,6 +70,7 @@ public class setting_alarm extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // 스위치 상태가 변경되었을 때의 동작 처리
                 if (isChecked) {
+                    textView2.setVisibility(View.VISIBLE);
                     // 스위치가 On 상태일 때의 처리
                     setting_alarm_2.setVisibility(View.VISIBLE);
                     setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
@@ -92,6 +93,7 @@ public class setting_alarm extends AppCompatActivity {
                         textView2.setText("푸쉬알림 시간  " + formattedTime);
                     }
                 } else {
+                    textView2.setVisibility(View.INVISIBLE);
                     // 스위치가 Off 상태일 때의 처리
                     setting_alarm_2.setVisibility(View.INVISIBLE);
                     setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
