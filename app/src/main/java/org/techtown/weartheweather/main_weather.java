@@ -29,7 +29,6 @@ import java.util.Map;
 public class main_weather extends AppCompatActivity {
 
 
-    //TextView dateView;
     TextView cityView;
     TextView weatherView;
     TextView tempView;
@@ -79,7 +78,7 @@ public class main_weather extends AppCompatActivity {
             }
         });
 
-        //volley를 쓸 때 큐가 비어있으면 새로운 큐 생성하기
+        //volley를 쓸 때 큐가 비어있으면 새로운 큐 생성
         if(requestQueue == null){
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
@@ -149,26 +148,6 @@ public class main_weather extends AppCompatActivity {
             public void onResponse(String response) {
 
                 try {
-
-
-
-/*
-                    //System의 현재 시간(년,월,일,시,분,초까지)가져오고 Date로 객체화함
-
-                    long now = System.currentTimeMillis();
-                    Date date = new Date(now);
-
-                    //년, 월, 일 형식으로. 시,분,초 형식으로 객체화하여 String에 형식대로 넣음
-
-                     SimpleDateFormat simpleDateFormatDay = new SimpleDateFormat("yyyy-MM-dd");
-                     SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat("HH:mm:ss");
-                     String getDay = simpleDateFormatDay.format(date);
-                     String getTime = simpleDateFormatTime.format(date);
-                    //getDate에 개행을 포함한 형식들을 넣은 후 dateView에 text설정
-                    String getDate = getDay + "\n" + getTime;
-                    dateView.setText(getDate);
-*/
-
                     //api로 받은 파일 jsonobject로 새로운 객체 선언
                     JSONObject jsonObject = new JSONObject(response);
 

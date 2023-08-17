@@ -51,7 +51,6 @@ public class search_user extends AppCompatActivity {
             }
         });
 
-//혜음 수정
         ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
         search_month_button13.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,28 +75,6 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-/**
-        ImageButton search_month_button13 = (ImageButton) findViewById(R.id.search_month_button13);
-        search_month_button13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //EditText에서 온도를 읽어와서 targetTemperature에 저장
-                EditText editTextNumberSigned = findViewById(R.id.editTextNumberSigned);
-                int targetTemperature = Integer.parseInt(editTextNumberSigned.getText().toString());
-
-
-                //달(month)값을 12 + 1 (13)으로 설정
-                int month = 13;
-                //Intent 생성하여 온도 데이터를 search_result로 전달
-                Intent intent = new Intent(getApplicationContext(), search_result.class);
-                intent.putExtra("targetTemperature", targetTemperature);
-                intent.putExtra("selectedMonths", new int[]{month});// 배열로 전달하므로 달(month) 값도 배열로 저장
-                startActivity(intent);
-            }
-        });
-*/
 
         ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 
@@ -178,12 +155,11 @@ public class search_user extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//숫자 3개 이상 클릭하면 애니메이션 효과 + 버튼 모두 비활성화
+        //숫자 3개 이상 클릭하면 애니메이션 효과 + 버튼 모두 비활성화
         ImageView search_month_3 = findViewById(R.id.search_month_3);
         Button[] buttons = new Button[12];
-        int[] countArray = new int[12]; // To store count values for each button
+        int[] countArray = new int[12];
 
-// Track the selected buttons
         ArrayList<Button> selectedButtons = new ArrayList<>();
 
         for (int i = 0; i < 12; i++) {
@@ -206,7 +182,6 @@ public class search_user extends AppCompatActivity {
                             buttons[buttonIndex].setTextColor(Color.parseColor("#6094E3"));
                             countArray[buttonIndex] = 1;
                         }
-                        // Disable other buttons if three are selected
                         for (Button button : buttons) {
                             if (!selectedButtons.contains(button)) {
                                 button.setEnabled(selectedButtons.size() < 3);
@@ -218,12 +193,10 @@ public class search_user extends AppCompatActivity {
                             sum += count;
                         }
 
-                        if (sum >= 3) { // Check if sum is 3 or more
-                            // Load and start the animation
+                        if (sum >= 3) {
                             Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                             search_month_3.startAnimation(anim);
                         } else {
-                            // Stop the animation
                             search_month_3.clearAnimation();
                         }
                     } else {
@@ -232,111 +205,6 @@ public class search_user extends AppCompatActivity {
                 }
             });
         }
-
-
-
-
-/**일단 주석처리
-        //search_month
-
-        //이전 액티비티에서 온도 데이터 받아오기
-        Intent intent = getIntent();
-        targetTemperature = intent.getIntExtra("targetTemperature", 0);
-        //달 선택 후 검색 결과를 search_result로 전달
-        //선택된 달을 받아서 사용
-
-        //검색 결과 전달 및 화면 전환
-        Intent resultIntent = new Intent(getApplicationContext(), search_result.class);
-        resultIntent.putExtra("targetTemperature", targetTemperature);
-        //다른 데이터 추가(선택된 달 등)
-        //resultIntent.putExtra("selectoedMonth", selectedMonth);
-        startActivity(resultIntent);
-
-        getWindow().setWindowAnimations(0);
-
-
-
-        ImageButton search_month_button = (ImageButton) findViewById(R.id.search_month_button13);
-        search_month_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), search_result.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton search_temperature_button2 = (ImageButton) findViewById(R.id.search_temperature_button2);
-        search_temperature_button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
-                imageButton.setVisibility(View.VISIBLE);
-            }
-        });
-
-        ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
-                imageButton.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        ImageView search_month_3 = findViewById(R.id.search_month_3);
-        Button[] buttons = new Button[12];
-        int[] countArray = new int[12]; // To store count values for each button
-
-// Track the selected buttons
-        ArrayList<Button> selectedButtons = new ArrayList<>();
-
-        for (int i = 0; i < 12; i++) {
-            int buttonId = getResources().getIdentifier("button" + (i + 1), "id", getPackageName());
-            buttons[i] = findViewById(buttonId);
-
-            final int buttonIndex = i;
-            buttons[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (System.currentTimeMillis() > delay) {
-                        delay = System.currentTimeMillis() + 200;
-
-                        if (selectedButtons.contains(buttons[buttonIndex])) {
-                            selectedButtons.remove(buttons[buttonIndex]);
-                            buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
-                            countArray[buttonIndex] = 0;
-                        } else if (selectedButtons.size() < 3) {
-                            selectedButtons.add(buttons[buttonIndex]);
-                            buttons[buttonIndex].setTextColor(Color.parseColor("#6094E3"));
-                            countArray[buttonIndex] = 1;
-                        }
-                        // Disable other buttons if three are selected
-                        for (Button button : buttons) {
-                            if (!selectedButtons.contains(button)) {
-                                button.setEnabled(selectedButtons.size() < 3);
-                            }
-                        }
-
-                        int sum = 0;
-                        for (int count : countArray) {
-                            sum += count;
-                        }
-
-                        if (sum >= 3) { // Check if sum is 3 or more
-                            // Load and start the animation
-                            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
-                            search_month_3.startAnimation(anim);
-                        } else {
-                            // Stop the animation
-                            search_month_3.clearAnimation();
-                        }
-                    } else {
-                        buttons[buttonIndex].setTextColor(Color.parseColor("#ffffff"));
-                    }
-                }
-            });
-        }
-
-*/
     }
     private boolean isImageViewVisible() {
         int[] location = new int[2];

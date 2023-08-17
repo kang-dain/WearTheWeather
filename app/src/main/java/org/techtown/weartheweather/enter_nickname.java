@@ -39,12 +39,12 @@ public class enter_nickname extends Activity {
                 EditText nicknameEditText = findViewById(R.id.editTextText);
                 String nickname = nicknameEditText.getText().toString();
 
-                // 닉네임을 이전 액티비티에서 이메일과 함께 받아와야 함
+                // 닉네임을 이전 액티비티에서 이메일과 함께 받아옴
                 String email = getIntent().getStringExtra("email");
                 boolean nicknameInserted = databaseHelper.insertNickname(email, nickname);
 
                 if (nicknameInserted) {
-                    // 닉네임을 menu 액티비티에 넘겨주는 부분
+                    // 닉네임을 menu 액티비티에 넘겨줌
                     Intent menuIntent = new Intent(getApplicationContext(), menu.class);
                     menuIntent.putExtra("nickname", nickname);
                     startActivity(menuIntent);
@@ -61,18 +61,16 @@ public class enter_nickname extends Activity {
             return false;
         });
 
-        EditText editText = findViewById(R.id.editTextText); // 이 부분은 해당하는 EditText의 ID로 변경해주세요.
-        // 초기에 버튼 비활성화
+        EditText editText = findViewById(R.id.editTextText);
+        // 초기 버튼 비활성화
         nickname_button.setEnabled(false);
         // EditText에 텍스트가 입력될 때마다 호출되는 TextWatcher 등록
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // 텍스트 변경 전에 호출됩니다.
             }
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // 텍스트가 변경될 때 호출됩니다.
                 // 입력된 텍스트의 길이가 0보다 크면 버튼을 활성화
                 if (charSequence.length() > 0) {
                     nickname_button.setBackgroundResource(R.drawable.add_icon2_button5);
@@ -83,7 +81,6 @@ public class enter_nickname extends Activity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                // 텍스트 변경 후에 호출됩니다.
             }
         });
 

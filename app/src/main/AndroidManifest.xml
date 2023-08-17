@@ -5,12 +5,6 @@
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 위치 관련 권한 추가 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--
- Required only when requesting background location access on
-      Android 10 (API level 29) and higher.
-    -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- 캡쳐 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -47,12 +41,6 @@
             android:exported="true" />
         <activity
             android:name=".calender"
-            android:exported="true" />
-        <activity
-            android:name=".search_tip_temperature"
-            android:exported="true" />
-        <activity
-            android:name=".search_tip"
             android:exported="true" />
         <activity
             android:name=".setting_alarm"
@@ -94,25 +82,7 @@
             android:name=".search_result"
             android:exported="true" />
         <activity
-            android:name=".search_month"
-            android:exported="true" />
-        <activity
-            android:name=".search_temperature"
-            android:exported="true" />
-        <activity
-            android:name=".user_input_fashion"
-            android:exported="true" />
-        <activity
-            android:name=".user_input_keyword"
-            android:exported="true" />
-        <activity
-            android:name=".user_input_slider"
-            android:exported="true" />
-        <activity
             android:name=".enter_email"
-            android:exported="true" />
-        <activity
-            android:name=".user_input_temperature"
             android:exported="true" />
         <activity
             android:name=".find_password"
@@ -154,7 +124,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 알람 설정: 삭제하면 알림이 안떠요! -->
+        </activity>
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="1e7d71489a531e96ea98f7ccbd642d18" />

@@ -102,8 +102,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 startActivity(intent_temp_cal);
             }
         });
-//temp
-
 
 //slider
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar2);
@@ -195,7 +193,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
             return false;
         });
-
 
         //  <<<<<날씨 버튼 4개를 눌렀을 때 코드 모음>>>>>
         user_input_suggestion_button1 = findViewById(R.id.user_input_suggestion_button1);
@@ -385,16 +382,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
 //fashion
-        /**
-         ImageView user_input_fashion_3 = (ImageView) findViewById(R.id.user_input_fashion_3);
-         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
-         user_input_fashion_button_5.setOnTouchListener((view, motionEvent) -> {
-         if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-         user_input_fashion_button_5.setEnabled(false);
-         user_input_fashion_button_5.setBackgroundResource(R.drawable.user_input_fashion_button_5);
-         }
-         return false;
-         });*/
         Button user_input_fashion_button_1 = findViewById(R.id.user_input_fashion_button_1);
         Button user_input_fashion_button_2 = findViewById(R.id.user_input_fashion_button_2);
         Button user_input_fashion_button_3 = findViewById(R.id.user_input_fashion_button_3);
@@ -780,12 +767,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
 
 
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
-// 버튼 클릭 리스너 등록
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 여기에 데이터 삽입 및 버튼 상태 변경 로직을 작성
-
                 // 현재 날짜 구하기 (예시: YYYY-MM-DD 형식)
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                 String currentDate = dateFormat.format(new Date());
@@ -796,7 +780,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                     String temperatureStr = temperatureEditText.getText().toString();
                     temperature = Integer.parseInt(temperatureStr);
                 } catch (NumberFormatException e) {
-                    // 변환 실패 시 처리할 내용
                     e.printStackTrace();
                 }
 

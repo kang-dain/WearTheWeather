@@ -47,17 +47,6 @@ public class alarmMainActivity extends AppCompatActivity implements TimePickerDi
                 timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
-/**
- //알람 취소
- Button time_cancel_btn = findViewById(R.id.time_cancel_btn);
- time_cancel_btn.setOnClickListener(new View.OnClickListener() {
-@Override public void onClick(View v) {
-cancelAlarm();
-
-
-}
-});
- */
 
         //알람 취소 버튼 클릭 이벤트 핸들러 등록
         Button time_cancel_btn = findViewById(R.id.time_cancel_btn);
@@ -67,8 +56,6 @@ cancelAlarm();
                 cancelAlarm(); // 기존의 알람 취소 동작 실행
             }
         });
-
-
         ImageButton alarm_main_backbutton = (ImageButton) findViewById(R.id.alarm_main_backbutton);
         alarm_main_backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +64,7 @@ cancelAlarm();
                 startActivity(intent);
             }
         });
-
-
     }
-
 
     //시간을 정하면 호출되는 메소드
     @Override
@@ -124,24 +108,7 @@ cancelAlarm();
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
     }
 
-    /**
-     * //알람 취소
-     * private void cancelAlarm() {
-     * Log.d(TAG, "## cancelAlarm ##");
-     * AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-     * Intent intent = new Intent(this, AlertReceiver.class);
-     * PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-     * <p>
-     * alarmManager.cancel(pendingIntent);
-     * <p>
-     * // 알림 취소 메시지 표시
-     * Toast.makeText(this, "알림이 취소되었습니다.", Toast.LENGTH_SHORT).show();
-     * <p>
-     * // 시간 설정 버튼 텍스트 업데이트
-     * time_text.setText("시간 지정");
-     * }
-     */
-// 알람 취소
+    // 알람 취소
     private void cancelAlarm() {
         Log.d(TAG, "## cancelAlarm ##");
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);

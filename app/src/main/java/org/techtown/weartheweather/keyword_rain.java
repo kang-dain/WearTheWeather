@@ -56,7 +56,7 @@ public class keyword_rain extends AppCompatActivity {
         keywordsTextView.setText(keywordText);
     }
 
-    // 랜덤으로 n개의 키워드를 추천하는 메서드
+    // 랜덤으로 n개의 키워드를 추천
     public static ArrayList<String> getRandomKeywords(ArrayList<String> keywordList, int n) {
         ArrayList<String> recommendedKeywords = new ArrayList<>();
         Random random = new Random();
@@ -76,10 +76,6 @@ public class keyword_rain extends AppCompatActivity {
         return recommendedKeywords;
     }
     public void onBackPressed() {
-        // 뒤로가기 버튼을 눌렀을 때 원하는 동작을 수행
-        // 예: 특정 조건을 검사하고 동작을 수행하거나, 데이터를 저장한 후 종료 등
-
-        // 원래 뒤로가기 동작 수행 (액티비티 종료)
         super.onBackPressed();
     }
 }

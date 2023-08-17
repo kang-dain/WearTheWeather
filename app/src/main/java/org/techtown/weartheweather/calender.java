@@ -33,7 +33,7 @@ public class calender extends AppCompatActivity {
                 // 날짜 정보를 다음 액티비티에 전달하는 Intent 생성
                 Intent intent = new Intent(getApplicationContext(), calender_daily.class);
                 intent.putExtra("year", year);
-                intent.putExtra("month", month + 1); // 월은 0부터 시작하므로 +1 해줍니다.
+                intent.putExtra("month", month + 1); // 월은 0부터 시작하므로 +1
                 intent.putExtra("day", day);
                 startActivity(intent);
             }

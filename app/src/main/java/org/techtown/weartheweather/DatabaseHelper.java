@@ -80,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDatabase.execSQL("create Table nicknames(email TEXT primary key, nickname TEXT)");
     }
 
-    //닉네임을 nicknames 테이블에 삽입하는 메서드
+    //닉네임을 nicknames 테이블에 삽입
     public Boolean insertNickname(String email, String nickname) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -139,24 +139,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return isInsert;
     }
-    // 데이터 입력 유효성 검사 메서드 추가
+    // 데이터 입력 유효성 검사 메서드
     public boolean someDataIsMissing(int slider, int fashionOuter, int fashionTop, int fashionPants, int fashionShoes,
                                      String keyword1, String keyword2, String keyword3) {
         return slider == 0 || fashionOuter == 0 || fashionTop == 0 || fashionPants == 0 || fashionShoes == 0 ||
                 TextUtils.isEmpty(keyword1) || TextUtils.isEmpty(keyword2) || TextUtils.isEmpty(keyword3);
     }
-    /**
-    public Boolean insertAlarmTime(long timeInMillis) {
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("time", timeInMillis);
-
-        long rowId = MyDatabase.insert("alarmTime", null, values);
-        return rowId != -1;
-    }
-     */
-    // 알람 시간을 업로드하거나 업데이트하는 메서드 수정
+    // 알람 시간을 업로드하거나 업데이트
     public boolean insertOrUpdateAlarmTime(long timeInMillis) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -201,8 +191,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (columnIndex >= 0) {
                 alarmTimeInMillis = cursor.getLong(columnIndex);
             } else {
-                // Handle the case where the column index is -1
-                // This can be useful for debugging or error reporting
                 Log.e(TAG, "Column index for 'time' not found");
             }
         }

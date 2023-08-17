@@ -48,7 +48,7 @@ public class main_login extends AppCompatActivity {
                 } else {
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
                     if (checkCredentials == true) {
-                        Toast.makeText(main_login.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(main_login.this, "로그인에 성공하였습니다", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), main_weather.class);
                         startActivity(intent);
                     } else {
@@ -78,28 +78,21 @@ public class main_login extends AppCompatActivity {
                 UserManagement.getInstance().me(new MeV2ResponseCallback() {
                     @Override
                     public void onFailure(ErrorResult errorResult) { //로그인 실패
-                        Toast.makeText(main_login.this, "로그인에 실패하셨습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(main_login.this, "로그인에 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onSessionClosed(ErrorResult errorResult) { //세션이 닫힘
-                        Toast.makeText(main_login.this, "세션이 닫혔습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(main_login.this, "로그인에 실패하였습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSuccess(MeV2Response result) { //로그인 성공
-                        //비밀번호 저장해야하나? 근데 저장하는방법..아니 비밀번호 불러오는 방법을 모름 메뉴화면에 이메일만 입력해도 된까 괜찮지않을까
                         databaseHelper.insertData(result.getKakaoAccount().getEmail(), "");
-
-                        /**
-                         Intent intent = new Intent(main_login.this,menu.class);
-                         intent.putExtra("Nickname", result.getKakaoAccount().getProfile().getNickname());
-                         intent.putExtra("email", result.getKakaoAccount().getEmail());
-                         */
                         Intent intent_main_weather = new Intent(main_login.this, main_weather.class);
                         startActivity(intent_main_weather);
-                        Toast.makeText(main_login.this, "로그인에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(main_login.this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
 
                     }
                 });

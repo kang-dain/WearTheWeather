@@ -1,6 +1,5 @@
 package org.techtown.weartheweather;
 
-import static java.sql.Types.NULL;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,8 +13,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -176,7 +173,7 @@ public class calender_daily extends AppCompatActivity {
 
     //화면 캡쳐하기
     public File ScreenShot(View view){
-        view.setDrawingCacheEnabled(true);  //화면에 뿌릴때 캐시를 사용하게 한다
+        view.setDrawingCacheEnabled(true);  //화면에 뿌릴때 캐시를 사용
 
         Bitmap screenBitmap = view.getDrawingCache();   //캐시를 비트맵으로 변환
 
@@ -197,7 +194,7 @@ public class calender_daily extends AppCompatActivity {
     }
     // 이미지 공유 메소드
     private void shareImage(File imageFile) {
-        // 이미지 파일의 경로를 지정해야 합니다.
+        // 이미지 파일의 경로를 지정
         String imagePath = "/sdcard/Pictures/screenshot.png";
 
         // 이미지 파일의 경로로부터 Uri 생성
@@ -214,10 +211,7 @@ public class calender_daily extends AppCompatActivity {
         startActivity(Intent.createChooser(sharingIntent, "이미지 공유하기"));
     }
     public void onBackPressed() {
-        // 뒤로가기 버튼을 눌렀을 때 원하는 동작을 수행
-        // 예: 특정 조건을 검사하고 동작을 수행하거나, 데이터를 저장한 후 종료 등
-
-        // 원래 뒤로가기 동작 수행 (액티비티 종료)
+        // 뒤로가기(액티비티 종료)
         super.onBackPressed();
     }
 }

@@ -2,7 +2,6 @@ package org.techtown.weartheweather;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,10 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,7 +61,7 @@ public class terms_of_use extends AppCompatActivity {
         secondCheckBtn = findViewById(R.id.terms_of_use_agree_2);
         thirdCheckBtn = findViewById(R.id.terms_of_use_agree_3);
 
-        // 각 체크박스의 상태 변경에 대한 동작을 정의
+        // 각 체크박스의 상태 변경에 대한 동작
         allCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -83,12 +78,11 @@ public class terms_of_use extends AppCompatActivity {
             }
         });
 
-        // 각 체크박스의 상태 변경에 대한 동작을 정의
+        // 각 체크박스의 상태 변경에 대한 동작
         firstCheckBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // 첫번째 체크박스 상태 변경
-                // 코드 중복을 줄이기 위해 체크 상태 변경 메서드를 따로 정의하고 활용
                 updateAllCheckButton();
             }
         });

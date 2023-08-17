@@ -3,8 +3,8 @@ package org.techtown.weartheweather;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,11 +47,11 @@ public class enter_email extends AppCompatActivity {
                         if (!checkUserEmail) {
                             Boolean insert = databaseHelper.insertData(email, password);
                             if (insert) {
-                                Toast.makeText(enter_email.this, "회원가입 성공!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(enter_email.this, "회원가입에 성공하였습니다", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(enter_email.this, "회원가입 실패!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(enter_email.this, "회원가입에 실패하였습니다", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(enter_email.this, "이미 존재하는 사용자입니다.", Toast.LENGTH_SHORT).show();
@@ -60,7 +60,6 @@ public class enter_email extends AppCompatActivity {
                 }
             }
         });
-
 
         binding.enterEmailButton1.setOnClickListener(new View.OnClickListener() {
             @Override

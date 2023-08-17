@@ -38,14 +38,14 @@ public class setting_alarm extends AppCompatActivity {
         ImageView setting_alarm_2 = findViewById(R.id.setting_alarm_2);
         ImageButton setting_alarm_common_big_arrow__right = findViewById(R.id.setting_alarm_common_big_arrow__right);
 
-// 데이터베이스에 알람 시간이 저장되어 있는지 확인
+        // 데이터베이스에 알람 시간이 저장되어 있는지 확인
         boolean alarmTimeExists = dbHelper.checkAlarmTimeExists();
         TextView textView2 = findViewById(R.id.textView2);
 
-// 알람 시간이 저장되어 있다면 스위치를 On으로 설정
+        // 알람 시간이 저장되어 있다면 스위치를 On으로 설정
         alarmSwitch.setChecked(alarmTimeExists);
 
-// 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
+        // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
         long alarmTimeInMillis = dbHelper.getAlarmTime();
 
         if (alarmTimeInMillis == 0) {
@@ -98,121 +98,6 @@ public class setting_alarm extends AppCompatActivity {
                 }
             }
         });
-
-
-/**
- 혜음
-        alarmSettingAlarmPlus = new SettingAlarmPlus(this);
-
-        alarmSwitch = findViewById(R.id.switch1);
-        dbHelper = new DatabaseHelper(this);
-        ImageView setting_alarm_2 = findViewById(R.id.setting_alarm_2);
-        ImageButton setting_alarm_common_big_arrow__right = findViewById(R.id.setting_alarm_common_big_arrow__right);
-
-        // 데이터베이스에 알람 시간이 저장되어 있는지 확인
-        boolean alarmTimeExists = dbHelper.checkAlarmTimeExists();
-        TextView textView2 = findViewById(R.id.textView2);
-
-        // 알람 시간이 저장되어 있다면 스위치를 On으로 설정
-        alarmSwitch.setChecked(alarmTimeExists);
-        // 스위치가 On 상태일 때의 처리
-        setting_alarm_2.setVisibility(View.VISIBLE);
-        setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
-
-        // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
-        long alarmTimeInMillis = dbHelper.getAlarmTime();
-
-        if (alarmTimeInMillis == 0) {
-            // 데이터베이스의 알람 시간이 0일 경우
-            textView2.setText(""); // 빈 텍스트 설정
-        } else {
-            // 밀리초 시간값을 시간 형태로 변환하여 출력
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(alarmTimeInMillis);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-            String formattedTime = dateFormat.format(calendar.getTime());
-
-            // 변환된 시간 형태를 출력
-            textView2.setText("푸쉬알림 시간  " + formattedTime);
-        }
-        alarmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               // 스위치 상태가 변경되었을 때의 동작 처리
-                // 스위치 상태가 변경되었을 때의 동작 처리
-                if (isChecked) {
-                    // 스위치가 On 상태일 때의 처리
-                    setting_alarm_2.setVisibility(View.VISIBLE);
-                    setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
-
-                    // 데이터베이스에서 저장된 알람 시간 밀리초 값 가져오기
-                    long alarmTimeInMillis = dbHelper.getAlarmTime();
-
-                    if (alarmTimeInMillis == 0) {
-                        // 데이터베이스의 알람 시간이 0일 경우
-                        textView2.setText(""); // 빈 텍스트 설정
-                    } else {
-                        // 밀리초 시간값을 시간 형태로 변환하여 출력
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.setTimeInMillis(alarmTimeInMillis);
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-                        String formattedTime = dateFormat.format(calendar.getTime());
-
-                        // 변환된 시간 형태를 출력
-                        textView2.setText("푸쉬알림 시간  " + formattedTime);
-                    }
-                } else {
-                    // 스위치가 Off 상태일 때의 처리
-                    setting_alarm_2.setVisibility(View.INVISIBLE);
-                    setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-        */
-       /**
-        //스위치 상태 복원
-        switch1.setChecked(alarmSettingAlarmPlus.loadSwitchState());
-
-        //스위치 버튼의 상태에 따라 초기 가시성 설정
-        ImageView setting_alarm_2 = findViewById(R.id.setting_alarm_2);
-        ImageButton setting_alarm_common_big_arrow__right = findViewById(R.id.setting_alarm_common_big_arrow__right);
-        if (switch1.isChecked()) {
-            setting_alarm_2.setVisibility(View.VISIBLE);
-            setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
-        } else {
-            setting_alarm_2.setVisibility(View.INVISIBLE);
-            setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
-        }
-
-
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-
-                    //스위치가 ON인 상태
-                    alarmSettingAlarmPlus.saveSwitchState(true);
-
-                    ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
-                    setting_alarm_2.setVisibility(View.VISIBLE);
-
-                    ImageView setting_alarm_common_big_arrow__right = (ImageView)findViewById(R.id.setting_alarm_common_big_arrow__right);
-                    setting_alarm_common_big_arrow__right.setVisibility(View.VISIBLE);
-                }
-                else{
-
-                    //스위치가 OFF인 상태
-                    alarmSettingAlarmPlus.saveSwitchState(false);
-
-                    ImageView setting_alarm_2 = (ImageView)findViewById(R.id.setting_alarm_2);
-                    setting_alarm_2.setVisibility(View.INVISIBLE);
-
-                    ImageView setting_alarm_common_big_arrow__right = (ImageView)findViewById(R.id.setting_alarm_common_big_arrow__right);
-                    setting_alarm_common_big_arrow__right.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-*/
 
         ImageButton setting_common_backbutton6 = (ImageButton) findViewById(R.id.setting_common_backbutton6);
         setting_common_backbutton6.setOnClickListener(new View.OnClickListener() {

@@ -9,26 +9,12 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
-/**
 public class TimePickerFragment extends DialogFragment {
     DatabaseHelper dbHelper;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-
-        return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(),
-                hour, minute, DateFormat.is24HourFormat(getActivity()));
-    }
-}*/
-public class TimePickerFragment extends DialogFragment {
-    DatabaseHelper dbHelper;
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        dbHelper = new DatabaseHelper(getActivity()); // Initialize the dbHelper
+        dbHelper = new DatabaseHelper(getActivity());
 
         Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
@@ -43,7 +29,7 @@ public class TimePickerFragment extends DialogFragment {
             c.set(Calendar.MINUTE, selectedMinute);
             c.set(Calendar.SECOND, 0);
 
-            long timeInMillis = c.getTimeInMillis(); // Get the selected time in milliseconds
+            long timeInMillis = c.getTimeInMillis();
 
             // 알람 시간을 업로드하거나 업데이트
             dbHelper.insertOrUpdateAlarmTime(timeInMillis);
