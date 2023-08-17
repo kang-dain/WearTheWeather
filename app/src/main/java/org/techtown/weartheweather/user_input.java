@@ -97,6 +97,9 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), main_weather.class);
                 startActivity(intent);
+
+                Intent intent_temp_cal = new Intent(getApplicationContext(), calender_daily.class);
+                startActivity(intent_temp_cal);
             }
         });
 //temp
