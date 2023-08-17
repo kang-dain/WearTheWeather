@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.util.Patterns;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,30 +32,35 @@ public class enter_email extends AppCompatActivity {
                 String email = binding.enterEmailInput1.getText().toString();
                 String password = binding.editTextTextPassword.getText().toString();
                 String confirmPassword = binding.editTextTextPassword2.getText().toString();
-                if(email.equals("")||password.equals("")||confirmPassword.equals(""))
+
+                if (email.equals("") || password.equals("") || confirmPassword.equals("")) {
                     Toast.makeText(enter_email.this, "모든 항목을 채워주세요.", Toast.LENGTH_SHORT).show();
-                else{
-                    if(password.equals(confirmPassword)){
+                } else {
+                    if (!isValidEmail(email)) {
+                        Toast.makeText(enter_email.this, "올바른 이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show();
+                    } else if (!isValidPassword(password)) {
+                        Toast.makeText(enter_email.this, "비밀번호는 8~20자 사이이며, 문자와 숫자의 조합이어야 합니다.", Toast.LENGTH_SHORT).show();
+                    } else if (!password.equals(confirmPassword)) {
+                        Toast.makeText(enter_email.this, "비밀번호와 확인 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                    } else {
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
-                        if(checkUserEmail == false){
+                        if (!checkUserEmail) {
                             Boolean insert = databaseHelper.insertData(email, password);
-                            if(insert == true){
+                            if (insert) {
                                 Toast.makeText(enter_email.this, "회원가입 성공!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), enter_nickname.class);
                                 startActivity(intent);
-                            }else{
+                            } else {
                                 Toast.makeText(enter_email.this, "회원가입 실패!", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else{
+                        } else {
                             Toast.makeText(enter_email.this, "이미 존재하는 사용자입니다.", Toast.LENGTH_SHORT).show();
                         }
-                    }else{
-                        Toast.makeText(enter_email.this, "암호가 잘못되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
+
 
         binding.enterEmailButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,4 +70,14 @@ public class enter_email extends AppCompatActivity {
             }
         });
     }
+    private boolean isValidEmail(CharSequence target) {
+        return Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
+    private boolean isValidPassword(String password) {
+        // 비밀번호는 8자에서 20자 사이여야 하며 문자와 숫자의 조합이어야 함
+        String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}!$";
+        return password.matches(passwordPattern);
+    }
+
 }

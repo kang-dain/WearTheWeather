@@ -41,9 +41,11 @@ public class main_login extends AppCompatActivity {
             public void onClick(View view) {
                 String email = binding.mainemailinput.getText().toString();
                 String password = binding.mainpasswordinput.getText().toString();
-                if (email.equals("") || password.equals(""))
+                if (email.equals("") || password.equals("")) {
                     Toast.makeText(main_login.this, "모든 항목을 채워주세요.", Toast.LENGTH_SHORT).show();
-                else {
+                } else if (!isValidEmail(email)) {
+                    Toast.makeText(main_login.this, "올바른 이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show();
+                } else {
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
                     if (checkCredentials == true) {
                         Toast.makeText(main_login.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
@@ -123,5 +125,9 @@ public class main_login extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Session.getCurrentSession().removeCallback(mSessionCallback);
+    }
+
+    private boolean isValidEmail(CharSequence target) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 }
