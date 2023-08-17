@@ -1,5 +1,6 @@
 package org.techtown.weartheweather;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -212,5 +213,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return alarmTimeInMillis;
     }
+
+    public String getEmailByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"email"};
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
+
+        Cursor cursor = db.query("users", columns, selection, selectionArgs, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") String storedEmail = cursor.getString(cursor.getColumnIndex("email"));
+            cursor.close(); // Cursor 닫기
+            db.close(); // 데이터베이스 닫기
+            return storedEmail;
+        }
+        db.close(); // 데이터베이스 닫기
+        return null;
+    }
+
+
 
 }
