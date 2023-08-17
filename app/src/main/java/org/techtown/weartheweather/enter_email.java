@@ -64,7 +64,7 @@ public class enter_email extends AppCompatActivity {
         binding.enterEmailButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(enter_email.this, enter_nickname.class);
+                Intent intent = new Intent(enter_email.this, main_login.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +75,7 @@ public class enter_email extends AppCompatActivity {
 
     private boolean isValidPassword(String password) {
         // 비밀번호는 8자에서 20자 사이여야 하며 문자와 숫자의 조합이어야 함
-        String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}!$";
+        String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}$";
         return password.matches(passwordPattern);
     }
 

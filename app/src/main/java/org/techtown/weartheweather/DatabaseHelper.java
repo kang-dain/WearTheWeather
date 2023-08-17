@@ -217,6 +217,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public boolean updatePassword(String email, String newPassword) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("password", newPassword);
+
+        int rowsAffected = db.update("users", values, "email = ?", new String[]{email});
+
+        db.close();
+
+        return rowsAffected > 0;
+    }
+
+    public boolean checkEmailExist(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String tableName = "users"; // 테이블 이름을 설정해야 합니다.
+        String emailColumnName = "email"; // 이메일 컬럼의 이름을 설정해야 합니다.
+        Cursor cursor = db.rawQuery("SELECT * FROM " + tableName + " WHERE " + emailColumnName + "=?", new String[]{email});
+        int count = cursor.getCount();
+        cursor.close();
+        return count > 0;
+    }
+
+
+
 
 
 }
