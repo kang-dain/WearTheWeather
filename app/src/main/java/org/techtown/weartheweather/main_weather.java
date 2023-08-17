@@ -70,7 +70,9 @@ public class main_weather extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                // main_weather_box의 상태 변경
+                ImageView mainWeatherBox = findViewById(R.id.main_weather_box);
+                    mainWeatherBox.setVisibility(View.VISIBLE);
 
                 //시간데이터와 날씨데이터 활용
                 CurrentCall();
@@ -210,13 +212,13 @@ public class main_weather extends AppCompatActivity {
                     tempView.setText(String.format("%.1f °C", tempCelsius));
                     // 최고 기온 키값 받기
                     double maxTemp = tempK.getDouble("temp_max");
-                    maxTempView.setText("최고 기온: " + maxTemp + "°C");
+                    maxTempView.setText("▶최고 기온: " + String.format("%.1f°C", maxTemp));
                     // 최저 기온 키값 받기
                     double minTemp = tempK.getDouble("temp_min");
-                    minTempView.setText("최저 기온: " + minTemp + "°C");
+                    minTempView.setText("▶최저 기온: " + String.format("%.1f°C", minTemp));
                     // 체감 온도 키값 받기
                     double feelsLike = tempK.getDouble("feels_like");
-                    feelsLikeView.setText("체감 온도: " + feelsLike + "°C");
+                    feelsLikeView.setText("▶체감 온도: " + String.format("%.1f°C", feelsLike));
                     // 습도 키값 받기
                     int humidity = tempK.getInt("humidity");
                     humidityView.setText("습도: " + humidity + "%");
@@ -225,6 +227,7 @@ public class main_weather extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+
         }, new Response.ErrorListener() {
 
             @Override
