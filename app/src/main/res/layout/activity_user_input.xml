@@ -39,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="104dp"
+                android:fontFamily="@font/surround"
                 android:text="기록하고자 하는\n온도를 입력해주세요"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
@@ -50,9 +51,6 @@
                 tools:ignore="HardcodedText,TextContrastCheck"
                 tools:visibility="visible" />
 
-
-            <!-- 이렇게 TextView 요소들을 레이아웃 XML 파일에 추가하세요 -->
-
             //slider
 
             <TextView
@@ -60,8 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="236dp"
+                android:fontFamily="@font/surround"
                 android:text="오늘의 최고 온도: "
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,8 +73,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="288dp"
+                android:fontFamily="@font/surround"
                 android:text="오늘의 최저 온도: "
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -96,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="500dp"
+                android:fontFamily="@font/surround"
                 android:text="클릭한 온도에서의\n자신의 느낌을\n슬라이더로 조절해주세요"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
@@ -273,6 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="500dp"
+                android:fontFamily="@font/surround"
                 android:text="클릭한 온도에서의\n자신의 느낌을\n키워드로 작성해주세요"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
@@ -356,6 +360,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="800dp"
+                android:fontFamily="@font/surround"
                 android:text="오늘 입었던 옷을\n기록해주세요"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
