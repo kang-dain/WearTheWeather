@@ -32,7 +32,7 @@ public class keyword_snow extends AppCompatActivity {
         snowKeywords.add("Romantic");  snowKeywords.add("Moist");  snowKeywords.add("Clear");
         snowKeywords.add("GoodFeeling");  snowKeywords.add("WhiteSnowflake");
         snowKeywords.add("Tranquil");  snowKeywords.add("Stillness");  snowKeywords.add("Chill");
-        snowKeywords.add("Anticipation");  snowKeywords.add("Happiness");  snowKeywords.add("Warmth");
+        snowKeywords.add("Anticipation");  snowKeywords.add("Happy");  snowKeywords.add("Warmth");
         snowKeywords.add("Coziness");  snowKeywords.add("Joy");  snowKeywords.add("Freshness");
         snowKeywords.add("Dampness");  snowKeywords.add("Crunchy");  snowKeywords.add("Beauty");
         snowKeywords.add("Expectation");  snowKeywords.add("Comfort");

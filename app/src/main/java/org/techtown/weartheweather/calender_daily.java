@@ -36,8 +36,11 @@ public class calender_daily extends AppCompatActivity {
 
         if (year != -1 && month != -1 && day != -1) {
             //String selectedDate = year + "년 " + month + "월 " + day + "일";
-            String selectedDate = String.format("%04d년 %02d월 %02d일", year, month, day);
-            dateEditText.setText(selectedDate); // 선택한 날짜를 EditText에 설정
+            String selectedDate = String.format("%04d-%02d-%02d", year, month, day);
+
+            // 날짜 정보를 TextView에 설정
+            TextView dateEditText = findViewById(R.id.DATE);
+            dateEditText.setText(selectedDate);
         }
 
         //이전 액티비티에서 전달받은 키워드 정보 받기
