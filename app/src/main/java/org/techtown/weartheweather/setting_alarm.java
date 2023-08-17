@@ -80,7 +80,7 @@ public class setting_alarm extends AppCompatActivity {
                     if (alarmTimeInMillis == 0) {
                         // 데이터베이스의 알람 시간이 0일 경우
                         textView2.setText("시간을 설정해주세요"); // 빈 텍스트 설정
-                        alarmSwitch.setChecked(false); // 스위치를 Off로 설정
+                        alarmSwitch.setChecked(true); // 스위치를 Off로 설정
                     } else {
                         // 밀리초 시간값을 시간 형태로 변환하여 출력
                         Calendar calendar = Calendar.getInstance();
