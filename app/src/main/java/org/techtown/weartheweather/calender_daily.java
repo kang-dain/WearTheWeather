@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -70,9 +72,13 @@ public class calender_daily extends AppCompatActivity {
         SeekBar seekBar = findViewById(R.id.seekBar3);
         seekBar.setProgress(receivedSliderValue);
 
+        // 이전 액티비티에서 전달받은 temperature 수신
+        TextView tempText = findViewById(R.id.TEMP);
+        int receicedTemp = getIntent().getIntExtra("tempValue", 0);
+        tempText.setText(receicedTemp);
 
 
-
+        
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
