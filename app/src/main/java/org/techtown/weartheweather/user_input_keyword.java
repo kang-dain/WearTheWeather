@@ -175,7 +175,10 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
         user_input_suggestion_button3.setOnClickListener(this);
         user_input_suggestion_button4.setOnClickListener(this);
 
-        //수정
+
+
+
+    //수정
         user_input_suggestion_button1.setOnClickListener(view -> {
             user_input_keyword_button_1.setVisibility(View.VISIBLE);
             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
@@ -284,36 +287,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
 
         // 날씨 키워드 선택 시 특정 배경 변경
         //각 버튼에 대한 onTouchListenenr 등록 (누르면 파란색으로 변함)
-        /**
-        user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
-            }
-            return false;
-        });
 
-
-        user_input_suggestion_button2.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                user_input_suggestion_button2.setBackgroundResource(R.drawable.user_input_suggestion_button2);
-            }
-            return false;
-        });
-
-        user_input_suggestion_button3.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                user_input_suggestion_button3.setBackgroundResource(R.drawable.user_input_suggestion_button3);
-            }
-            return false;
-        });
-
-        user_input_suggestion_button4.setOnTouchListener((view, motionEvent) -> {
-            if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                user_input_suggestion_button4.setBackgroundResource(R.drawable.user_input_suggestion_button4);
-            }
-            return false;
-        });
-         */
         user_input_suggestion_button1.setOnTouchListener((view, motionEvent) -> {
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 user_input_suggestion_button1.setBackgroundResource(R.drawable.user_input_suggestion_button1);
@@ -404,22 +378,7 @@ public class user_input_keyword extends AppCompatActivity implements View.OnClic
     private void handleButtonBackgroundChange(Button button, int desiredBackgroundResource) {
         if (button.getBackground().getConstantState() == getResources().getDrawable(desiredBackgroundResource).getConstantState()) {
             // 버튼의 배경이 원하는 Drawable과 같은 경우
-            /**
-             ImageButton user_input_keyword_button_2 = findViewById(R.id.user_input_keyword_button_2);
-             user_input_keyword_button_2.setVisibility(View.VISIBLE);
-             ImageView user_input_keyword_inputimageView2 = findViewById(R.id.user_input_keyword_inputimageView2);
-             user_input_keyword_inputimageView2.setVisibility(View.VISIBLE);
-             ImageView user_input_keyword_input1_bg = findViewById(R.id.user_input_keyword_input1_bg);
-             user_input_keyword_input1_bg.setVisibility(View.VISIBLE);
-             ImageView user_input_keyword_input2_bg = findViewById(R.id.user_input_keyword_input2_bg);
-             user_input_keyword_input2_bg.setVisibility(View.VISIBLE);
-             EditText user_input_keyword_input1 = findViewById(R.id.user_input_keyword_input1);
-             user_input_keyword_input1.setVisibility(View.VISIBLE);
-             EditText user_input_keyword_input2 = findViewById(R.id.user_input_keyword_input2);
-             user_input_keyword_input2.setVisibility(View.VISIBLE);
-             EditText user_input_keyword_input3 = findViewById(R.id.user_input_keyword_input3);
-             user_input_keyword_input3.setVisibility(View.VISIBLE);
-             */
+
         } else {
             // 버튼의 배경이 원하는 Drawable과 다른 경우
             ImageButton user_input_keyword_button_1 = findViewById(R.id.user_input_keyword_button_1);
