@@ -46,7 +46,6 @@ public class NotificationHelper extends ContextWrapper {
     }
 
     public NotificationCompat.Builder getChannelNotification() {
-//연주수정하기-닉네임불러오기
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle("오늘의 날씨를 확인하고")
                 .setContentText("날씨에 맞는 자신만의 옷을 기록해 보세요! ")
