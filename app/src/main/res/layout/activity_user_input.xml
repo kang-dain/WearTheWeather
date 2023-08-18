@@ -710,11 +710,12 @@
 
             <EditText
                 android:id="@+id/temperature"
-                android:layout_width="150dp"
+                android:digits="0123456789-"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="68dp"
                 android:inputType="number"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textSize="30sp"
                 app:guidelineUseRtl="false"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -726,9 +727,10 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/temperature"
-                app:layout_constraintEnd_toEndOf="@+id/temperature"
+                app:layout_constraintStart_toStartOf="@+id/temperature"
                 app:srcCompat="@drawable/temp_icon"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
 
