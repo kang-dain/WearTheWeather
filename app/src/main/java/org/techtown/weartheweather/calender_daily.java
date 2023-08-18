@@ -1,9 +1,12 @@
 package org.techtown.weartheweather;
 
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +33,7 @@ public class calender_daily extends AppCompatActivity {
     private int fashionTop = -1;
     private int fashionPants = -1;
     private int fashionShoes = -1;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +49,6 @@ public class calender_daily extends AppCompatActivity {
         dateEditText = findViewById(R.id.DATE);
         if (currentDate != null) {
             dateEditText.setText(currentDate);
-        }
-
-        // 이전 액티비티에서 전달받은 날짜 정보 받기
-        dateEditText = findViewById(R.id.DATE);
-        int year = getIntent().getIntExtra("year", -1);
-        int month = getIntent().getIntExtra("month", -1);
-        int day = getIntent().getIntExtra("day", -1);
-
-        if (year != -1 && month != -1 && day != -1) {
-            //String selectedDate = year + "년 " + month + "월 " + day + "일";
-            String selectedDate = String.format("%04d-%02d-%02d", year, month, day);
-
-            // 날짜 정보를 TextView에 설정
-            TextView dateEditText = findViewById(R.id.DATE);
-            dateEditText.setText(selectedDate);
         }
 
         //이전 액티비티에서 전달받은 키워드 정보 받기
@@ -89,7 +78,8 @@ public class calender_daily extends AppCompatActivity {
 
         TextView tempText = findViewById(R.id.TEMP);
         int temperature = intent.getIntExtra("temperature", 0); // 기본값은 0
-        tempText.setText("Temperature: \n" + temperature+"°C"); // temperature 출력
+        if (temperature == 0 ) tempText.setText(""); // temperature 출력
+        else tempText.setText("Temperature: \n" + temperature+"°C"); // temperature 출력
 
         SeekBar seekBar = findViewById(R.id.seekBar3);
         int sliderValue = intent.getIntExtra("slider", 0);
@@ -120,8 +110,68 @@ public class calender_daily extends AppCompatActivity {
         } else{
 
         }
+// 혜음
+        // DatabaseHelper 객체 초기화
+        databaseHelper = new DatabaseHelper(this);
+
+// 이전 액티비티에서 전달받은 날짜 정보 받기
+        int year = getIntent().getIntExtra("year", -1);
+        int month = getIntent().getIntExtra("month", -1);
+        int day = getIntent().getIntExtra("day", -1);
+
+        if (year != -1 && month != -1 && day != -1) {
+            String selectedDate = String.format("%04d-%02d-%02d", year, month, day);
+
+            // 날짜 정보를 TextView에 설정
+            TextView dateTextView = findViewById(R.id.DATE);
+            dateTextView.setText(selectedDate);
+
+            // 데이터베이스 조회 및 출력
+            SQLiteDatabase db = databaseHelper.getReadableDatabase();
+            Cursor cursor = db.query(
+                    "user_input",
+                    new String[] {"temperature"}, // "temperature" 대신 "TEMPERATURE" 사용
+                    "date = ?",
+                    new String[] {selectedDate},
+                    null, null, null
+            );
+
+            if (cursor.moveToFirst()) {
+                @SuppressLint("Range") int temperature2 = cursor.getInt(cursor.getColumnIndex("temperature")); // "temperature" 대신 실제 컬럼 이름 사용
+                // temperature 값을 화면에 출력하는 코드
+                TextView temperatureTextView = findViewById(R.id.TEMP3);
+                if (temperature2 == 0) {
+                    temperatureTextView.setText("");
+                } else {
+                    temperatureTextView.setText("Temperature: \n" + temperature2 + "°C");
+                }
+            } else {
+                // 해당 날짜에 대한 데이터가 없을 경우 처리
+                TextView temperatureTextView = findViewById(R.id.TEMP3);
+                temperatureTextView.setText("");
+            }
+
+            cursor.close();
+            db.close();
+        }
 
 
+
+        /** // 이전 액티비티에서 전달받은 날짜 정보 받기
+         dateEditText = findViewById(R.id.DATE);
+         int year = getIntent().getIntExtra("year", -1);
+         int month = getIntent().getIntExtra("month", -1);
+         int day = getIntent().getIntExtra("day", -1);
+
+         if (year != -1 && month != -1 && day != -1) {
+             //String selectedDate = year + "년 " + month + "월 " + day + "일";
+             String selectedDate = String.format("%04d-%02d-%02d", year, month, day);
+
+             // 날짜 정보를 TextView에 설정
+             TextView dateEditText = findViewById(R.id.DATE);
+             dateEditText.setText(selectedDate);
+         }
+ */
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
