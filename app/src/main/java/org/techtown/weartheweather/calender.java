@@ -37,6 +37,7 @@ public class calender extends AppCompatActivity {
                 intent.putExtra("year", year);
                 intent.putExtra("month", month + 1); // 월은 0부터 시작하므로 +1
                 intent.putExtra("day", day);
+
                 startActivity(intent);
             }
         });

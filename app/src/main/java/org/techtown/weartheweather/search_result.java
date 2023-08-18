@@ -78,6 +78,8 @@ public class search_result extends AppCompatActivity {
             public void onClick(View v) {
                 // resultTextView3 클릭 시 날짜 정보 가져오기
                 String date = extractDateFromTextView(resultTextView3.getText().toString());
+                // 선택한 온도 정보
+                int temperature = getIntent().getIntExtra("temperature", 0);
 
                 // 이전 액티비티에서 전달받은 날짜 정보 받기
                 int year = getIntent().getIntExtra("year", -1);
@@ -91,6 +93,7 @@ public class search_result extends AppCompatActivity {
                 intent.putExtra("month", month); // 이전 액티비티에서 받아온 월 정보 추가
                 intent.putExtra("day", day); // 이전 액티비티에서 받아온 일 정보 추가
                 startActivity(intent);
+
             }
         });
 

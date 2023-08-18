@@ -793,29 +793,6 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 keyword3 = keywordInput3.getText().toString();
 
 
-
-                /**
-                //사용자가 입력한 코디 가져오기
-                ImageView inputOuter = findViewById(R.id.input_outer);
-                ImageView inputTop = findViewById(R.id.input_top);
-                ImageView inputPants = findViewById(R.id.intput_pants);
-                ImageView inputShoes = findViewById(R.id.input_shoes);
-
-                // 선택된 옷 아이템의 리소스 식별자를 가져온다
-                int selectedOuter = 0;
-                int selectedTop = 0;
-                int selectedPants = 0;
-                int selectedShoes = 0;
-
-                // 선택된 옷 아이템의 리소스 식별자를 ImageView에 설정한다
-                inputOuter.setImageResource(selectedOuter);
-                inputTop.setImageResource(selectedTop);
-                inputPants.setImageResource(selectedPants);
-                inputShoes.setImageResource(selectedShoes);
-                 */
-
-
-
                 // 데이터베이스에 데이터 추가 또는 업데이트
                 boolean isInsertedOrUpdated = dbHelper.insertUserInputData(currentDate, temperature, slider,
                         keyword1, keyword2, keyword3, fashionOuter, fashionTop, fashionPants, fashionShoes);
