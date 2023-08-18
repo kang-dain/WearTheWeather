@@ -44,10 +44,6 @@ public class enter_nickname extends Activity {
                 boolean nicknameInserted = databaseHelper.insertNickname(email, nickname);
 
                 if (nicknameInserted) {
-                    // 닉네임을 menu 액티비티에 넘겨줌
-                    Intent menuIntent = new Intent(getApplicationContext(), menu.class);
-                    menuIntent.putExtra("nickname", nickname);
-                    startActivity(menuIntent);
 
                     //닉네임을 complete 액티비티에 넘겨줌
                     Intent intent = new Intent(getApplicationContext(), complete.class);

@@ -94,7 +94,7 @@ public class recommended_music extends AppCompatActivity {
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), setting.class);
                 startActivity(intent);
             }
         });

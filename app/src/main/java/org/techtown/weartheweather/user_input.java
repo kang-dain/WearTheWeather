@@ -33,10 +33,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -764,7 +762,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), setting.class);
                 startActivity(intent);
             }
         });

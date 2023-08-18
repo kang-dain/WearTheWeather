@@ -1,7 +1,6 @@
 package org.techtown.weartheweather;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
@@ -87,7 +86,7 @@ public class calender extends AppCompatActivity {
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), setting.class);
                 startActivity(intent);
             }
         });

@@ -15,15 +15,6 @@ public class setting extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
 
-        ImageButton setting_button1 = (ImageButton) findViewById(R.id.setting_button1);
-        setting_button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), setting_nickname.class);
-                startActivity(intent);
-            }
-        });
-
         ImageButton setting_button2 = (ImageButton) findViewById(R.id.setting_button2);
         setting_button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +48,7 @@ public class setting extends AppCompatActivity {
         setting_common_backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), main_weather.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +89,7 @@ public class setting extends AppCompatActivity {
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), menu.class);
+                Intent intent = new Intent(getApplicationContext(), setting.class);
                 startActivity(intent);
             }
         });

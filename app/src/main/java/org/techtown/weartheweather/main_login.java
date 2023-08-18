@@ -63,7 +63,7 @@ public class main_login extends AppCompatActivity {
                         editor.apply();
 
                         // 메뉴 액티비티로 전환
-                        Intent menuIntent = new Intent(getApplicationContext(), menu.class);
+                        Intent menuIntent = new Intent(getApplicationContext(), setting.class);
                         startActivity(menuIntent);
 
                         // main_weather 액티비티로 전환
