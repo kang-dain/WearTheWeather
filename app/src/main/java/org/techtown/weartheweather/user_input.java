@@ -422,7 +422,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 input_outer.setBackgroundResource(R.mipmap.none_2_foreground);
                 none.setText("SELECTED");
-                fashionOuter = R.mipmap.none;
+                fashionOuter = R.mipmap.none_2_foreground;
                 coat.setText("");
                 padding.setText("");
                 jumper.setText("");
