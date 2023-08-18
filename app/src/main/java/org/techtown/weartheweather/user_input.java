@@ -820,7 +820,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         intent.putExtra("fashionTop", fashionTop);
                         intent.putExtra("fashionPants", fashionPants);
                         intent.putExtra("fashionShoes", fashionShoes);
-                        //intent.putExtra("currentDate", currentDate);
+                        intent.putExtra("currentDate", currentDate);
 
                         startActivity(intent);
                     }

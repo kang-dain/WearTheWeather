@@ -31,6 +31,15 @@ public class calender_daily extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
 
+        // 이전 액티비티에서 전달받은 데이터 받기
+        Intent currentDateintent = getIntent();
+        String currentDate = currentDateintent.getStringExtra("currentDate");
+
+        // 날짜 정보를 TextView에 설정
+        dateEditText = findViewById(R.id.DATE);
+        if (currentDate != null) {
+            dateEditText.setText(currentDate);
+        }
 
         // 이전 액티비티에서 전달받은 날짜 정보 받기
         dateEditText = findViewById(R.id.DATE);
