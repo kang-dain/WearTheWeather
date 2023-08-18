@@ -37,10 +37,10 @@
             android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:fontFamily="@font/air"
-            android:text="날짜를 지정해 주세요!"
-            android:textSize="20sp"
+            android:gravity="center"
+            android:text="날짜를 선택해주세요"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>

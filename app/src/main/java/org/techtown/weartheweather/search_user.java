@@ -93,13 +93,6 @@ public class search_user extends AppCompatActivity {
 
         ImageButton imageButton9 = (ImageButton) findViewById(R.id.imageButton9);
 
-        ImageButton search_temperature_button = (ImageButton) findViewById(R.id.search_temperature_button);
-        search_temperature_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageButton9.setVisibility(View.VISIBLE);
-            }
-        });
         ImageButton search_temperature_button2 = (ImageButton) findViewById(R.id.search_temperature_button2);
         search_temperature_button2.setOnClickListener(new View.OnClickListener() {
             @Override
