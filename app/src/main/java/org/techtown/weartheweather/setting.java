@@ -3,7 +3,10 @@ package org.techtown.weartheweather;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +16,19 @@ public class setting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+
+        ImageView imageView12 = findViewById(R.id.imageView12);
+
+        // 다크 테마 모드인지 확인
+        int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+        if (nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
+            // 다크 테마 모드인 경우 이미지를 변경
+            imageView12.setImageResource(R.drawable.darklogo);
+        } else {
+            // 기본 테마 모드인 경우 이미지를 변경하지 않음
+            imageView12.setImageResource(R.drawable.light_logo);
+        }
 
 
         ImageButton setting_button2 = (ImageButton) findViewById(R.id.setting_button2);

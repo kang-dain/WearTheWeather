@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,7 +64,22 @@ public class main_weather extends AppCompatActivity {
         rainfallView = findViewById(R.id.rainfallView);
 
 
+        ImageView main_ = findViewById(R.id.main_);
+        ImageView imageView4 = findViewById(R.id.imageView4);
+        Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        main_.setAnimation(rotate);
 
+        // 다크 테마 모드인지 확인
+        int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+        if (nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
+            // 다크 테마 모드인 경우 이미지를 변경
+            main_.setImageResource(R.drawable.main_1_dark);
+            imageView4.setImageResource(R.drawable.darklogo);
+        } else {
+            // 기본 테마 모드인 경우 이미지를 변경하지 않음
+            main_.setImageResource(R.drawable.main_1);
+            imageView4.setImageResource(R.drawable.light_logo);
+        }
 
         ImageButton button = findViewById(R.id.imageButton);
         button.setOnClickListener(new View.OnClickListener() {
