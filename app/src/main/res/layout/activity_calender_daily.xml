@@ -128,6 +128,47 @@
         app:layout_constraintTop_toTopOf="@+id/calender_daily_button3"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText,TextContrastCheck" />
+<!--코디-->
+    <ImageView
+        android:id="@+id/calender_daily_item"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="200dp"
+        android:layout_marginRight="190dp"
+        app:layout_constraintBottom_toTopOf="@+id/calender_daily_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+    <ImageView
+        android:id="@+id/calender_daily_item2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/calender_daily_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/calender_daily_button3"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+    <ImageView
+        android:id="@+id/calender_daily_item3"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/calender_daily_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/calender_daily_button3"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+    <ImageView
+        android:id="@+id/calender_daily_item4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/calender_daily_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/calender_daily_button3"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/calender_daily_1"

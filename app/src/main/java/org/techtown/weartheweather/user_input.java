@@ -44,7 +44,8 @@ import java.util.Map;
 public class user_input extends AppCompatActivity implements View.OnClickListener {
     //데이터베이스
     private DatabaseHelper dbHelper;
-    int fashionOuter, fashionTop, fashionPants, fashionShoes, slider, temperature;
+    int fashionOuter = 0;
+    int fashionTop, fashionPants, fashionShoes, slider, temperature;
     String keyword1, keyword2, keyword3, currentDate;
 
     TextView maxTempView1;
@@ -769,6 +770,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
         });
 
 
+
         Button user_input_fashion_button_5 = findViewById(R.id.user_input_fashion_button_5);
         user_input_fashion_button_5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -794,6 +796,29 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 keyword1 = keywordInput1.getText().toString();
                 keyword2 = keywordInput2.getText().toString();
                 keyword3 = keywordInput3.getText().toString();
+
+
+
+                /**
+                //사용자가 입력한 코디 가져오기
+                ImageView inputOuter = findViewById(R.id.input_outer);
+                ImageView inputTop = findViewById(R.id.input_top);
+                ImageView inputPants = findViewById(R.id.intput_pants);
+                ImageView inputShoes = findViewById(R.id.input_shoes);
+
+                // 선택된 옷 아이템의 리소스 식별자를 가져온다
+                int selectedOuter = 0;
+                int selectedTop = 0;
+                int selectedPants = 0;
+                int selectedShoes = 0;
+
+                // 선택된 옷 아이템의 리소스 식별자를 ImageView에 설정한다
+                inputOuter.setImageResource(selectedOuter);
+                inputTop.setImageResource(selectedTop);
+                inputPants.setImageResource(selectedPants);
+                inputShoes.setImageResource(selectedShoes);
+                 */
+
 
 
                 // 데이터베이스에 데이터 추가 또는 업데이트
@@ -823,78 +848,10 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         intent.putExtra("fashionPants", fashionPants);
                         intent.putExtra("fashionShoes", fashionShoes);
                         intent.putExtra("currentDate", currentDate);
-
-
-
                         intent.putExtra("temperature", temperature);
                         intent.putExtra("slider", slider);
+
                         startActivity(intent);
-
-                        /** 온도, 날짜 가져오는 것으로 실행해도, 변수 변경해서 키워드 가져오기도 잘 안됨
-                        ArrayList<String> userDataList = new ArrayList<>();
-                        if (cursor != null && cursor.moveToFirst()) {
-                            do {
-                                String date = cursor.getString(cursor.getColumnIndex("date"));
-                                int temperature = cursor.getInt(cursor.getColumnIndex("temperature"));
-
-                                String data = "Date: " + date + ", Temperature: " + temperature;
-                                userDataList.add(data);
-                            } while (cursor.moveToNext());
-                            cursor.close(); 
-                        }
-
-                        Intent intent_user_input = new Intent(AActivity.this, BActivity.class);
-                        intent_user_input.putStringArrayListExtra("userInputList", userDataList);
-                        startActivity(intent_user_input);
-                        */
-                        
-                        /**
-                         String query = "SELECT * FROM user_input " +
-                         "WHERE column_name = '" + keyword1 + "' " +
-                         "OR column_name = '" + keyword2 + "' " +
-                         "OR column_name = '" + keyword3 + "'";
-                         */
-
-                        /**
-                         List<user_input> dataList = new ArrayList<>();
-
-                         if (cursor != null && cursor.moveToFirst()) {
-                         do {
-
-                         String k1 = cursor.getString(cursor.getColumnIndex(user_input.keyword1));
-                         String k2 = cursor.getString(cursor.getColumnIndex(user_input.keyword2));
-                         String k3 = cursor.getString(cursor.getColumnIndex(user_input.keyword3));
-
-                         int f1 = cursor.getInt(cursor.getColumnIndex(user_input.fashionOuter));
-                         int f2 = cursor.getInt(cursor.getColumnIndex(user_input.fashionTop));
-                         int f3 = cursor.getInt(cursor.getColumnIndex(user_input.fashionPants));
-                         int f4 = cursor.getInt(cursor.getColumnIndex(user_input.fashionShoes));
-
-                         user_input dataItem = new DataItem(k1, k2, k3, f1, f2, f3, f4);
-                         dataList.add(dataItem);
-                         } while (cursor.moveToNext());
-
-                         cursor.close();
-                         }
-
-                         */
-
-                        /** ver 9-3
-                         Intent intent = new Intent(user_input.this, calender_daily.class);
-                         // intent.putExtra("dataList", (Serializable) dataList); // Serializable 대신 Parcelable 방식으로 변경 ??
-                         intent.putExtra("dataList", (Parcelable) dataList); // 추가 구현 필요함
-
-                         startActivity(intent);
-                         */
-
-                        /**
-                         dbHelper = new DatabaseHelper(this);
-                         Cursor cursor = dbHelper.getUserInputData();
-                         Intent intent = new Intent(this, calender_daily.class);
-                         intent.putExtra("userInputCursor", cursor);
-                         startActivity(intent);
-                         */
-
                     }
                 } else {
                     // 저장 또는 업데이트 실패한 경우
@@ -903,28 +860,18 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        /**
-         Intent intent = new Intent(user_input.this, calender_daily.class);
-         intent.putExtra("selectedKeyword", selectedKeyword);
-         startActivity(intent);
-         */
+    }
 
-        /** ver 7
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        String retrievedValue = dbHelper.getSomeValue();
-        Intent intent = new Intent(user_input.this, calender_daily.class);
-        intent.putExtra("retrievedValue", retrievedValue);
+    private void sendDataToCalenderDaily() {
+        Intent intent = new Intent(getApplicationContext(), calender_daily.class);
+        intent.putExtra("fashionOuter", fashionOuter);
+        intent.putExtra("fashionTop", fashionTop);
+        intent.putExtra("fashionPants", fashionPants);
+        intent.putExtra("fashionShoes", fashionShoes);
+        // 이외에도 필요한 데이터를 추가로 전달할 수 있습니다.
+
+        // calender_daily 액티비티 실행
         startActivity(intent);
-        dbHelper.close();
-         */
-
-        /** ver8 onDestroy()
-         @Override
-         protected void onDestroy() {
-         dbHelper.close();
-         super.onDestroy();
-         }
-         */
     }
 
 

@@ -26,6 +26,11 @@ public class calender_daily extends AppCompatActivity {
     private TextView dateEditText;
     private TextView keywordText;
 
+    private int fashionOuter = -1;
+    private int fashionTop = -1;
+    private int fashionPants = -1;
+    private int fashionShoes = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,100 +95,33 @@ public class calender_daily extends AppCompatActivity {
         int sliderValue = intent.getIntExtra("slider", 0);
         seekBar.setProgress(sliderValue); // slider 값으로 SeekBar 설정
         seekBar.setEnabled(false);
-/**
-        // 이전 액티비티에서 전달받은 seekbar data 수신
-        int receivedSliderValue = getIntent().getIntExtra("sliderValue", 0);
-        SeekBar seekBar = findViewById(R.id.seekBar3);
-        seekBar.setProgress(receivedSliderValue);
 
-        // 이전 액티비티에서 전달받은 temperature 수신
-        TextView tempText = findViewById(R.id.TEMP);
-        int receicedTemp = getIntent().getIntExtra("tempValue", 0);
-        // tempText.setText(receicedTemp); -> 지우면 오류는 없어지만 설정도 안돼
 
-        // 이전 액티비티에서 전달받은 fashion 수신
-        int fashion_Outer = getIntent().getIntExtra("fashionOuter",0);
-        int fashion_Top = getIntent().getIntExtra("fashionTop",0);
-        int fashion_Pants = getIntent().getIntExtra("fashionPants",0);
-        int fashion_Shoes = getIntent().getIntExtra("fashionShoes",0);
-*/
+        // 추가된 코드: 선택된 옷 정보 불러오기
+        Intent intent2 = getIntent();
+        int fashionOuter = intent2.getIntExtra("fashionOuter", -1);
+        int fashionTop = intent2.getIntExtra("fashionTop", -1);
+        int fashionPants = intent2.getIntExtra("fashionPants", -1);
+        int fashionShoes = intent2.getIntExtra("fashionShoes", -1);
 
-        /**
-         List<user_input> receivedDataList = (List<user_input>) getIntent().getSerializableExtra("dataList");
-         */
+// ImageView 찾기
+        ImageView calenderDaily1ImageView = findViewById(R.id.calender_daily_item);
+        ImageView calenderDaily2ImageView = findViewById(R.id.calender_daily_item2);
+        ImageView calenderDaily3ImageView = findViewById(R.id.calender_daily_item3);
+        ImageView calenderDaily4ImageView = findViewById(R.id.calender_daily_item4);
 
-        /**
-        Intent intent = getIntent();
-        String retrievedValue = intent.getStringExtra("retrievedValue");
-        */
 
-        /** 변수명 수정해서 실행해봤으나 오류 많아서 가독성 좋은 수정 전 버전으로 주석처리
-         setContentView(R.layout.activity_calendar_daily);
+// 전달받은 데이터에 따라 이미지 설정
+        if (fashionOuter != -1 && fashionTop != -1 && fashionPants != -1 && fashionShoes != -1) {
+            calenderDaily1ImageView.setImageResource(fashionOuter);
+            calenderDaily2ImageView.setImageResource(fashionTop);
+            calenderDaily3ImageView.setImageResource(fashionPants);
+            calenderDaily4ImageView.setImageResource(fashionShoes);
+        } else{
 
-         String selectedDate = getIntent().getStringExtra("selected_date");
+        }
 
-         DatabaseHelper dbHelper = new DatabaseHelper(this);
 
-         UserInputData inputData = dbHelper.getUserInputData(selectedDate);
-
-         if (inputData != null) {
-         TextView temperatureTextView = findViewById(R.id.temperatureTextView);
-         TextView keywordTextView = findViewById(R.id.keywordTextView);
-
-         temperatureTextView.setText("Temperature: " + inputData.getTemperature());
-         keywordTextView.setText("Keywords: " + inputData.getKeyword1() + ", " + inputData.getKeyword2() + ", " + inputData.getKeyword3());
-         */
-
-        /**
-         ArrayList<String> userDataList = getIntent().getStringArrayListExtra("userInputList");
-
-         if (userDataList != null) {
-             StringBuilder data = new StringBuilder();
-             for (String userData : userDataList) {
-                data.append(userData).append("\n");
-             }
-            textView.setText(data.toString());
-         }
-         */
-
-        /** ver 11
-        Cursor cursor = getIntent().getParcelableExtra("userInputCursor");
-        if (cursor != null && cursor.moveToFirst()) {
-            StringBuilder data = new StringBuilder();
-
-            do {
-                String date = cursor.getString(cursor.getColumnIndex("date"));
-                int temperature = cursor.getInt(cursor.getColumnIndex("temperature"));
-
-                data.append("Date: ").append(date).append(", Temperature: ").append(temperature).append("\n");
-            } while (cursor.moveToNext());
-
-            textView.setText(data.toString());
-
-            cursor.close();
-         */
-        /** 가져오는 값 변수가 다르지만 변형시도해봄 ver13
-         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
-
-         String query = "SELECT * FROM " + DatabaseHelper.TABLE_NAME +
-         " WHERE temperature BETWEEN ? AND ? " +
-         " AND strftime('%m', date) IN (" + getSelectedMonths() + ")" +
-         " ORDER BY ABS(temperature - ?) ASC, temperature ASC";
-
-         Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{String.valueOf(temperature - 3), String.valueOf(temperature + 3), String.valueOf(temperature)});
-
-         StringBuilder userData = new StringBuilder();
-
-         while (cursor.moveToNext()) {
-         int userTemperature = cursor.getInt(cursor.getColumnIndex("temperature"));
-         String date = cursor.getString(cursor.getColumnIndex("date"));
-
-         userData.append("\n\n▶ 날짜: ").append(date).append("\n");
-         userData.append(" 온도: ").append(userTemperature).append("°C\n\n");
-         }
-         cursor.close();
-
-         */
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,6 +194,42 @@ public class calender_daily extends AppCompatActivity {
             }
         });
     }
+
+    private void loadSelectedClothesInfo() {
+        // 아우터 이미지 불러오기
+        ImageView input_outer = findViewById(R.id.input_outer);
+        if (fashionOuter != -1) {
+            input_outer.setImageResource(fashionOuter);
+        } else {
+            input_outer.setImageDrawable(null);
+        }
+
+        // 상의 이미지 불러오기
+        ImageView input_top = findViewById(R.id.input_top);
+        if (fashionTop != -1) {
+            input_top.setImageResource(fashionTop);
+        } else {
+            input_top.setImageDrawable(null);
+        }
+
+        // 하의 이미지 불러오기
+        ImageView input_pants = findViewById(R.id.intput_pants);
+        if (fashionPants != -1) {
+            input_pants.setImageResource(fashionPants);
+        } else {
+            input_pants.setImageDrawable(null);
+        }
+
+        // 신발 이미지 불러오기
+        ImageView input_shoes = findViewById(R.id.input_shoes);
+        if (fashionShoes != -1) {
+            input_shoes.setImageResource(fashionShoes);
+        } else {
+            input_shoes.setImageDrawable(null);
+        }
+    }
+
+
 
     // 스크린샷 캡처
     private Bitmap takeScreenShot(View view) {
