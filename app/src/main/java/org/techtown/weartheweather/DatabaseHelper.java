@@ -258,7 +258,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count > 0;
     }
 
+    /**
+     public Cursor getUserInputData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM user_input";
+        return db.rawQuery(query, null);
+     }
+     }
 
+     */
 
 
 
