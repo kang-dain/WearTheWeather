@@ -90,7 +90,7 @@
                 android:text="\n\n검색한 온도와 가장 유사한 날짜\n(날짜를 클릭하면 해당 캘린더로 이동합니다)"
                 android:textAlignment="center"
                 android:textColor="@color/text_75A3E9_FFFFFF"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
