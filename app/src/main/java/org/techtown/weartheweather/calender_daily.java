@@ -133,7 +133,7 @@ public class calender_daily extends AppCompatActivity {
             Cursor cursor = db.query(
                     "user_input",
                     new String[] {"temperature", "slider", "keyword1", "keyword2", "keyword3",
-                            "fashionOuter", "fashionTop", "fashionPants", "fashionShoes"}, // 추가한 키워드 칼럼들을 가져옵니다
+                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"}, // 추가한 키워드 칼럼들을 가져옵니다
                     "date = ?",
                     new String[] {selectedDate},
                     null, null, null, null
@@ -145,10 +145,11 @@ public class calender_daily extends AppCompatActivity {
                 @SuppressLint("Range") String keyword1_2 = cursor.getString(cursor.getColumnIndex("keyword1"));
                 @SuppressLint("Range") String keyword2_2 = cursor.getString(cursor.getColumnIndex("keyword2"));
                 @SuppressLint("Range") String keyword3_2 = cursor.getString(cursor.getColumnIndex("keyword3"));
-                @SuppressLint("Range") int fashionOuter2 = cursor.getInt(cursor.getColumnIndex("fashionOuter"));
-                @SuppressLint("Range") int fashionTop2 = cursor.getInt(cursor.getColumnIndex("fashionTop"));
-                @SuppressLint("Range") int fashionPants2 = cursor.getInt(cursor.getColumnIndex("fashionPants"));
-                @SuppressLint("Range") int fashionShoes2 = cursor.getInt(cursor.getColumnIndex("fashionShoes"));
+                @SuppressLint("Range") int fashionOuter2 = cursor.getInt(cursor.getColumnIndex("fashion_outer"));
+                @SuppressLint("Range") int fashionTop2 = cursor.getInt(cursor.getColumnIndex("fashion_top"));
+                @SuppressLint("Range") int fashionPants2 = cursor.getInt(cursor.getColumnIndex("fashion_pants"));
+                @SuppressLint("Range") int fashionShoes2 = cursor.getInt(cursor.getColumnIndex("fashion_shoes"));
+
 
 
                 // temperature 값을 화면에 출력하는 코드
@@ -182,6 +183,20 @@ public class calender_daily extends AppCompatActivity {
                     }
                 }
 
+                // ImageView 찾기
+                ImageView calenderDaily1_2ImageView = findViewById(R.id.calender_daily_item_3);
+                ImageView calenderDaily2_2ImageView = findViewById(R.id.calender_daily_item2_3);
+                ImageView calenderDaily3_2ImageView = findViewById(R.id.calender_daily_item3_3);
+                ImageView calenderDaily4_2ImageView = findViewById(R.id.calender_daily_item4_3);
+                // 전달받은 데이터에 따라 이미지 설정
+                if (fashionOuter2 != -1 && fashionTop2 != -1 && fashionPants2 != -1 && fashionShoes2 != -1) {
+                    calenderDaily1_2ImageView.setImageResource(fashionOuter2);
+                    calenderDaily2_2ImageView.setImageResource(fashionTop2);
+                    calenderDaily3_2ImageView.setImageResource(fashionPants2);
+                    calenderDaily4_2ImageView.setImageResource(fashionShoes2);
+                }
+
+
             } else {
                 // 해당 날짜에 대한 데이터가 없을 경우 처리
                 TextView temperatureTextView = findViewById(R.id.TEMP3);
@@ -195,26 +210,6 @@ public class calender_daily extends AppCompatActivity {
                 keywordText.setText("");
             }
 
-
-            //패션
-            Intent intent3 = getIntent();
-            int fashionOuter3 = intent3.getIntExtra("fashionOuter", -1);
-            int fashionTop3 = intent3.getIntExtra("fashionTop", -1);
-            int fashionPants3 = intent3.getIntExtra("fashionPants", -1);
-            int fashionShoes3 = intent3.getIntExtra("fashionShoes", -1);
-            // ImageView 찾기
-            ImageView calenderDaily1_2ImageView = findViewById(R.id.calender_daily_item_3);
-            ImageView calenderDaily2_2ImageView = findViewById(R.id.calender_daily_item2_3);
-            ImageView calenderDaily3_2ImageView = findViewById(R.id.calender_daily_item3_3);
-            ImageView calenderDaily4_2ImageView = findViewById(R.id.calender_daily_item4_3);
-            // 전달받은 데이터에 따라 이미지 설정
-            if (fashionOuter3 != -1 && fashionTop3 != -1 && fashionPants3 != -1 && fashionShoes3 != -1) {
-                calenderDaily1_2ImageView.setImageResource(fashionOuter3);
-                calenderDaily2_2ImageView.setImageResource(fashionTop3);
-                calenderDaily3_2ImageView.setImageResource(fashionPants3);
-                calenderDaily4_2ImageView.setImageResource(fashionShoes3);
-            } else{
-            }
 
             cursor.close();
             db.close();
