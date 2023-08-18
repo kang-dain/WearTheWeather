@@ -76,9 +76,6 @@
             android:name=".setting"
             android:exported="true" />
         <activity
-            android:name=".menu"
-            android:exported="true" />
-        <activity
             android:name=".search_result"
             android:exported="true" />
         <activity
