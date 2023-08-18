@@ -54,11 +54,6 @@ public class calender_daily extends AppCompatActivity {
         String keyword2 = intent.getStringExtra("keyword2");
         String keyword3 = intent.getStringExtra("keyword3");
 
-        // 전달받은 날짜 정보를 가져와서 화면에 표시
-        String date = getIntent().getStringExtra("date");
-        TextView dateTextView = findViewById(R.id.DATE);
-        dateTextView.setText(date);
-
         if (keyword1 != null) {
             if (keyword2 != null && keyword3 !=null){
                 keywordText.setText("#"+keyword1+" #"+keyword2+" #"+keyword3);
@@ -99,10 +94,8 @@ public class calender_daily extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mOnCaptureClick(view);
-                //ImageView calenderDailyButton3 = findViewById(R.id.calender_daily_button3);
-                //calenderDailyButton3.setVisibility(View.VISIBLE);
                 View rootView = getWindow().getDecorView();
-                Bitmap screenShot = takeScreenShot(rootView); // 수정된 부분
+                Bitmap screenShot = takeScreenShot(rootView);
                 if (screenShot != null) {
                     // 이미지 공유 기능 호출
                     saveAndShareImage(screenShot);
