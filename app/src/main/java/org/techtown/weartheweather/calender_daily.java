@@ -226,9 +226,10 @@ public class calender_daily extends AppCompatActivity {
             SQLiteDatabase db = databaseHelper.getReadableDatabase();
             Cursor cursor = db.query(
                     "user_input",
-                    new String[]{"temperature", "slider", "keyword1", "keyword2", "keyword3"},
+                    new String[] {"temperature", "slider", "keyword1", "keyword2", "keyword3",
+                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"}, // 추가한 키워드 칼럼들을 가져옵니다
                     "date = ?",
-                    new String[]{firstDate},
+                    new String[] {firstDate},
                     null, null, null
             );
 
@@ -242,6 +243,12 @@ public class calender_daily extends AppCompatActivity {
                 @SuppressLint("Range") String keyword1_2 = cursor.getString(cursor.getColumnIndex("keyword1"));
                 @SuppressLint("Range") String keyword2_2 = cursor.getString(cursor.getColumnIndex("keyword2"));
                 @SuppressLint("Range") String keyword3_2 = cursor.getString(cursor.getColumnIndex("keyword3"));
+                @SuppressLint("Range") int fashionOuter2 = cursor.getInt(cursor.getColumnIndex("fashion_outer"));
+                @SuppressLint("Range") int fashionTop2 = cursor.getInt(cursor.getColumnIndex("fashion_top"));
+                @SuppressLint("Range") int fashionPants2 = cursor.getInt(cursor.getColumnIndex("fashion_pants"));
+                @SuppressLint("Range") int fashionShoes2 = cursor.getInt(cursor.getColumnIndex("fashion_shoes"));
+
+
 
                 // temperature 값을 화면에 출력하는 코드
                 TextView temperatureTextView = findViewById(R.id.TEMP3);
@@ -272,6 +279,18 @@ public class calender_daily extends AppCompatActivity {
                     } else if (keyword2_2 == null && keyword3_2 != null) {
                         keywordText.setText("#" + keyword3_2);
                     }
+                }
+            // ImageView 찾기
+                ImageView calenderDaily1_2ImageView = findViewById(R.id.calender_daily_item_3);
+                ImageView calenderDaily2_2ImageView = findViewById(R.id.calender_daily_item2_3);
+                ImageView calenderDaily3_2ImageView = findViewById(R.id.calender_daily_item3_3);
+                ImageView calenderDaily4_2ImageView = findViewById(R.id.calender_daily_item4_3);
+                // 전달받은 데이터에 따라 이미지 설정
+                if (fashionOuter2 != -1 && fashionTop2 != -1 && fashionPants2 != -1 && fashionShoes2 != -1) {
+                    calenderDaily1_2ImageView.setImageResource(fashionOuter2);
+                    calenderDaily2_2ImageView.setImageResource(fashionTop2);
+                    calenderDaily3_2ImageView.setImageResource(fashionPants2);
+                    calenderDaily4_2ImageView.setImageResource(fashionShoes2);
                 }
 
             } else {
