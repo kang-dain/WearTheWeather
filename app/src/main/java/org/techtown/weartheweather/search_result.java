@@ -52,7 +52,10 @@ public class search_result extends AppCompatActivity {
         String query = "SELECT * FROM user_input WHERE temperature BETWEEN ? AND ? ORDER BY ABS(temperature - ?) ASC, temperature ASC";
         Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{String.valueOf(temperature - 3), String.valueOf(temperature + 3)});
 
+
         StringBuilder userData = new StringBuilder();
+        String firstDate = null;
+        String firstTemperature = null;
 
         while (cursor.moveToNext()) {
             int userTemperature = cursor.getInt(cursor.getColumnIndex("temperature"));
@@ -61,42 +64,45 @@ public class search_result extends AppCompatActivity {
             if (userTemperature >= temperature - 3 && userTemperature <= temperature + 3) {
                 int month = getMonthFromDateString(cursor.getString(cursor.getColumnIndex("date")));
                 if (selectedButtonIds.contains(getResources().getIdentifier("button" + month, "id", getPackageName()))) {
-                    userData.append("\n\n▶ 날짜: ").append(cursor.getString(cursor.getColumnIndex("date"))).append("\n");
+                    String date = cursor.getString(cursor.getColumnIndex("date"));
+                    userData.append("\n\n▶ 날짜: ").append(date).append("\n");
                     userData.append(" 온도: ").append(userTemperature).append("°C\n\n");
+                    if (firstDate == null && firstTemperature == null) {
+                        firstDate = date;
+                        firstTemperature = String.valueOf(userTemperature);
+                    }
                 }
             }
         }
 
         cursor.close();
 
-        // 결과 값을 TextView에 표시 (user_data)
-        TextView resultTextView3 = findViewById(R.id.resultTextView3);
-        resultTextView3.setText(userData.toString());
+        TextView resultTextView5 = findViewById(R.id.resultTextView5);
+        if (firstDate != null && firstTemperature != null) {
+            String displayText = "날짜: " + firstDate + "\n온도: " + firstTemperature + "°C";
+            resultTextView5.setText(displayText);
+        } else {
+            resultTextView5.setText("No data available.");
+        }
 
-        resultTextView3.setOnClickListener(new View.OnClickListener() {
+        final String finalFirstDate = firstDate; // final 변수로 선언하여 익명 클래스에서 사용 가능하도록
+        resultTextView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // resultTextView3 클릭 시 날짜 정보 가져오기
-                String date = extractDateFromTextView(resultTextView3.getText().toString());
-                // 선택한 온도 정보
-                int temperature = getIntent().getIntExtra("temperature", 0);
+                // resultTextView5 클릭 시 날짜 정보 가져오기
+                String date = extractDateFromTextView(resultTextView5.getText().toString());
 
-                // 이전 액티비티에서 전달받은 날짜 정보 받기
-                int year = getIntent().getIntExtra("year", -1);
-                int month = getIntent().getIntExtra("month", -1);
-                int day = getIntent().getIntExtra("day", -1);
-
-                // 날짜 정보를 인텐트에 추가하여 새로운 액티비티 시작
+                // 데이터를 인텐트에 추가하여 두 번째 액티비티 시작
                 Intent intent = new Intent(search_result.this, calender_daily.class);
-                intent.putExtra("date", date); // 날짜 정보 추가
-                intent.putExtra("year", year); // 이전 액티비티에서 받아온 년도 정보 추가
-                intent.putExtra("month", month); // 이전 액티비티에서 받아온 월 정보 추가
-                intent.putExtra("day", day); // 이전 액티비티에서 받아온 일 정보 추가
+                intent.putExtra("selectedDate", date); // 클릭한 날짜 정보 추가
+                intent.putExtra("firstDate", finalFirstDate); // 첫 번째 날짜 정보 추가
                 startActivity(intent);
-
             }
         });
 
+        // 결과 값을 TextView에 표시 (user_data)
+        TextView resultTextView3 = findViewById(R.id.resultTextView3);
+        resultTextView3.setText(userData.toString());
 
         ImageButton search_result_closebutton = (ImageButton) findViewById(R.id.common_closebutton);
         search_result_closebutton.setOnClickListener(new View.OnClickListener() {

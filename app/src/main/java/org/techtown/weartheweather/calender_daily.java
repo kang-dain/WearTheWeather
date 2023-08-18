@@ -39,7 +39,7 @@ public class calender_daily extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
-
+        SeekBar seekBar = findViewById(R.id.seekBar3);
 
         // 이전 액티비티에서 전달받은 데이터 받기
         Intent currentDateintent = getIntent();
@@ -81,7 +81,7 @@ public class calender_daily extends AppCompatActivity {
         if (temperature == 0 ) tempText.setText(""); // temperature 출력
         else tempText.setText("Temperature: \n" + temperature+"°C"); // temperature 출력
 
-        SeekBar seekBar = findViewById(R.id.seekBar3);
+
         int sliderValue = intent.getIntExtra("slider", 0);
         seekBar.setProgress(sliderValue); // slider 값으로 SeekBar 설정
         seekBar.setEnabled(false);
@@ -222,7 +222,87 @@ public class calender_daily extends AppCompatActivity {
 
 
 
+//share
 
+        String firstDate = getIntent().getStringExtra("firstDate");
+
+        if (firstDate != null) {
+            // 데이터베이스 조회 및 출력
+            SQLiteDatabase db = databaseHelper.getReadableDatabase();
+            Cursor cursor = db.query(
+                    "user_input",
+                    new String[]{"temperature", "slider", "keyword1", "keyword2", "keyword3"},
+                    "date = ?",
+                    new String[]{firstDate},
+                    null, null, null
+            );
+
+            if (cursor.moveToFirst()) {
+                // 날짜를 TextView에 설정
+                TextView dateTextView = findViewById(R.id.DATE);
+                dateTextView.setText("" + firstDate);
+
+                @SuppressLint("Range") int temperature2 = cursor.getInt(cursor.getColumnIndex("temperature"));
+                @SuppressLint("Range") int sliderValue2 = cursor.getInt(cursor.getColumnIndex("slider"));
+                @SuppressLint("Range") String keyword1_2 = cursor.getString(cursor.getColumnIndex("keyword1"));
+                @SuppressLint("Range") String keyword2_2 = cursor.getString(cursor.getColumnIndex("keyword2"));
+                @SuppressLint("Range") String keyword3_2 = cursor.getString(cursor.getColumnIndex("keyword3"));
+
+                // temperature 값을 화면에 출력하는 코드
+                TextView temperatureTextView = findViewById(R.id.TEMP3);
+                if (temperature2 == 0) {
+                    temperatureTextView.setText("");
+                } else {
+                    temperatureTextView.setText("Temperature: \n" + temperature2 + "°C");
+                }
+
+                // slider 값을 화면에 출력하는 코드
+                seekBar.setProgress(sliderValue2);
+
+                // 키워드 값을 화면에 출력하는 코드
+                TextView keywordText = findViewById(R.id.KEYWORD3);
+                if (keyword1_2 != null) {
+                    if (keyword2_2 != null && keyword3_2 != null) {
+                        keywordText.setText("#" + keyword1_2 + " #" + keyword2_2 + "\n#" + keyword3_2);
+                    } else if (keyword2_2 != null && keyword3_2 == null) {
+                        keywordText.setText("#" + keyword1_2 + " #" + keyword2_2);
+                    } else if (keyword2_2 == null && keyword3_2 != null) {
+                        keywordText.setText("#" + keyword1_2 + " #" + keyword3_2);
+                    }
+                } else {
+                    if (keyword2_2 != null && keyword3_2 != null) {
+                        keywordText.setText("#" + keyword2_2 + " #" + keyword3_2);
+                    } else if (keyword2_2 != null && keyword3_2 == null) {
+                        keywordText.setText("#" + keyword2_2);
+                    } else if (keyword2_2 == null && keyword3_2 != null) {
+                        keywordText.setText("#" + keyword3_2);
+                    }
+                }
+
+            } else {
+                // 해당 날짜에 대한 데이터가 없을 경우 처리
+                TextView dateTextView = findViewById(R.id.DATE);
+                dateTextView.setText(firstDate);
+
+                TextView temperatureTextView = findViewById(R.id.TEMP3);
+                temperatureTextView.setText("");
+
+                // 슬라이더 값 초기화
+                seekBar.setProgress(0);
+
+                // 키워드 값 초기화
+                TextView keywordText = findViewById(R.id.KEYWORD3);
+                keywordText.setText("");
+            }
+
+            cursor.close();
+            db.close();
+        } else {
+            // firstDate가 null인 경우 처리
+            // ...
+        }
+
+        //
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
