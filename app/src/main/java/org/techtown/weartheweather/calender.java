@@ -1,6 +1,7 @@
 package org.techtown.weartheweather;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
@@ -16,10 +17,12 @@ public class calender extends AppCompatActivity {
     CalendarView calendar;
     TextView tv_date;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
+
         // xml 연결
         calendar = findViewById(R.id.calendar);
         tv_date = findViewById(R.id.tv_date);
