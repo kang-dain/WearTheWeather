@@ -111,6 +111,23 @@
     <!-- 온도 데이터 수신 -->
 
     <TextView
+        android:id="@+id/KEYWORD3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/text_75A3E9_FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/calender_daily_button3"
+        app:layout_constraintVertical_bias="0.274"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <TextView
         android:id="@+id/TEMP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

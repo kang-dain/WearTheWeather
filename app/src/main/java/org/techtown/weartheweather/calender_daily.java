@@ -130,14 +130,19 @@ public class calender_daily extends AppCompatActivity {
             SQLiteDatabase db = databaseHelper.getReadableDatabase();
             Cursor cursor = db.query(
                     "user_input",
-                    new String[] {"temperature"}, // "temperature" 대신 "TEMPERATURE" 사용
+                    new String[] {"temperature", "slider", "keyword1", "keyword2", "keyword3"}, // 추가한 키워드 칼럼들을 가져옵니다
                     "date = ?",
                     new String[] {selectedDate},
                     null, null, null
             );
 
             if (cursor.moveToFirst()) {
-                @SuppressLint("Range") int temperature2 = cursor.getInt(cursor.getColumnIndex("temperature")); // "temperature" 대신 실제 컬럼 이름 사용
+                @SuppressLint("Range") int temperature2 = cursor.getInt(cursor.getColumnIndex("temperature"));
+                @SuppressLint("Range") int sliderValue2 = cursor.getInt(cursor.getColumnIndex("slider"));
+                @SuppressLint("Range") String keyword1_2 = cursor.getString(cursor.getColumnIndex("keyword1"));
+                @SuppressLint("Range") String keyword2_2 = cursor.getString(cursor.getColumnIndex("keyword2"));
+                @SuppressLint("Range") String keyword3_2 = cursor.getString(cursor.getColumnIndex("keyword3"));
+
                 // temperature 값을 화면에 출력하는 코드
                 TextView temperatureTextView = findViewById(R.id.TEMP3);
                 if (temperature2 == 0) {
@@ -145,15 +150,47 @@ public class calender_daily extends AppCompatActivity {
                 } else {
                     temperatureTextView.setText("Temperature: \n" + temperature2 + "°C");
                 }
+
+                // slider 값을 화면에 출력하는 코드
+                seekBar.setProgress(sliderValue2);
+
+                // 키워드 값을 화면에 출력하는 코드
+                TextView keywordText = findViewById(R.id.KEYWORD3);
+                if (keyword1_2 != null) {
+                    if (keyword2_2 != null && keyword3_2 !=null){
+                        keywordText.setText("#"+keyword1_2+" #"+keyword2_2+"\n#"+keyword3_2);
+                    } else if (keyword2_2 != null && keyword3_2 == null) {
+                        keywordText.setText("#"+keyword1_2+" #"+keyword2_2);
+                    } else if (keyword2_2 == null && keyword3_2 != null) {
+                        keywordText.setText("#"+keyword1_2+" #"+keyword3_2);
+                    }
+                } else {
+                    if (keyword2_2 != null && keyword3_2 != null){
+                        keywordText.setText("#"+keyword2_2+" #"+keyword3_2);
+                    } else if (keyword2_2 != null && keyword3_2 == null) {
+                        keywordText.setText("#"+keyword2_2);
+                    } else if (keyword2_2 == null && keyword3_2 != null) {
+                        keywordText.setText("#"  + keyword3_2);
+                    }
+                }
+
             } else {
                 // 해당 날짜에 대한 데이터가 없을 경우 처리
                 TextView temperatureTextView = findViewById(R.id.TEMP3);
                 temperatureTextView.setText("");
+
+                // 슬라이더 값 초기화
+                seekBar.setProgress(0);
+
+                // 키워드 값 초기화
+                TextView keywordText = findViewById(R.id.KEYWORD3);
+                keywordText.setText("");
             }
 
             cursor.close();
             db.close();
         }
+
 
 
 
