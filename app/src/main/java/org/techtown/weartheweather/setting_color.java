@@ -13,10 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class setting_color extends AppCompatActivity {
+
+    private int currentTheme;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_color);
+
+        currentTheme = AppCompatDelegate.getDefaultNightMode();
 
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -35,8 +39,12 @@ public class setting_color extends AppCompatActivity {
                 }
             }
 
-            String message = "변경된 모드: " + selectedColor;
-            showToast(message);
+            // 테마 변경이 감지되었을 때만 토스트 메시지 표시
+            if (currentTheme != AppCompatDelegate.getDefaultNightMode()) {
+                currentTheme = AppCompatDelegate.getDefaultNightMode();
+                String message = "변경된 모드: " + selectedColor;
+                showToast(message);
+            }
         });
 
         ImageButton setting_common_backbutton5 = (ImageButton) findViewById(R.id.setting_common_backbutton5);
