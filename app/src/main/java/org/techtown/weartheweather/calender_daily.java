@@ -133,7 +133,7 @@ public class calender_daily extends AppCompatActivity {
             Cursor cursor = db.query(
                     "user_input",
                     new String[] {"temperature", "slider", "keyword1", "keyword2", "keyword3",
-                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"}, // 추가한 키워드 칼럼들을 가져옵니다
+                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"},
                     "date = ?",
                     new String[] {selectedDate},
                     null, null, null, null
@@ -227,7 +227,7 @@ public class calender_daily extends AppCompatActivity {
             Cursor cursor = db.query(
                     "user_input",
                     new String[] {"temperature", "slider", "keyword1", "keyword2", "keyword3",
-                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"}, // 추가한 키워드 칼럼들을 가져옵니다
+                            "fashion_outer", "fashion_top", "fashion_pants", "fashion_shoes"},
                     "date = ?",
                     new String[] {firstDate},
                     null, null, null
