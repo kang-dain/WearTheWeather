@@ -82,7 +82,8 @@ public class search_result extends AppCompatActivity {
             String displayText = "날짜: " + firstDate + "\n온도: " + firstTemperature + "°C";
             resultTextView5.setText(displayText);
         } else {
-            resultTextView5.setText("No data available.");
+            resultTextView5.setText("조건에 맞는 검색 결과가\n존재하지 않습니다");
+            resultTextView5.setOnClickListener(null); // 클릭 이벤트 제거
         }
 
         final String finalFirstDate = firstDate; // final 변수로 선언하여 익명 클래스에서 사용 가능하도록

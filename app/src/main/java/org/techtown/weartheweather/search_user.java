@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,16 +57,30 @@ public class search_user extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText editTextNumberSigned = findViewById(R.id.editTextNumberSigned);
-                int temperature = Integer.parseInt(editTextNumberSigned.getText().toString());
+                String temperatureText = editTextNumberSigned.getText().toString();
+
+                if (temperatureText.isEmpty()) {
+                    Toast.makeText(search_user.this, "온도 값을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    return; // 다음 단계로 진행하지 않음
+                }
+
+                int temperature = Integer.parseInt(temperatureText);
 
                 ArrayList<Integer> selectedButtonIds = new ArrayList<>();
+                boolean atLeastOneButtonSelected = false;
 
                 for (int i = 0; i < 12; i++) {
                     int buttonId = getResources().getIdentifier("button" + (i + 1), "id", getPackageName());
                     Button button = findViewById(buttonId);
                     if (button.getCurrentTextColor() == Color.parseColor("#6094E3")) {
                         selectedButtonIds.add(buttonId);
+                        atLeastOneButtonSelected = true;
                     }
+                }
+
+                if (!atLeastOneButtonSelected) {
+                    Toast.makeText(search_user.this, "달을 선택해주세요", Toast.LENGTH_SHORT).show();
+                    return; // 다음 단계로 진행하지 않음
                 }
 
                 // Intent 생성하여 온도 데이터와 선택된 버튼 아이디들을 search_result로 전달
