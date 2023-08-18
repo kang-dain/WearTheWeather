@@ -31,6 +31,7 @@ public class calender_daily extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_daily);
 
+
         // 이전 액티비티에서 전달받은 데이터 받기
         Intent currentDateintent = getIntent();
         String currentDate = currentDateintent.getStringExtra("currentDate");
@@ -65,7 +66,7 @@ public class calender_daily extends AppCompatActivity {
 
         if (keyword1 != null) {
             if (keyword2 != null && keyword3 !=null){
-                keywordText.setText("#"+keyword1+" #"+keyword2+" #"+keyword3);
+                keywordText.setText("#"+keyword1+" #"+keyword2+"\n#"+keyword3);
             } else if (keyword2 != null && keyword3 == null) {
                 keywordText.setText("#"+keyword1+" #"+keyword2);
             } else if (keyword2 == null && keyword3 != null) {
@@ -81,6 +82,15 @@ public class calender_daily extends AppCompatActivity {
             }
         }
 
+        TextView tempText = findViewById(R.id.TEMP);
+        int temperature = intent.getIntExtra("temperature", 0); // 기본값은 0
+        tempText.setText("Temperature: \n" + temperature+"°C"); // temperature 출력
+
+        SeekBar seekBar = findViewById(R.id.seekBar3);
+        int sliderValue = intent.getIntExtra("slider", 0);
+        seekBar.setProgress(sliderValue); // slider 값으로 SeekBar 설정
+        seekBar.setEnabled(false);
+/**
         // 이전 액티비티에서 전달받은 seekbar data 수신
         int receivedSliderValue = getIntent().getIntExtra("sliderValue", 0);
         SeekBar seekBar = findViewById(R.id.seekBar3);
@@ -96,7 +106,7 @@ public class calender_daily extends AppCompatActivity {
         int fashion_Top = getIntent().getIntExtra("fashionTop",0);
         int fashion_Pants = getIntent().getIntExtra("fashionPants",0);
         int fashion_Shoes = getIntent().getIntExtra("fashionShoes",0);
-
+*/
 
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
