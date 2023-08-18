@@ -353,8 +353,6 @@
                 android:textSize="27sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/search_month_2"
                 app:layout_constraintTop_toBottomOf="@+id/button9"
                 tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck" />
 

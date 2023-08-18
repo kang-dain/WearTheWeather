@@ -94,14 +94,14 @@ public class calender_daily extends AppCompatActivity {
         int fashionPants = intent2.getIntExtra("fashionPants", -1);
         int fashionShoes = intent2.getIntExtra("fashionShoes", -1);
 
-// ImageView 찾기
+        // ImageView 찾기
         ImageView calenderDaily1ImageView = findViewById(R.id.calender_daily_item);
         ImageView calenderDaily2ImageView = findViewById(R.id.calender_daily_item2);
         ImageView calenderDaily3ImageView = findViewById(R.id.calender_daily_item3);
         ImageView calenderDaily4ImageView = findViewById(R.id.calender_daily_item4);
 
 
-// 전달받은 데이터에 따라 이미지 설정
+     // 전달받은 데이터에 따라 이미지 설정
         if (fashionOuter != -1 && fashionTop != -1 && fashionPants != -1 && fashionShoes != -1) {
             calenderDaily1ImageView.setImageResource(fashionOuter);
             calenderDaily2ImageView.setImageResource(fashionTop);
@@ -112,11 +112,11 @@ public class calender_daily extends AppCompatActivity {
         }
 
 
-// 혜음
+// 캘린더 클릭
         // DatabaseHelper 객체 초기화
         databaseHelper = new DatabaseHelper(this);
 
-// 이전 액티비티에서 전달받은 날짜 정보 받기
+        // 이전 액티비티에서 전달받은 날짜 정보 받기
         int year = getIntent().getIntExtra("year", -1);
         int month = getIntent().getIntExtra("month", -1);
         int day = getIntent().getIntExtra("day", -1);
@@ -222,7 +222,7 @@ public class calender_daily extends AppCompatActivity {
 
 
 
-//share
+//search
 
         String firstDate = getIntent().getStringExtra("firstDate");
 
@@ -298,11 +298,9 @@ public class calender_daily extends AppCompatActivity {
             cursor.close();
             db.close();
         } else {
-            // firstDate가 null인 경우 처리
-            // ...
         }
 
-        //
+
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
