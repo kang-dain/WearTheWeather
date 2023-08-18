@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 위치 관련 권한 추가 -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- 캡쳐 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:name=".CustomApplication"
@@ -68,6 +70,7 @@
             android:exported="true" />
         <activity
             android:name=".setting_password"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true" />
         <activity
             android:name=".setting_nickname"
@@ -128,5 +131,6 @@
 
         <receiver android:name=".AlertReceiver" />
     </application>
+
 
 </manifest>
