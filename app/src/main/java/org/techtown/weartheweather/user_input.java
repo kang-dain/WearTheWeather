@@ -33,8 +33,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -811,7 +813,7 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         }
                         Toast.makeText(user_input.this, message, Toast.LENGTH_SHORT).show();
 
-                        // 데이터 전달을 위한 Intent 생성
+                        // 데이터 전달을 위한 Intent 생성 -> 정상 송수신 되지만 null로 되는 경우가 있어서 변경 필요함
                         Intent intent = new Intent(user_input.this, calender_daily.class);
                         intent.putExtra("keyword1", keyword1);
                         intent.putExtra("keyword2", keyword2);
@@ -827,6 +829,72 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                         intent.putExtra("temperature", temperature);
                         intent.putExtra("slider", slider);
                         startActivity(intent);
+
+                        /** 온도, 날짜 가져오는 것으로 실행해도, 변수 변경해서 키워드 가져오기도 잘 안됨
+                        ArrayList<String> userDataList = new ArrayList<>();
+                        if (cursor != null && cursor.moveToFirst()) {
+                            do {
+                                String date = cursor.getString(cursor.getColumnIndex("date"));
+                                int temperature = cursor.getInt(cursor.getColumnIndex("temperature"));
+
+                                String data = "Date: " + date + ", Temperature: " + temperature;
+                                userDataList.add(data);
+                            } while (cursor.moveToNext());
+                            cursor.close(); 
+                        }
+
+                        Intent intent_user_input = new Intent(AActivity.this, BActivity.class);
+                        intent_user_input.putStringArrayListExtra("userInputList", userDataList);
+                        startActivity(intent_user_input);
+                        */
+                        
+                        /**
+                         String query = "SELECT * FROM user_input " +
+                         "WHERE column_name = '" + keyword1 + "' " +
+                         "OR column_name = '" + keyword2 + "' " +
+                         "OR column_name = '" + keyword3 + "'";
+                         */
+
+                        /**
+                         List<user_input> dataList = new ArrayList<>();
+
+                         if (cursor != null && cursor.moveToFirst()) {
+                         do {
+
+                         String k1 = cursor.getString(cursor.getColumnIndex(user_input.keyword1));
+                         String k2 = cursor.getString(cursor.getColumnIndex(user_input.keyword2));
+                         String k3 = cursor.getString(cursor.getColumnIndex(user_input.keyword3));
+
+                         int f1 = cursor.getInt(cursor.getColumnIndex(user_input.fashionOuter));
+                         int f2 = cursor.getInt(cursor.getColumnIndex(user_input.fashionTop));
+                         int f3 = cursor.getInt(cursor.getColumnIndex(user_input.fashionPants));
+                         int f4 = cursor.getInt(cursor.getColumnIndex(user_input.fashionShoes));
+
+                         user_input dataItem = new DataItem(k1, k2, k3, f1, f2, f3, f4);
+                         dataList.add(dataItem);
+                         } while (cursor.moveToNext());
+
+                         cursor.close();
+                         }
+
+                         */
+
+                        /** ver 9-3
+                         Intent intent = new Intent(user_input.this, calender_daily.class);
+                         // intent.putExtra("dataList", (Serializable) dataList); // Serializable 대신 Parcelable 방식으로 변경 ??
+                         intent.putExtra("dataList", (Parcelable) dataList); // 추가 구현 필요함
+
+                         startActivity(intent);
+                         */
+
+                        /**
+                         dbHelper = new DatabaseHelper(this);
+                         Cursor cursor = dbHelper.getUserInputData();
+                         Intent intent = new Intent(this, calender_daily.class);
+                         intent.putExtra("userInputCursor", cursor);
+                         startActivity(intent);
+                         */
+
                     }
                 } else {
                     // 저장 또는 업데이트 실패한 경우
@@ -834,6 +902,29 @@ public class user_input extends AppCompatActivity implements View.OnClickListene
                 }
             }
         });
+
+        /**
+         Intent intent = new Intent(user_input.this, calender_daily.class);
+         intent.putExtra("selectedKeyword", selectedKeyword);
+         startActivity(intent);
+         */
+
+        /** ver 7
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        String retrievedValue = dbHelper.getSomeValue();
+        Intent intent = new Intent(user_input.this, calender_daily.class);
+        intent.putExtra("retrievedValue", retrievedValue);
+        startActivity(intent);
+        dbHelper.close();
+         */
+
+        /** ver8 onDestroy()
+         @Override
+         protected void onDestroy() {
+         dbHelper.close();
+         super.onDestroy();
+         }
+         */
     }
 
 

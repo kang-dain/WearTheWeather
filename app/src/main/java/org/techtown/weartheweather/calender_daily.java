@@ -108,6 +108,82 @@ public class calender_daily extends AppCompatActivity {
         int fashion_Shoes = getIntent().getIntExtra("fashionShoes",0);
 */
 
+        /**
+         List<user_input> receivedDataList = (List<user_input>) getIntent().getSerializableExtra("dataList");
+         */
+
+        /**
+        Intent intent = getIntent();
+        String retrievedValue = intent.getStringExtra("retrievedValue");
+        */
+
+        /** 변수명 수정해서 실행해봤으나 오류 많아서 가독성 좋은 수정 전 버전으로 주석처리
+         setContentView(R.layout.activity_calendar_daily);
+
+         String selectedDate = getIntent().getStringExtra("selected_date");
+
+         DatabaseHelper dbHelper = new DatabaseHelper(this);
+
+         UserInputData inputData = dbHelper.getUserInputData(selectedDate);
+
+         if (inputData != null) {
+         TextView temperatureTextView = findViewById(R.id.temperatureTextView);
+         TextView keywordTextView = findViewById(R.id.keywordTextView);
+
+         temperatureTextView.setText("Temperature: " + inputData.getTemperature());
+         keywordTextView.setText("Keywords: " + inputData.getKeyword1() + ", " + inputData.getKeyword2() + ", " + inputData.getKeyword3());
+         */
+
+        /**
+         ArrayList<String> userDataList = getIntent().getStringArrayListExtra("userInputList");
+
+         if (userDataList != null) {
+             StringBuilder data = new StringBuilder();
+             for (String userData : userDataList) {
+                data.append(userData).append("\n");
+             }
+            textView.setText(data.toString());
+         }
+         */
+
+        /** ver 11
+        Cursor cursor = getIntent().getParcelableExtra("userInputCursor");
+        if (cursor != null && cursor.moveToFirst()) {
+            StringBuilder data = new StringBuilder();
+
+            do {
+                String date = cursor.getString(cursor.getColumnIndex("date"));
+                int temperature = cursor.getInt(cursor.getColumnIndex("temperature"));
+
+                data.append("Date: ").append(date).append(", Temperature: ").append(temperature).append("\n");
+            } while (cursor.moveToNext());
+
+            textView.setText(data.toString());
+
+            cursor.close();
+         */
+        /** 가져오는 값 변수가 다르지만 변형시도해봄 ver13
+         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
+
+         String query = "SELECT * FROM " + DatabaseHelper.TABLE_NAME +
+         " WHERE temperature BETWEEN ? AND ? " +
+         " AND strftime('%m', date) IN (" + getSelectedMonths() + ")" +
+         " ORDER BY ABS(temperature - ?) ASC, temperature ASC";
+
+         Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{String.valueOf(temperature - 3), String.valueOf(temperature + 3), String.valueOf(temperature)});
+
+         StringBuilder userData = new StringBuilder();
+
+         while (cursor.moveToNext()) {
+         int userTemperature = cursor.getInt(cursor.getColumnIndex("temperature"));
+         String date = cursor.getString(cursor.getColumnIndex("date"));
+
+         userData.append("\n\n▶ 날짜: ").append(date).append("\n");
+         userData.append(" 온도: ").append(userTemperature).append("°C\n\n");
+         }
+         cursor.close();
+
+         */
         ImageButton calender_daily_button1 = (ImageButton) findViewById(R.id.calender_daily_button1);
         calender_daily_button1.setOnClickListener(new View.OnClickListener() {
             @Override
